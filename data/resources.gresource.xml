@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/dprietob/collie/ui">
+    <file alias="window.ui" preprocess="xml-stripblanks">data/ui/window.ui</file>
+    <file alias="group-sidebar.ui" preprocess="xml-stripblanks">src/modules/Groups/ui/group-sidebar.ui</file>
+    <file alias="group-row.ui" preprocess="xml-stripblanks">src/modules/Groups/ui/group-row.ui</file>
+    <file alias="task-list-panel.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-list-panel.ui</file>
+    <file alias="task-row.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-row.ui</file>
+  </gresource>
+</gresources>

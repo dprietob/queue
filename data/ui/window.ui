@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.5"/>
+  <template class="CollieWindow" parent="AdwApplicationWindow">
+    <property name="title">Collie</property>
+    <property name="default-width">900</property>
+    <property name="default-height">600</property>
+    <property name="content">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
+          <object class="AdwNavigationSplitView" id="split_view"/>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

@@ -1,0 +1,80 @@
+namespace Collie.Tasks {
+
+    // Data layer for tasks. The only place that runs SQL for tasks.
+    public class Task : Object
+    {
+
+        public int id { get; set; }
+        public int group_id { get; set; }
+        public string title { get; set; }
+        public bool done { get; set; }
+
+        public static GLib.List<Task> for_group(Database database, int group_id)
+        {
+            var tasks = new GLib.List<Task> ();
+
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "SELECT id, group_id, title, done FROM tasks WHERE group_id = ? ORDER BY done, id;",
+                -1, out statement);
+            statement.bind_int(1, group_id);
+
+            while (statement.step() == Sqlite.ROW) {
+                var task = new Task();
+                task.id = statement.column_int(0);
+                task.group_id = statement.column_int(1);
+                task.title = statement.column_text(2);
+                task.done = statement.column_int(3) != 0;
+                tasks.append(task);
+            }
+
+            return tasks;
+        }
+
+        public static Task create(Database database, int group_id, string title)
+        {
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "INSERT INTO tasks (group_id, title) VALUES (?, ?);", -1, out statement);
+            statement.bind_int(1, group_id);
+            statement.bind_text(2, title);
+            statement.step();
+
+            var task = new Task();
+            task.id = (int) database.connection.last_insert_rowid();
+            task.group_id = group_id;
+            task.title = title;
+            task.done = false;
+            return task;
+        }
+
+        public static void rename(Database database, int id, string title)
+        {
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "UPDATE tasks SET title = ? WHERE id = ?;", -1, out statement);
+            statement.bind_text(1, title);
+            statement.bind_int(2, id);
+            statement.step();
+        }
+
+        public static void mark_done(Database database, int id, bool done)
+        {
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "UPDATE tasks SET done = ? WHERE id = ?;", -1, out statement);
+            statement.bind_int(1, done ? 1 : 0);
+            statement.bind_int(2, id);
+            statement.step();
+        }
+
+        public static void destroy(Database database, int id)
+        {
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "DELETE FROM tasks WHERE id = ?;", -1, out statement);
+            statement.bind_int(1, id);
+            statement.step();
+        }
+    }
+}
