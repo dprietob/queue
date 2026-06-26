@@ -24,6 +24,8 @@ namespace Collie.Tasks {
         [GtkChild]
         private unowned Gtk.SearchEntry search_entry;
         [GtkChild]
+        private unowned Gtk.DropDown state_filter;
+        [GtkChild]
         private unowned Gtk.Box status_bar;
         [GtkChild]
         private unowned Gtk.Label total_label;
@@ -31,6 +33,11 @@ namespace Collie.Tasks {
         private unowned Gtk.Label pending_label;
         [GtkChild]
         private unowned Gtk.Label completed_label;
+
+        // Options of the status drop-down, matching the order in the .ui file.
+        private const uint STATE_ALL = 0;
+        private const uint STATE_PENDING = 1;
+        private const uint STATE_COMPLETED = 2;
 
         private TaskListController controller;
         private bool group_selected = false;
@@ -53,6 +60,7 @@ namespace Collie.Tasks {
             search_button.bind_property("active", search_bar, "search-mode-enabled",
                 BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
             search_entry.search_changed.connect(() => list_box.invalidate_filter());
+            state_filter.notify["selected"].connect(() => list_box.invalidate_filter());
         }
 
         public void show_group(Group group)
@@ -75,11 +83,12 @@ namespace Collie.Tasks {
             refresh();
         }
 
-        // Clears and collapses the search when the panel content changes.
+        // Resets the search and status filters when the panel content changes.
         private void reset_search()
         {
             search_entry.text = "";
             search_button.active = false;
+            state_filter.selected = STATE_ALL;
         }
 
         public int current_group_id()
@@ -105,17 +114,26 @@ namespace Collie.Tasks {
             }
             status_bar.visible = group_selected;
             search_button.sensitive = group_selected;
+            state_filter.sensitive = group_selected;
         }
 
-        // Filters rows by the search query, matched against the task title.
+        // Filters rows by completion status and by the search query (title).
         private bool filter_row(Gtk.ListBoxRow row)
         {
-            var query = search_entry.text.strip();
-            if (query == "") {
-                return true;
-            }
             var task = ((TaskRow) row).task;
-            return task.title.casefold().contains(query.casefold());
+
+            if (state_filter.selected == STATE_PENDING && task.done) {
+                return false;
+            }
+            if (state_filter.selected == STATE_COMPLETED && !task.done) {
+                return false;
+            }
+
+            var query = search_entry.text.strip();
+            if (query != "" && !task.title.casefold().contains(query.casefold())) {
+                return false;
+            }
+            return true;
         }
 
         // Recomputes the task metrics shown in the status bar.
@@ -139,7 +157,10 @@ namespace Collie.Tasks {
         {
             var task = (Task) item;
             var row = new TaskRow(task);
-            task.notify["done"].connect(() => update_metrics());
+            task.notify["done"].connect(() => {
+                update_metrics();
+                list_box.invalidate_filter();
+            });
             row.toggle_requested.connect((target) => controller.toggle(target));
             row.edit_requested.connect((target) => edit_requested(target));
             row.delete_requested.connect((target) => delete_requested(target));

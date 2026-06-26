@@ -22,6 +22,21 @@
                 <property name="sensitive">false</property>
               </object>
             </child>
+            <child type="end">
+              <object class="GtkDropDown" id="state_filter">
+                <property name="tooltip-text" translatable="yes">Filter by status</property>
+                <property name="sensitive">false</property>
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                      <item translatable="yes">All</item>
+                      <item translatable="yes">Pending</item>
+                      <item translatable="yes">Completed</item>
+                    </items>
+                  </object>
+                </property>
+              </object>
+            </child>
           </object>
         </child>
         <child type="top">
