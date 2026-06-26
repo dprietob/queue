@@ -4,21 +4,29 @@
   <requires lib="libadwaita" version="1.5"/>
   <menu id="primary_menu">
     <section>
-      <attribute name="label" translatable="yes">Appearance</attribute>
+      <submenu>
+        <attribute name="label" translatable="yes">Theme</attribute>
+        <item>
+          <attribute name="label" translatable="yes">Follow System</attribute>
+          <attribute name="action">app.color-scheme</attribute>
+          <attribute name="target">system</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">Light</attribute>
+          <attribute name="action">app.color-scheme</attribute>
+          <attribute name="target">light</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">Dark</attribute>
+          <attribute name="action">app.color-scheme</attribute>
+          <attribute name="target">dark</attribute>
+        </item>
+      </submenu>
+    </section>
+    <section>
       <item>
-        <attribute name="label" translatable="yes">Follow System</attribute>
-        <attribute name="action">app.color-scheme</attribute>
-        <attribute name="target">system</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">Light</attribute>
-        <attribute name="action">app.color-scheme</attribute>
-        <attribute name="target">light</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">Dark</attribute>
-        <attribute name="action">app.color-scheme</attribute>
-        <attribute name="target">dark</attribute>
+        <attribute name="label" translatable="yes">About Collie</attribute>
+        <attribute name="action">app.about</attribute>
       </item>
     </section>
   </menu>

@@ -21,6 +21,10 @@ namespace Collie {
         protected override void startup()
         {
             base.startup();
+            // Make the bundled application icon resolvable by name, both when
+            // installed and when running from the build tree.
+            Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
+            .add_resource_path("/com/dprietob/collie/icons");
             // Applied here, not in construct: the style manager needs GTK/Adw
             // to be initialized first.
             bind_color_scheme();
@@ -52,6 +56,24 @@ namespace Collie {
 
             // Stateful action backed by GSettings, so the choice is persisted.
             add_action(settings.create_action("color-scheme"));
+
+            var about_action = new SimpleAction("about", null);
+            about_action.activate.connect(() => show_about());
+            add_action(about_action);
+        }
+
+        // Shows the about dialog with version, author and license information.
+        private void show_about()
+        {
+            var about = new Adw.AboutDialog() {
+                application_name = "Collie",
+                application_icon = Config.APP_ID,
+                developer_name = "Daniel Prieto",
+                version = Config.VERSION,
+                license_type = Gtk.License.GPL_3_0,
+                copyright = "© 2026 Daniel Prieto"
+            };
+            about.present(active_window);
         }
 
         // Applies the saved color scheme on startup and whenever it changes.

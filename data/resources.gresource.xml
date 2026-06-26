@@ -7,4 +7,7 @@
     <file alias="task-list-panel.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-list-panel.ui</file>
     <file alias="task-row.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-row.ui</file>
   </gresource>
+  <gresource prefix="/com/dprietob/collie/icons/256x256/apps">
+    <file alias="com.dprietob.collie.png">data/icons/hicolor/256x256/apps/com.dprietob.collie.png</file>
+  </gresource>
 </gresources>

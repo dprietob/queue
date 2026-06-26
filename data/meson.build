@@ -16,8 +16,8 @@ i18n.merge_file(
 )
 
 install_data(
-  'icons/hicolor/scalable/apps/com.dprietob.collie.svg',
-  install_dir: get_option('datadir') / 'icons/hicolor/scalable/apps',
+  'icons/hicolor/256x256/apps/com.dprietob.collie.png',
+  install_dir: get_option('datadir') / 'icons/hicolor/256x256/apps',
 )
 
 install_data(
