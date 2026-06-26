@@ -85,15 +85,24 @@ namespace Collie.Groups {
             }
         }
 
-        // Rebuilds the stylesheet so every group with a color paints its row.
+        // Rebuilds the stylesheet so every group paints its row background and,
+        // when selected, shows a border in a darker shade of that background so
+        // the selection stays visible even on colored rows.
         private void refresh_colors()
         {
             var stylesheet = new StringBuilder();
             for (uint index = 0; index < groups.get_n_items(); index++) {
                 var group = (Group) groups.get_item(index);
+                var selector = ".%s".printf(color_class_for(group.id));
+
                 if (group.color != "") {
-                    stylesheet.append(".%s { background-color: %s; }\n"
-                        .printf(color_class_for(group.id), group.color));
+                    stylesheet.append("%s { background-color: %s; }\n"
+                        .printf(selector, group.color));
+                    stylesheet.append("%s:selected { box-shadow: inset 0 0 0 3px shade(%s, 0.7); }\n"
+                        .printf(selector, group.color));
+                } else {
+                    stylesheet.append("%s:selected { box-shadow: inset 0 0 0 3px shade(@view_bg_color, 0.5); }\n"
+                        .printf(selector));
                 }
             }
             color_provider.load_from_string(stylesheet.str);
