@@ -2,6 +2,26 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.5"/>
+  <menu id="primary_menu">
+    <section>
+      <attribute name="label" translatable="yes">Appearance</attribute>
+      <item>
+        <attribute name="label" translatable="yes">Follow System</attribute>
+        <attribute name="action">app.color-scheme</attribute>
+        <attribute name="target">system</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Light</attribute>
+        <attribute name="action">app.color-scheme</attribute>
+        <attribute name="target">light</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Dark</attribute>
+        <attribute name="action">app.color-scheme</attribute>
+        <attribute name="target">dark</attribute>
+      </item>
+    </section>
+  </menu>
   <template class="CollieGroupsGroupSidebar" parent="AdwNavigationPage">
     <property name="title" translatable="yes">Groups</property>
     <property name="tag">groups</property>
@@ -9,6 +29,14 @@
       <object class="AdwToolbarView">
         <child type="top">
           <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
+                <property name="menu-model">primary_menu</property>
+                <property name="primary">true</property>
+              </object>
+            </child>
             <child type="end">
               <object class="GtkButton" id="add_button">
                 <property name="icon-name">list-add-symbolic</property>

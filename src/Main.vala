@@ -38,6 +38,34 @@ namespace Collie {
             quit_action.activate.connect(() => quit());
             add_action(quit_action);
             set_accels_for_action("app.quit", { "<Control>q" });
+
+            var color_scheme_action = new SimpleAction.stateful(
+                "color-scheme", VariantType.STRING, new Variant.string("system"));
+            color_scheme_action.activate.connect((action, parameter) => {
+                action.set_state(parameter);
+                apply_color_scheme(parameter.get_string());
+            });
+            add_action(color_scheme_action);
+        }
+
+        // Applies the chosen color scheme: follow the system, force light or
+        // force dark.
+        private void apply_color_scheme(string scheme)
+        {
+            var manager = Adw.StyleManager.get_default();
+            switch (scheme) {
+            case "light":
+                manager.color_scheme = Adw.ColorScheme.FORCE_LIGHT;
+                break;
+
+            case "dark":
+                manager.color_scheme = Adw.ColorScheme.FORCE_DARK;
+                break;
+
+            default:
+                manager.color_scheme = Adw.ColorScheme.DEFAULT;
+                break;
+            }
         }
     }
 }
