@@ -88,14 +88,14 @@ namespace Collie {
 
         private void on_create_task()
         {
-            prompt_text(_("New Task"), _("Task description"), "", (text) => {
+            prompt_task(_("New Task"), "", (text) => {
                 report(task_controller.create(text));
             });
         }
 
         private void on_edit_task(Collie.Tasks.Task task)
         {
-            prompt_text(_("Edit Task"), _("Task description"), task.title, (text) => {
+            prompt_task(_("Edit Task"), task.title, (text) => {
                 report(task_controller.rename(task, text));
             });
         }
@@ -168,28 +168,59 @@ namespace Collie {
             dialog.present(this);
         }
 
-        private void prompt_text(string heading, string placeholder, string initial,
+        // Dialog to create or edit a task. A single-line entry (no line breaks)
+        // capped at the task's maximum length, shown in a wide popup with
+        // natural-sized buttons aligned to the right.
+        private void prompt_task(string heading, string initial,
             owned TextEnteredCallback callback)
         {
-            var dialog = new Adw.AlertDialog(heading, null);
+            var dialog = new Adw.Dialog() {
+                title = heading,
+                content_width = 500
+            };
+
+            var title_label = new Gtk.Label(heading) {
+                halign = Gtk.Align.START,
+                wrap = true
+            };
+            title_label.add_css_class("title-2");
 
             var entry = new Gtk.Entry() {
-                placeholder_text = placeholder,
+                placeholder_text = _("Task description"),
                 text = initial,
-                activates_default = true
+                activates_default = true,
+                max_length = Tasks.TaskStoreValidator.MAXIMUM_LENGTH,
+                hexpand = true
             };
-            dialog.set_extra_child(entry);
 
-            dialog.add_response("cancel", _("Cancel"));
-            dialog.add_response("save", _("Save"));
-            dialog.set_response_appearance("save", Adw.ResponseAppearance.SUGGESTED);
-            dialog.default_response = "save";
-            dialog.close_response = "cancel";
+            var cancel_button = new Gtk.Button.with_label(_("Cancel"));
+            var save_button = new Gtk.Button.with_label(_("Save"));
+            save_button.add_css_class("suggested-action");
 
-            dialog.response.connect((response) => {
-                if (response == "save") {
-                    callback(entry.text);
-                }
+            var buttons = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 6) {
+                halign = Gtk.Align.END
+            };
+            buttons.append(cancel_button);
+            buttons.append(save_button);
+
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 18) {
+                margin_top = 24,
+                margin_bottom = 24,
+                margin_start = 24,
+                margin_end = 24
+            };
+            content.append(title_label);
+            content.append(entry);
+            content.append(buttons);
+            dialog.child = content;
+
+            dialog.default_widget = save_button;
+            dialog.focus_widget = entry;
+
+            cancel_button.clicked.connect(() => dialog.close());
+            save_button.clicked.connect(() => {
+                callback(entry.text);
+                dialog.close();
             });
             dialog.present(this);
         }

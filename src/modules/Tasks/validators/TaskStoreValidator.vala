@@ -4,7 +4,7 @@ namespace Collie.Tasks {
     public class TaskStoreValidator : Object
     {
 
-        private const int MAXIMUM_LENGTH = 255;
+        public const int MAXIMUM_LENGTH = 255;
 
         private string title;
 
