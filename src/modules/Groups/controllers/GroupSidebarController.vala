@@ -31,13 +31,15 @@ namespace Collie.Groups {
             }
         }
 
-        public string? create(string name, string color)
+        public string? create(string name, string color, out Group ? created)
         {
+            created = null;
             var error = new GroupStoreValidator(name).validate();
             if (error != null) {
                 return error;
             }
-            groups.append(create_group_action.execute(name.strip(), color));
+            created = create_group_action.execute(name.strip(), color);
+            groups.append(created);
             return null;
         }
 

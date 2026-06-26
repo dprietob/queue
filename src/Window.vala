@@ -68,7 +68,11 @@ namespace Collie {
         private void on_create_group()
         {
             prompt_group(_("New Group"), "", "", (name, color) => {
-                report(group_controller.create(name, color));
+                Group ? created;
+                report(group_controller.create(name, color, out created));
+                if (created != null) {
+                    sidebar.select_group(created);
+                }
             });
         }
 

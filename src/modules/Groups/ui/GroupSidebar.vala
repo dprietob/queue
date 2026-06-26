@@ -41,10 +41,31 @@ namespace Collie.Groups {
             list_box.row_selected.connect(on_row_selected);
         }
 
+        // Selects the row of the given group, which also drives the task panel.
+        public void select_group(Group group)
+        {
+            var row = find_row(group);
+            if (row != null) {
+                list_box.select_row(row);
+            }
+        }
+
         // CSS class that identifies a group's row regardless of its color.
         public static string color_class_for(int group_id)
         {
             return "group-color-%d".printf(group_id);
+        }
+
+        private GroupRow? find_row(Group group)
+        {
+            var child = list_box.get_first_child();
+            while (child != null) {
+                if (child is GroupRow && ((GroupRow) child).group == group) {
+                    return (GroupRow) child;
+                }
+                child = child.get_next_sibling();
+            }
+            return null;
         }
 
         private Gtk.Widget build_row(Object item)
