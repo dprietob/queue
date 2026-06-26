@@ -19,7 +19,7 @@ Work in progress.
 | Dependencia | Versión mínima | Notas                |
 | ----------- | -------------- | -------------------- |
 | Vala        | 0.56           |                      |
-| GTK4        | 4.10           |                      |
+| GTK4        | 4.12           |                      |
 | libadwaita  | 1.5            | `libadwaita-1`       |
 | SQLite      | 3              | `sqlite3`            |
 | Meson       | 0.62           | Sistema de build     |

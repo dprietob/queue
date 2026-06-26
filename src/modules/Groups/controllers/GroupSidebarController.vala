@@ -31,24 +31,25 @@ namespace Collie.Groups {
             }
         }
 
-        public string? create(string name)
+        public string? create(string name, string color)
         {
             var error = new GroupStoreValidator(name).validate();
             if (error != null) {
                 return error;
             }
-            groups.append(create_group_action.execute(name.strip()));
+            groups.append(create_group_action.execute(name.strip(), color));
             return null;
         }
 
-        public string? rename(Group group, string name)
+        public string? update(Group group, string name, string color)
         {
             var error = new GroupStoreValidator(name).validate();
             if (error != null) {
                 return error;
             }
-            update_group_action.execute(group.id, name.strip());
+            update_group_action.execute(group.id, name.strip(), color);
             group.name = name.strip();
+            group.color = color;
             return null;
         }
 

@@ -10,6 +10,7 @@ namespace Collie {
     {
 
         private delegate void TextEnteredCallback(string text);
+        private delegate void GroupEnteredCallback(string name, string color);
         private delegate void ConfirmedCallback();
 
         [GtkChild]
@@ -60,15 +61,15 @@ namespace Collie {
 
         private void on_create_group()
         {
-            prompt_text(_("New Group"), _("Group name"), "", (text) => {
-                report(group_controller.create(text));
+            prompt_group(_("New Group"), "", "", (name, color) => {
+                report(group_controller.create(name, color));
             });
         }
 
         private void on_edit_group(Group group)
         {
-            prompt_text(_("Rename Group"), _("Group name"), group.name, (text) => {
-                report(group_controller.rename(group, text));
+            prompt_group(_("Edit Group"), group.name, group.color, (name, color) => {
+                report(group_controller.update(group, name, color));
             });
         }
 
@@ -113,6 +114,58 @@ namespace Collie {
             if (error != null) {
                 toast_overlay.add_toast(new Adw.Toast(error));
             }
+        }
+
+        // Dialog to create or edit a group: a name entry plus a color picker.
+        // The color defaults to transparent and an unchanged transparent value
+        // is stored as an empty string (no background).
+        private void prompt_group(string heading, string name, string color,
+            owned GroupEnteredCallback callback)
+        {
+            var dialog = new Adw.AlertDialog(heading, null);
+
+            var entry = new Gtk.Entry() {
+                placeholder_text = _("Group name"),
+                text = name,
+                activates_default = true
+            };
+
+            var color_button = new Gtk.ColorDialogButton(new Gtk.ColorDialog() {
+                with_alpha = true
+            });
+            var initial_color = Gdk.RGBA() {
+                red = 0, green = 0, blue = 0, alpha = 0
+            };
+            if (color != "") {
+                initial_color.parse(color);
+            }
+            color_button.set_rgba(initial_color);
+
+            var color_row = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 12);
+            color_row.append(new Gtk.Label(_("Color")) {
+                hexpand = true, xalign = 0
+            });
+            color_row.append(color_button);
+
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12);
+            content.append(entry);
+            content.append(color_row);
+            dialog.set_extra_child(content);
+
+            dialog.add_response("cancel", _("Cancel"));
+            dialog.add_response("save", _("Save"));
+            dialog.set_response_appearance("save", Adw.ResponseAppearance.SUGGESTED);
+            dialog.default_response = "save";
+            dialog.close_response = "cancel";
+
+            dialog.response.connect((response) => {
+                if (response == "save") {
+                    var chosen = color_button.get_rgba();
+                    var color_value = chosen.alpha == 0 ? "" : chosen.to_string();
+                    callback(entry.text, color_value);
+                }
+            });
+            dialog.present(this);
         }
 
         private void prompt_text(string heading, string placeholder, string initial,

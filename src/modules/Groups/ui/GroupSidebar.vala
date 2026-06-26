@@ -1,6 +1,8 @@
 namespace Collie.Groups {
 
     // Presents the list of groups and turns user gestures into controller calls.
+    // It also owns a display-wide CSS provider that paints each group row with
+    // its assigned background color.
     [GtkTemplate(ui = "/com/dprietob/collie/ui/group-sidebar.ui")]
     public class GroupSidebar : Adw.NavigationPage
     {
@@ -10,6 +12,9 @@ namespace Collie.Groups {
         [GtkChild]
         private unowned Gtk.ListBox list_box;
 
+        private GLib.ListStore groups;
+        private Gtk.CssProvider color_provider = new Gtk.CssProvider();
+
         public signal void group_selected(Group group);
         public signal void create_requested();
         public signal void edit_requested(Group group);
@@ -17,16 +22,38 @@ namespace Collie.Groups {
 
         public GroupSidebar (GroupSidebarController controller)
         {
-            list_box.bind_model(controller.groups, build_row);
+            groups = controller.groups;
+
+            var display = Gdk.Display.get_default();
+            if (display != null) {
+                // add_provider_for_display is the recommended way to register
+                // global CSS; GTK keeps it supported despite GtkStyleContext
+                // being otherwise deprecated, so this warning is expected.
+                Gtk.StyleContext.add_provider_for_display(
+                    display, color_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            }
+
+            list_box.bind_model(groups, build_row);
+            groups.items_changed.connect(() => refresh_colors());
+            refresh_colors();
+
             add_button.clicked.connect(() => create_requested());
             list_box.row_selected.connect(on_row_selected);
         }
 
+        // CSS class that identifies a group's row regardless of its color.
+        public static string color_class_for(int group_id)
+        {
+            return "group-color-%d".printf(group_id);
+        }
+
         private Gtk.Widget build_row(Object item)
         {
-            var row = new GroupRow((Group) item);
-            row.edit_requested.connect((group) => edit_requested(group));
-            row.delete_requested.connect((group) => delete_requested(group));
+            var group = (Group) item;
+            var row = new GroupRow(group);
+            group.notify["color"].connect(() => refresh_colors());
+            row.edit_requested.connect((target) => edit_requested(target));
+            row.delete_requested.connect((target) => delete_requested(target));
             return row;
         }
 
@@ -35,6 +62,20 @@ namespace Collie.Groups {
             if (row is GroupRow) {
                 group_selected(((GroupRow) row).group);
             }
+        }
+
+        // Rebuilds the stylesheet so every group with a color paints its row.
+        private void refresh_colors()
+        {
+            var stylesheet = new StringBuilder();
+            for (uint index = 0; index < groups.get_n_items(); index++) {
+                var group = (Group) groups.get_item(index);
+                if (group.color != "") {
+                    stylesheet.append(".%s { background-color: %s; }\n"
+                        .printf(color_class_for(group.id), group.color));
+                }
+            }
+            color_provider.load_from_string(stylesheet.str);
         }
     }
 }

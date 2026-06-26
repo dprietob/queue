@@ -10,9 +10,9 @@ namespace Collie.Groups {
             this.database = database;
         }
 
-        public Group execute(string name)
+        public Group execute(string name, string color)
         {
-            return Group.create(database, name);
+            return Group.create(database, name, color);
         }
     }
 }

@@ -19,6 +19,9 @@ namespace Collie.Groups {
         public GroupRow (Group group)
         {
             this.group = group;
+            // Stable per-group class; the actual color rule lives in the
+            // sidebar's display-wide CSS provider, refreshed when colors change.
+            add_css_class(GroupSidebar.color_class_for(group.id));
             group.bind_property("name", name_label, "label", BindingFlags.SYNC_CREATE);
             edit_button.clicked.connect(() => edit_requested(group));
             delete_button.clicked.connect(() => delete_requested(group));

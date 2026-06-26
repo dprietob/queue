@@ -54,7 +54,7 @@ collie_sources = files(
 )
 
 collie_dependencies = [
-  dependency('gtk4'),
+  dependency('gtk4', version: '>= 4.12'),
   dependency('libadwaita-1', version: '>= 1.5'),
   dependency('sqlite3'),
   meson.get_compiler('c').find_library('m'),
