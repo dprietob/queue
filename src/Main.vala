@@ -71,7 +71,7 @@ namespace Collie {
                 developer_name = "Daniel Prieto",
                 version = Config.VERSION,
                 license_type = Gtk.License.GPL_3_0,
-                copyright = "© 2026 Daniel Prieto"
+                copyright = "🄯 2026 Daniel Prieto"
             };
             about.present(active_window);
         }
