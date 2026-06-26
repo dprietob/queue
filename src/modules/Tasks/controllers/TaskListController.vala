@@ -42,27 +42,28 @@ namespace Collie.Tasks {
             tasks.remove_all();
         }
 
-        public string? create(string title)
+        public string? create(string title, string description)
         {
             if (group_id == 0) {
                 return null;
             }
-            var error = new TaskStoreValidator(title).validate();
+            var error = new TaskStoreValidator(title, description).validate();
             if (error != null) {
                 return error;
             }
-            tasks.append(create_task_action.execute(group_id, title.strip()));
+            tasks.append(create_task_action.execute(group_id, title.strip(), description.strip()));
             return null;
         }
 
-        public string? rename(Task task, string title)
+        public string? update(Task task, string title, string description)
         {
-            var error = new TaskStoreValidator(title).validate();
+            var error = new TaskStoreValidator(title, description).validate();
             if (error != null) {
                 return error;
             }
-            update_task_action.execute(task.id, title.strip());
+            update_task_action.execute(task.id, title.strip(), description.strip());
             task.title = title.strip();
+            task.description = description.strip();
             return null;
         }
 

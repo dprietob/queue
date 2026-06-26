@@ -96,6 +96,7 @@ namespace Collie.Backup {
             foreach (var task in list_tasks_action.execute(group.id)) {
                 var backup_task = new BackupTask();
                 backup_task.title = task.title;
+                backup_task.description = task.description;
                 backup_task.done = task.done;
                 tasks += backup_task;
             }

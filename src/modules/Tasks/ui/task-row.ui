@@ -4,53 +4,86 @@
   <template class="CollieTasksTaskRow" parent="GtkListBoxRow">
     <property name="child">
       <object class="GtkBox">
-        <property name="spacing">12</property>
-        <property name="margin-top">6</property>
-        <property name="margin-bottom">6</property>
-        <property name="margin-start">12</property>
-        <property name="margin-end">6</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkImage">
-            <property name="icon-name">list-drag-handle-symbolic</property>
-            <property name="valign">center</property>
-            <property name="tooltip-text" translatable="yes">Drag to reorder</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
+          <object class="GtkBox">
+            <property name="spacing">12</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">6</property>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">list-drag-handle-symbolic</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="yes">Drag to reorder</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="check_button">
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="yes">Toggle Completed</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <property name="hexpand">true</property>
+                <property name="xalign">0</property>
+                <property name="ellipsize">end</property>
+                <property name="use-markup">true</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="expand_button">
+                <property name="icon-name">pan-end-symbolic</property>
+                <property name="valign">center</property>
+                <property name="visible">false</property>
+                <property name="tooltip-text" translatable="yes">Show Description</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="edit_button">
+                <property name="icon-name">document-edit-symbolic</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="yes">Edit Task</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="delete_button">
+                <property name="icon-name">user-trash-symbolic</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="yes">Delete Task</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
           </object>
         </child>
         <child>
-          <object class="GtkCheckButton" id="check_button">
-            <property name="valign">center</property>
-            <property name="tooltip-text" translatable="yes">Toggle Completed</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="title_label">
-            <property name="hexpand">true</property>
-            <property name="xalign">0</property>
-            <property name="ellipsize">end</property>
-            <property name="use-markup">true</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton" id="edit_button">
-            <property name="icon-name">document-edit-symbolic</property>
-            <property name="valign">center</property>
-            <property name="tooltip-text" translatable="yes">Edit Task</property>
-            <style>
-              <class name="flat"/>
-            </style>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton" id="delete_button">
-            <property name="icon-name">user-trash-symbolic</property>
-            <property name="valign">center</property>
-            <property name="tooltip-text" translatable="yes">Delete Task</property>
-            <style>
-              <class name="flat"/>
-            </style>
+          <object class="GtkRevealer" id="description_revealer">
+            <property name="child">
+              <object class="GtkLabel" id="description_label">
+                <property name="xalign">0</property>
+                <property name="wrap">true</property>
+                <property name="selectable">true</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-start">54</property>
+                <property name="margin-end">12</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </property>
           </object>
         </child>
       </object>

@@ -4,6 +4,7 @@ namespace Collie.Backup {
     public class BackupTask : Object
     {
         public string title { get; set; default = ""; }
+        public string description { get; set; default = ""; }
         public bool done { get; set; default = false; }
     }
 
@@ -81,6 +82,8 @@ namespace Collie.Backup {
                 builder.begin_object();
                 builder.set_member_name("title");
                 builder.add_string_value(task.title);
+                builder.set_member_name("description");
+                builder.add_string_value(task.description);
                 builder.set_member_name("done");
                 builder.add_boolean_value(task.done);
                 builder.end_object();
@@ -115,6 +118,9 @@ namespace Collie.Backup {
             var task = new BackupTask();
             if (task_object.has_member("title")) {
                 task.title = task_object.get_string_member("title");
+            }
+            if (task_object.has_member("description")) {
+                task.description = task_object.get_string_member("description");
             }
             if (task_object.has_member("done")) {
                 task.done = task_object.get_boolean_member("done");

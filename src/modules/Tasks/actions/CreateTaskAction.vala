@@ -10,9 +10,9 @@ namespace Collie.Tasks {
             this.database = database;
         }
 
-        public Task execute(int group_id, string title)
+        public Task execute(int group_id, string title, string description)
         {
-            return Task.create(database, group_id, title);
+            return Task.create(database, group_id, title, description);
         }
     }
 }

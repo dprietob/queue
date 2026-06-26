@@ -9,9 +9,15 @@ namespace Collie.Tasks {
         [GtkChild]
         private unowned Gtk.Label title_label;
         [GtkChild]
+        private unowned Gtk.ToggleButton expand_button;
+        [GtkChild]
         private unowned Gtk.Button edit_button;
         [GtkChild]
         private unowned Gtk.Button delete_button;
+        [GtkChild]
+        private unowned Gtk.Revealer description_revealer;
+        [GtkChild]
+        private unowned Gtk.Label description_label;
 
         public Task task { get; private set; }
 
@@ -25,20 +31,40 @@ namespace Collie.Tasks {
 
             check_button.active = task.done;
             refresh_title();
+            refresh_description();
 
             task.notify["done"].connect(() => {
                 check_button.active = task.done;
                 refresh_title();
             });
             task.notify["title"].connect(refresh_title);
+            task.notify["description"].connect(refresh_description);
 
             check_button.toggled.connect(() => {
                 if (check_button.active != task.done) {
                     toggle_requested(task);
                 }
             });
+            expand_button.toggled.connect(() => {
+                description_revealer.reveal_child = expand_button.active;
+                expand_button.icon_name = expand_button.active
+                    ? "pan-down-symbolic" : "pan-end-symbolic";
+            });
             edit_button.clicked.connect(() => edit_requested(task));
             delete_button.clicked.connect(() => delete_requested(task));
+        }
+
+        // Shows the expand arrow and description only when the task has one.
+        private void refresh_description()
+        {
+            var description = task.description.strip();
+            var has_description = description != "";
+
+            description_label.label = description;
+            expand_button.visible = has_description;
+            if (!has_description) {
+                expand_button.active = false;
+            }
         }
 
         // Strikes through and dims the title when the task is completed.

@@ -9,8 +9,8 @@ namespace Collie {
     public class Window : Adw.ApplicationWindow
     {
 
-        private delegate void TextEnteredCallback(string text);
         private delegate void GroupEnteredCallback(string name, string color);
+        private delegate void TaskEnteredCallback(string title, string description);
         private delegate void ConfirmedCallback();
 
         [GtkChild]
@@ -112,15 +112,15 @@ namespace Collie {
 
         private void on_create_task()
         {
-            prompt_task(_("New Task"), "", (text) => {
-                report(task_controller.create(text));
+            prompt_task(_("New Task"), "", "", (title, description) => {
+                report(task_controller.create(title, description));
             });
         }
 
         private void on_edit_task(Collie.Tasks.Task task)
         {
-            prompt_task(_("Edit Task"), task.title, (text) => {
-                report(task_controller.rename(task, text));
+            prompt_task(_("Edit Task"), task.title, task.description, (title, description) => {
+                report(task_controller.update(task, title, description));
             });
         }
 
@@ -192,11 +192,11 @@ namespace Collie {
             dialog.present(this);
         }
 
-        // Dialog to create or edit a task. A single-line entry (no line breaks)
-        // capped at the task's maximum length, shown in a wide popup with
-        // natural-sized buttons aligned to the right.
-        private void prompt_task(string heading, string initial,
-            owned TextEnteredCallback callback)
+        // Dialog to create or edit a task: a single-line title (no line breaks)
+        // plus an optional multi-line description, both length-capped, shown in
+        // a wide popup with natural-sized buttons aligned to the right.
+        private void prompt_task(string heading, string initial_title, string initial_description,
+            owned TaskEnteredCallback callback)
         {
             var dialog = new Adw.Dialog() {
                 title = heading,
@@ -210,12 +210,35 @@ namespace Collie {
             title_label.add_css_class("title-2");
 
             var entry = new Gtk.Entry() {
-                placeholder_text = _("Task description"),
-                text = initial,
+                placeholder_text = _("Title"),
+                text = initial_title,
                 activates_default = true,
-                max_length = Tasks.TaskStoreValidator.MAXIMUM_LENGTH,
+                max_length = Tasks.TaskStoreValidator.MAXIMUM_TITLE_LENGTH,
                 hexpand = true
             };
+
+            var description_view = new Gtk.TextView() {
+                wrap_mode = Gtk.WrapMode.WORD_CHAR,
+                accepts_tab = false,
+                top_margin = 6,
+                bottom_margin = 6,
+                left_margin = 6,
+                right_margin = 6
+            };
+            description_view.buffer.text = initial_description;
+            limit_length(description_view.buffer, Tasks.TaskStoreValidator.MAXIMUM_DESCRIPTION_LENGTH);
+
+            var description_scroll = new Gtk.ScrolledWindow() {
+                child = description_view,
+                hscrollbar_policy = Gtk.PolicyType.NEVER,
+                min_content_height = 100
+            };
+            description_scroll.add_css_class("card");
+
+            var description_label = new Gtk.Label(_("Description (optional)")) {
+                halign = Gtk.Align.START
+            };
+            description_label.add_css_class("dim-label");
 
             var cancel_button = new Gtk.Button.with_label(_("Cancel"));
             var save_button = new Gtk.Button.with_label(_("Save"));
@@ -227,7 +250,7 @@ namespace Collie {
             buttons.append(cancel_button);
             buttons.append(save_button);
 
-            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 18) {
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12) {
                 margin_top = 24,
                 margin_bottom = 24,
                 margin_start = 24,
@@ -235,6 +258,8 @@ namespace Collie {
             };
             content.append(title_label);
             content.append(entry);
+            content.append(description_label);
+            content.append(description_scroll);
             content.append(buttons);
             dialog.child = content;
 
@@ -243,10 +268,24 @@ namespace Collie {
 
             cancel_button.clicked.connect(() => dialog.close());
             save_button.clicked.connect(() => {
-                callback(entry.text);
+                callback(entry.text, description_view.buffer.text);
                 dialog.close();
             });
             dialog.present(this);
+        }
+
+        // Keeps a text buffer within a maximum number of characters, trimming
+        // any excess (e.g. from a paste) as soon as it is inserted.
+        private void limit_length(Gtk.TextBuffer buffer, int maximum_length)
+        {
+            buffer.changed.connect(() => {
+                if (buffer.get_char_count() > maximum_length) {
+                    Gtk.TextIter start, end;
+                    buffer.get_iter_at_offset(out start, maximum_length);
+                    buffer.get_end_iter(out end);
+                    buffer.delete(ref start, ref end);
+                }
+            });
         }
 
         private void confirm_deletion(string heading, string body, owned ConfirmedCallback callback)
