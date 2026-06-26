@@ -18,6 +18,12 @@ namespace Collie.Tasks {
         [GtkChild]
         private unowned Gtk.ListBox list_box;
         [GtkChild]
+        private unowned Gtk.ToggleButton search_button;
+        [GtkChild]
+        private unowned Gtk.SearchBar search_bar;
+        [GtkChild]
+        private unowned Gtk.SearchEntry search_entry;
+        [GtkChild]
         private unowned Gtk.Box status_bar;
         [GtkChild]
         private unowned Gtk.Label total_label;
@@ -37,15 +43,23 @@ namespace Collie.Tasks {
         {
             this.controller = controller;
             list_box.bind_model(controller.tasks, build_row);
+            list_box.set_filter_func(filter_row);
             controller.tasks.items_changed.connect(() => refresh());
             add_button.clicked.connect(() => create_requested());
             add_first_task_button.clicked.connect(() => create_requested());
+
+            search_bar.connect_entry(search_entry);
+            search_bar.key_capture_widget = this;
+            search_button.bind_property("active", search_bar, "search-mode-enabled",
+                BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
+            search_entry.search_changed.connect(() => list_box.invalidate_filter());
         }
 
         public void show_group(Group group)
         {
             title = group.name;
             group_selected = true;
+            reset_search();
             controller.load_group(group.id);
             add_button.sensitive = true;
             refresh();
@@ -54,10 +68,18 @@ namespace Collie.Tasks {
         public void show_empty()
         {
             group_selected = false;
+            reset_search();
             controller.clear();
             title = _("Tasks");
             add_button.sensitive = false;
             refresh();
+        }
+
+        // Clears and collapses the search when the panel content changes.
+        private void reset_search()
+        {
+            search_entry.text = "";
+            search_button.active = false;
         }
 
         public int current_group_id()
@@ -82,6 +104,18 @@ namespace Collie.Tasks {
                 stack.visible_child_name = "tasks";
             }
             status_bar.visible = group_selected;
+            search_button.sensitive = group_selected;
+        }
+
+        // Filters rows by the search query, matched against the task title.
+        private bool filter_row(Gtk.ListBoxRow row)
+        {
+            var query = search_entry.text.strip();
+            if (query == "") {
+                return true;
+            }
+            var task = ((TaskRow) row).task;
+            return task.title.casefold().contains(query.casefold());
         }
 
         // Recomputes the task metrics shown in the status bar.

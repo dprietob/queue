@@ -8,6 +8,13 @@
       <object class="AdwToolbarView">
         <child type="top">
           <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="GtkToggleButton" id="search_button">
+                <property name="icon-name">system-search-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Search Tasks</property>
+                <property name="sensitive">false</property>
+              </object>
+            </child>
             <child type="end">
               <object class="GtkButton" id="add_button">
                 <property name="icon-name">list-add-symbolic</property>
@@ -15,6 +22,16 @@
                 <property name="sensitive">false</property>
               </object>
             </child>
+          </object>
+        </child>
+        <child type="top">
+          <object class="GtkSearchBar" id="search_bar">
+            <property name="child">
+              <object class="GtkSearchEntry" id="search_entry">
+                <property name="placeholder-text" translatable="yes">Filter tasks by name…</property>
+                <property name="hexpand">true</property>
+              </object>
+            </property>
           </object>
         </child>
         <property name="content">
