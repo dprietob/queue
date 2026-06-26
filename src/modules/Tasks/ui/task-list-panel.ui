@@ -81,6 +81,49 @@
             </child>
           </object>
         </property>
+        <child type="bottom">
+          <object class="GtkBox" id="status_bar">
+            <property name="halign">center</property>
+            <property name="spacing">12</property>
+            <style>
+              <class name="toolbar"/>
+            </style>
+            <child>
+              <object class="GtkLabel" id="total_label">
+                <style>
+                  <class name="dim-label"/>
+                  <class name="caption"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="pending_label">
+                <style>
+                  <class name="dim-label"/>
+                  <class name="caption"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="completed_label">
+                <style>
+                  <class name="dim-label"/>
+                  <class name="caption"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </property>
   </template>

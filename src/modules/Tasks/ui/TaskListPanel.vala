@@ -3,8 +3,8 @@ using Collie.Groups;
 namespace Collie.Tasks {
 
     // Presents the tasks of the selected group and turns user gestures into
-    // controller calls. Shows an empty state when no group is selected and a
-    // placeholder when the selected group has no tasks yet.
+    // controller calls. Shows an empty state when no group is selected, a
+    // placeholder when the group has no tasks, and a status bar with metrics.
     [GtkTemplate(ui = "/com/dprietob/collie/ui/task-list-panel.ui")]
     public class TaskListPanel : Adw.NavigationPage
     {
@@ -17,6 +17,14 @@ namespace Collie.Tasks {
         private unowned Gtk.Stack stack;
         [GtkChild]
         private unowned Gtk.ListBox list_box;
+        [GtkChild]
+        private unowned Gtk.Box status_bar;
+        [GtkChild]
+        private unowned Gtk.Label total_label;
+        [GtkChild]
+        private unowned Gtk.Label pending_label;
+        [GtkChild]
+        private unowned Gtk.Label completed_label;
 
         private TaskListController controller;
         private bool group_selected = false;
@@ -29,7 +37,7 @@ namespace Collie.Tasks {
         {
             this.controller = controller;
             list_box.bind_model(controller.tasks, build_row);
-            controller.tasks.items_changed.connect(() => update_view());
+            controller.tasks.items_changed.connect(() => refresh());
             add_button.clicked.connect(() => create_requested());
             add_first_task_button.clicked.connect(() => create_requested());
         }
@@ -40,16 +48,16 @@ namespace Collie.Tasks {
             group_selected = true;
             controller.load_group(group.id);
             add_button.sensitive = true;
-            update_view();
+            refresh();
         }
 
         public void show_empty()
         {
+            group_selected = false;
             controller.clear();
             title = _("Tasks");
-            group_selected = false;
             add_button.sensitive = false;
-            update_view();
+            refresh();
         }
 
         public int current_group_id()
@@ -57,7 +65,13 @@ namespace Collie.Tasks {
             return controller.group_id;
         }
 
-        // Chooses the visible page: no group, an empty group, or the task list.
+        private void refresh()
+        {
+            update_view();
+            update_metrics();
+        }
+
+        // Chooses the visible page and shows the status bar only with a group.
         private void update_view()
         {
             if (!group_selected) {
@@ -67,14 +81,34 @@ namespace Collie.Tasks {
             } else {
                 stack.visible_child_name = "tasks";
             }
+            status_bar.visible = group_selected;
+        }
+
+        // Recomputes the task metrics shown in the status bar.
+        private void update_metrics()
+        {
+            uint total = controller.tasks.get_n_items();
+            uint completed = 0;
+            for (uint index = 0; index < total; index++) {
+                if (((Task) controller.tasks.get_item(index)).done) {
+                    completed++;
+                }
+            }
+            uint pending = total - completed;
+
+            total_label.label = _("Total: %u").printf(total);
+            pending_label.label = _("Pending: %u").printf(pending);
+            completed_label.label = _("Completed: %u").printf(completed);
         }
 
         private Gtk.Widget build_row(Object item)
         {
-            var row = new TaskRow((Task) item);
-            row.toggle_requested.connect((task) => controller.toggle(task));
-            row.edit_requested.connect((task) => edit_requested(task));
-            row.delete_requested.connect((task) => delete_requested(task));
+            var task = (Task) item;
+            var row = new TaskRow(task);
+            task.notify["done"].connect(() => update_metrics());
+            row.toggle_requested.connect((target) => controller.toggle(target));
+            row.edit_requested.connect((target) => edit_requested(target));
+            row.delete_requested.connect((target) => delete_requested(target));
             return row;
         }
     }
