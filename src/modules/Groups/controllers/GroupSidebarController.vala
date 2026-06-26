@@ -34,7 +34,7 @@ namespace Collie.Groups {
         public string? create(string name, string color, out Group ? created)
         {
             created = null;
-            var error = new GroupStoreValidator(name).validate();
+            var error = new GroupStoreValidator(name, names_except(null)).validate();
             if (error != null) {
                 return error;
             }
@@ -45,7 +45,7 @@ namespace Collie.Groups {
 
         public string? update(Group group, string name, string color)
         {
-            var error = new GroupStoreValidator(name).validate();
+            var error = new GroupStoreValidator(name, names_except(group)).validate();
             if (error != null) {
                 return error;
             }
@@ -53,6 +53,20 @@ namespace Collie.Groups {
             group.name = name.strip();
             group.color = color;
             return null;
+        }
+
+        // Names of all groups except the given one, used to detect duplicates.
+        private string[] names_except(Group ? excluded)
+        {
+            string[] names = {};
+            for (uint index = 0; index < groups.get_n_items(); index++) {
+                var group = (Group) groups.get_item(index);
+                if (excluded != null && group.id == excluded.id) {
+                    continue;
+                }
+                names += group.name;
+            }
+            return names;
         }
 
         public void remove(Group group)
