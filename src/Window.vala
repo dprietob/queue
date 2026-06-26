@@ -18,6 +18,7 @@ namespace Collie {
         [GtkChild]
         private unowned Adw.NavigationSplitView split_view;
 
+        private Settings settings;
         private Database database;
         private GroupSidebarController group_controller;
         private TaskListController task_controller;
@@ -27,6 +28,11 @@ namespace Collie {
         public Window (Gtk.Application application, Database database)
         {
             Object(application: application);
+
+            settings = new Settings(Config.APP_ID);
+            settings.bind("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
+            settings.bind("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
+            settings.bind("window-maximized", this, "maximized", SettingsBindFlags.DEFAULT);
 
             this.database = database;
             group_controller = new GroupSidebarController(database);

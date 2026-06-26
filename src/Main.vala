@@ -3,6 +3,8 @@ namespace Collie {
     public class Application : Adw.Application
     {
 
+        private Settings settings;
+
         public Application ()
         {
             Object(
@@ -12,7 +14,16 @@ namespace Collie {
         }
 
         construct {
+            settings = new Settings(Config.APP_ID);
             register_actions();
+        }
+
+        protected override void startup()
+        {
+            base.startup();
+            // Applied here, not in construct: the style manager needs GTK/Adw
+            // to be initialized first.
+            bind_color_scheme();
         }
 
         protected override void activate()
@@ -39,13 +50,17 @@ namespace Collie {
             add_action(quit_action);
             set_accels_for_action("app.quit", { "<Control>q" });
 
-            var color_scheme_action = new SimpleAction.stateful(
-                "color-scheme", VariantType.STRING, new Variant.string("system"));
-            color_scheme_action.activate.connect((action, parameter) => {
-                action.set_state(parameter);
-                apply_color_scheme(parameter.get_string());
+            // Stateful action backed by GSettings, so the choice is persisted.
+            add_action(settings.create_action("color-scheme"));
+        }
+
+        // Applies the saved color scheme on startup and whenever it changes.
+        private void bind_color_scheme()
+        {
+            apply_color_scheme(settings.get_string("color-scheme"));
+            settings.changed["color-scheme"].connect(() => {
+                apply_color_scheme(settings.get_string("color-scheme"));
             });
-            add_action(color_scheme_action);
         }
 
         // Applies the chosen color scheme: follow the system, force light or
@@ -70,12 +85,32 @@ namespace Collie {
     }
 }
 
+// When running from the build tree the compiled GSettings schema sits next to
+// the executable in data/; point GSettings there so the app works uninstalled.
+// Installed runs find the schema in the system directory and skip this.
+void use_local_schemas_if_present()
+{
+    string executable_path;
+    try {
+        executable_path = FileUtils.read_link("/proc/self/exe");
+    } catch (FileError error) {
+        return;
+    }
+
+    var schema_directory = Path.build_filename(Path.get_dirname(executable_path), "data");
+    if (FileUtils.test(Path.build_filename(schema_directory, "gschemas.compiled"), FileTest.EXISTS)) {
+        Environment.set_variable("GSETTINGS_SCHEMA_DIR", schema_directory, true);
+    }
+}
+
 int main(string[] arguments)
 {
     Intl.setlocale(LocaleCategory.ALL, "");
     Intl.bindtextdomain(Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
     Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "UTF-8");
     Intl.textdomain(Config.GETTEXT_PACKAGE);
+
+    use_local_schemas_if_present();
 
     var application = new Collie.Application();
     return application.run(arguments);

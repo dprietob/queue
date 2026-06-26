@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="com.dprietob.collie" path="/com/dprietob/collie/">
+    <key name="color-scheme" type="s">
+      <choices>
+        <choice value="system"/>
+        <choice value="light"/>
+        <choice value="dark"/>
+      </choices>
+      <default>"system"</default>
+      <summary>Color scheme</summary>
+      <description>Preferred color scheme: follow the system, light or dark.</description>
+    </key>
+    <key name="window-width" type="i">
+      <default>900</default>
+      <summary>Window width</summary>
+      <description>The last width of the main window.</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>600</default>
+      <summary>Window height</summary>
+      <description>The last height of the main window.</description>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Window maximized</summary>
+      <description>Whether the main window was maximized.</description>
+    </key>
+  </schema>
+</schemalist>
