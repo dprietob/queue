@@ -15,7 +15,7 @@ namespace Collie.Tasks {
 
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "SELECT id, group_id, title, done FROM tasks WHERE group_id = ? ORDER BY done, id;",
+                "SELECT id, group_id, title, done FROM tasks WHERE group_id = ? ORDER BY position, id;",
                 -1, out statement);
             statement.bind_int(1, group_id);
 
@@ -35,9 +35,12 @@ namespace Collie.Tasks {
         {
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "INSERT INTO tasks (group_id, title) VALUES (?, ?);", -1, out statement);
+                "INSERT INTO tasks (group_id, title, position) VALUES (?, ?, "
+                + "(SELECT COALESCE(MAX(position), -1) + 1 FROM tasks WHERE group_id = ?));",
+                -1, out statement);
             statement.bind_int(1, group_id);
             statement.bind_text(2, title);
+            statement.bind_int(3, group_id);
             statement.step();
 
             var task = new Task();
@@ -75,6 +78,24 @@ namespace Collie.Tasks {
                 "DELETE FROM tasks WHERE id = ?;", -1, out statement);
             statement.bind_int(1, id);
             statement.step();
+        }
+
+        // Stores the given identifiers as the new ordering (index = position).
+        public static void reorder(Database database, int[] ordered_ids)
+        {
+            database.connection.exec("BEGIN TRANSACTION;");
+
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "UPDATE tasks SET position = ? WHERE id = ?;", -1, out statement);
+            for (int position = 0; position < ordered_ids.length; position++) {
+                statement.reset();
+                statement.bind_int(1, position);
+                statement.bind_int(2, ordered_ids[position]);
+                statement.step();
+            }
+
+            database.connection.exec("COMMIT;");
         }
     }
 }

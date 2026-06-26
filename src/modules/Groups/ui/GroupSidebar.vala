@@ -12,6 +12,7 @@ namespace Collie.Groups {
         [GtkChild]
         private unowned Gtk.ListBox list_box;
 
+        private GroupSidebarController controller;
         private GLib.ListStore groups;
         private Gtk.CssProvider color_provider = new Gtk.CssProvider();
 
@@ -22,6 +23,7 @@ namespace Collie.Groups {
 
         public GroupSidebar (GroupSidebarController controller)
         {
+            this.controller = controller;
             groups = controller.groups;
 
             var display = Gdk.Display.get_default();
@@ -75,7 +77,46 @@ namespace Collie.Groups {
             group.notify["color"].connect(() => refresh_colors());
             row.edit_requested.connect((target) => edit_requested(target));
             row.delete_requested.connect((target) => delete_requested(target));
+            enable_drag_and_drop(row, group);
             return row;
+        }
+
+        // Lets the user reorder groups by dragging a row onto another one.
+        private void enable_drag_and_drop(GroupRow row, Group group)
+        {
+            var source = new Gtk.DragSource() {
+                actions = Gdk.DragAction.MOVE
+            };
+            source.prepare.connect((x, y) => {
+                var value = Value(typeof (Group));
+                value.set_object(group);
+                return new Gdk.ContentProvider.for_value(value);
+            });
+            source.drag_begin.connect((drag) => {
+                source.set_icon(new Gtk.WidgetPaintable(row), 0, 0);
+            });
+            row.add_controller(source);
+
+            var target = new Gtk.DropTarget(typeof (Group), Gdk.DragAction.MOVE);
+            target.drop.connect((value, x, y) => {
+                var dragged = value.get_object() as Group;
+                if (dragged == null) {
+                    return false;
+                }
+                var selected_before = selected_group();
+                controller.move(dragged, group, y > row.get_height() / 2);
+                if (selected_before == dragged) {
+                    select_group(dragged);
+                }
+                return true;
+            });
+            row.add_controller(target);
+        }
+
+        private Group? selected_group()
+        {
+            var row = list_box.get_selected_row();
+            return (row is GroupRow) ? ((GroupRow) row).group : null;
         }
 
         private void on_row_selected(Gtk.ListBoxRow? row)

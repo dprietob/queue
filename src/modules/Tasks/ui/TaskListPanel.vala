@@ -164,7 +164,36 @@ namespace Collie.Tasks {
             row.toggle_requested.connect((target) => controller.toggle(target));
             row.edit_requested.connect((target) => edit_requested(target));
             row.delete_requested.connect((target) => delete_requested(target));
+            enable_drag_and_drop(row, task);
             return row;
+        }
+
+        // Lets the user reorder tasks by dragging a row onto another one.
+        private void enable_drag_and_drop(TaskRow row, Task task)
+        {
+            var source = new Gtk.DragSource() {
+                actions = Gdk.DragAction.MOVE
+            };
+            source.prepare.connect((x, y) => {
+                var value = Value(typeof (Task));
+                value.set_object(task);
+                return new Gdk.ContentProvider.for_value(value);
+            });
+            source.drag_begin.connect((drag) => {
+                source.set_icon(new Gtk.WidgetPaintable(row), 0, 0);
+            });
+            row.add_controller(source);
+
+            var target = new Gtk.DropTarget(typeof (Task), Gdk.DragAction.MOVE);
+            target.drop.connect((value, x, y) => {
+                var dragged = value.get_object() as Task;
+                if (dragged == null) {
+                    return false;
+                }
+                controller.move(dragged, task, y > row.get_height() / 2);
+                return true;
+            });
+            row.add_controller(target);
         }
     }
 }

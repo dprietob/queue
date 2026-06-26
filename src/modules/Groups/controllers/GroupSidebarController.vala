@@ -9,6 +9,7 @@ namespace Collie.Groups {
         private CreateGroupAction create_group_action;
         private UpdateGroupAction update_group_action;
         private DeleteGroupAction delete_group_action;
+        private ReorderGroupsAction reorder_groups_action;
 
         public GLib.ListStore groups { get; private set; }
 
@@ -18,6 +19,7 @@ namespace Collie.Groups {
             create_group_action = new CreateGroupAction(database);
             update_group_action = new UpdateGroupAction(database);
             delete_group_action = new DeleteGroupAction(database);
+            reorder_groups_action = new ReorderGroupsAction(database);
 
             groups = new GLib.ListStore(typeof (Group));
             load();
@@ -77,6 +79,38 @@ namespace Collie.Groups {
             if (groups.find(group, out position)) {
                 groups.remove(position);
             }
+        }
+
+        // Moves a group before or after a target group and persists the order.
+        public void move(Group dragged, Group target, bool after)
+        {
+            if (dragged == target) {
+                return;
+            }
+
+            uint from;
+            if (!groups.find(dragged, out from)) {
+                return;
+            }
+            groups.remove(from);
+
+            uint target_index;
+            if (groups.find(target, out target_index)) {
+                groups.insert(after ? target_index + 1 : target_index, dragged);
+            } else {
+                groups.append(dragged);
+            }
+
+            persist_order();
+        }
+
+        private void persist_order()
+        {
+            int[] ordered_ids = {};
+            for (uint index = 0; index < groups.get_n_items(); index++) {
+                ordered_ids += ((Group) groups.get_item(index)).id;
+            }
+            reorder_groups_action.execute(ordered_ids);
         }
     }
 }

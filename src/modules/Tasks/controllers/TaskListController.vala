@@ -10,6 +10,7 @@ namespace Collie.Tasks {
         private UpdateTaskAction update_task_action;
         private ToggleTaskAction toggle_task_action;
         private DeleteTaskAction delete_task_action;
+        private ReorderTasksAction reorder_tasks_action;
 
         public GLib.ListStore tasks { get; private set; }
         public int group_id { get; private set; default = 0; }
@@ -21,6 +22,7 @@ namespace Collie.Tasks {
             update_task_action = new UpdateTaskAction(database);
             toggle_task_action = new ToggleTaskAction(database);
             delete_task_action = new DeleteTaskAction(database);
+            reorder_tasks_action = new ReorderTasksAction(database);
 
             tasks = new GLib.ListStore(typeof (Task));
         }
@@ -79,6 +81,38 @@ namespace Collie.Tasks {
             if (tasks.find(task, out position)) {
                 tasks.remove(position);
             }
+        }
+
+        // Moves a task before or after a target task and persists the order.
+        public void move(Task dragged, Task target, bool after)
+        {
+            if (dragged == target) {
+                return;
+            }
+
+            uint from;
+            if (!tasks.find(dragged, out from)) {
+                return;
+            }
+            tasks.remove(from);
+
+            uint target_index;
+            if (tasks.find(target, out target_index)) {
+                tasks.insert(after ? target_index + 1 : target_index, dragged);
+            } else {
+                tasks.append(dragged);
+            }
+
+            persist_order();
+        }
+
+        private void persist_order()
+        {
+            int[] ordered_ids = {};
+            for (uint index = 0; index < tasks.get_n_items(); index++) {
+                ordered_ids += ((Task) tasks.get_item(index)).id;
+            }
+            reorder_tasks_action.execute(ordered_ids);
         }
     }
 }

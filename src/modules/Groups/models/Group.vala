@@ -15,7 +15,8 @@ namespace Collie.Groups {
 
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "SELECT id, name, color FROM groups ORDER BY name COLLATE NOCASE;", -1, out statement);
+                "SELECT id, name, color FROM groups ORDER BY position, name COLLATE NOCASE;",
+                -1, out statement);
 
             while (statement.step() == Sqlite.ROW) {
                 var group = new Group();
@@ -32,7 +33,8 @@ namespace Collie.Groups {
         {
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "INSERT INTO groups (name, color) VALUES (?, ?);", -1, out statement);
+                "INSERT INTO groups (name, color, position) VALUES (?, ?, "
+                + "(SELECT COALESCE(MAX(position), -1) + 1 FROM groups));", -1, out statement);
             statement.bind_text(1, name);
             statement.bind_text(2, color);
             statement.step();
@@ -68,6 +70,24 @@ namespace Collie.Groups {
         public static void destroy_all(Database database)
         {
             database.connection.exec("DELETE FROM groups;");
+        }
+
+        // Stores the given identifiers as the new ordering (index = position).
+        public static void reorder(Database database, int[] ordered_ids)
+        {
+            database.connection.exec("BEGIN TRANSACTION;");
+
+            Sqlite.Statement statement;
+            database.connection.prepare_v2(
+                "UPDATE groups SET position = ? WHERE id = ?;", -1, out statement);
+            for (int position = 0; position < ordered_ids.length; position++) {
+                statement.reset();
+                statement.bind_int(1, position);
+                statement.bind_int(2, ordered_ids[position]);
+                statement.step();
+            }
+
+            database.connection.exec("COMMIT;");
         }
     }
 }
