@@ -10,7 +10,7 @@ namespace Collie {
     {
 
         private delegate void GroupEnteredCallback(string name, string color);
-        private delegate void TaskEnteredCallback(string title, string description);
+        private delegate void TaskEnteredCallback(string title, string description, bool important);
         private delegate void ConfirmedCallback();
 
         [GtkChild]
@@ -112,15 +112,16 @@ namespace Collie {
 
         private void on_create_task()
         {
-            prompt_task(_("New Task"), "", "", (title, description) => {
-                report(task_controller.create(title, description));
+            prompt_task(_("New Task"), "", "", false, (title, description, important) => {
+                report(task_controller.create(title, description, important));
             });
         }
 
         private void on_edit_task(Collie.Tasks.Task task)
         {
-            prompt_task(_("Edit Task"), task.title, task.description, (title, description) => {
-                report(task_controller.update(task, title, description));
+            prompt_task(_("Edit Task"), task.title, task.description, task.important,
+                (title, description, important) => {
+                report(task_controller.update(task, title, description, important));
             });
         }
 
@@ -196,7 +197,7 @@ namespace Collie {
         // plus an optional multi-line description, both length-capped, shown in
         // a wide popup with natural-sized buttons aligned to the right.
         private void prompt_task(string heading, string initial_title, string initial_description,
-            owned TaskEnteredCallback callback)
+            bool initial_important, owned TaskEnteredCallback callback)
         {
             var dialog = new Adw.Dialog() {
                 title = heading,
@@ -240,6 +241,16 @@ namespace Collie {
             };
             description_label.add_css_class("dim-label");
 
+            var important_switch = new Gtk.Switch() {
+                active = initial_important,
+                valign = Gtk.Align.CENTER
+            };
+            var important_row = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 12);
+            important_row.append(new Gtk.Label(_("Important")) {
+                hexpand = true, xalign = 0
+            });
+            important_row.append(important_switch);
+
             var cancel_button = new Gtk.Button.with_label(_("Cancel"));
             var save_button = new Gtk.Button.with_label(_("Save"));
             save_button.add_css_class("suggested-action");
@@ -260,6 +271,7 @@ namespace Collie {
             content.append(entry);
             content.append(description_label);
             content.append(description_scroll);
+            content.append(important_row);
             content.append(buttons);
             dialog.child = content;
 
@@ -268,7 +280,7 @@ namespace Collie {
 
             cancel_button.clicked.connect(() => dialog.close());
             save_button.clicked.connect(() => {
-                callback(entry.text, description_view.buffer.text);
+                callback(entry.text, description_view.buffer.text, important_switch.active);
                 dialog.close();
             });
             dialog.present(this);

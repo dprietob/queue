@@ -9,6 +9,7 @@ namespace Collie.Tasks {
         public string title { get; set; }
         public string description { get; set; default = ""; }
         public bool done { get; set; }
+        public bool important { get; set; default = false; }
 
         public static GLib.List<Task> for_group(Database database, int group_id)
         {
@@ -16,8 +17,9 @@ namespace Collie.Tasks {
 
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "SELECT id, group_id, title, description, done FROM tasks WHERE group_id = ? ORDER BY position, id;",
-                -1, out statement);
+                "SELECT id, group_id, title, description, done, important FROM tasks WHERE group_id = ? ORDER BY position, id;",
+                -1,
+                out statement);
             statement.bind_int(1, group_id);
 
             while (statement.step() == Sqlite.ROW) {
@@ -27,23 +29,26 @@ namespace Collie.Tasks {
                 task.title = statement.column_text(2);
                 task.description = statement.column_text(3);
                 task.done = statement.column_int(4) != 0;
+                task.important = statement.column_int(5) != 0;
                 tasks.append(task);
             }
 
             return tasks;
         }
 
-        public static Task create(Database database, int group_id, string title, string description)
+        public static Task create(Database database, int group_id, string title, string description,
+            bool important)
         {
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "INSERT INTO tasks (group_id, title, description, position) VALUES (?, ?, ?, "
+                "INSERT INTO tasks (group_id, title, description, important, position) VALUES (?, ?, ?, ?, "
                 + "(SELECT COALESCE(MAX(position), -1) + 1 FROM tasks WHERE group_id = ?));",
                 -1, out statement);
             statement.bind_int(1, group_id);
             statement.bind_text(2, title);
             statement.bind_text(3, description);
-            statement.bind_int(4, group_id);
+            statement.bind_int(4, important ? 1 : 0);
+            statement.bind_int(5, group_id);
             statement.step();
 
             var task = new Task();
@@ -52,17 +57,21 @@ namespace Collie.Tasks {
             task.title = title;
             task.description = description;
             task.done = false;
+            task.important = important;
             return task;
         }
 
-        public static void update(Database database, int id, string title, string description)
+        public static void update(Database database, int id, string title, string description,
+            bool important)
         {
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "UPDATE tasks SET title = ?, description = ? WHERE id = ?;", -1, out statement);
+                "UPDATE tasks SET title = ?, description = ?, important = ? WHERE id = ?;",
+                -1, out statement);
             statement.bind_text(1, title);
             statement.bind_text(2, description);
-            statement.bind_int(3, id);
+            statement.bind_int(3, important ? 1 : 0);
+            statement.bind_int(4, id);
             statement.step();
         }
 

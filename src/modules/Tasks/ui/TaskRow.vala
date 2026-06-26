@@ -7,6 +7,8 @@ namespace Collie.Tasks {
         [GtkChild]
         private unowned Gtk.CheckButton check_button;
         [GtkChild]
+        private unowned Gtk.Image important_icon;
+        [GtkChild]
         private unowned Gtk.Label title_label;
         [GtkChild]
         private unowned Gtk.ToggleButton expand_button;
@@ -32,6 +34,7 @@ namespace Collie.Tasks {
             check_button.active = task.done;
             refresh_title();
             refresh_description();
+            important_icon.visible = task.important;
 
             task.notify["done"].connect(() => {
                 check_button.active = task.done;
@@ -39,6 +42,9 @@ namespace Collie.Tasks {
             });
             task.notify["title"].connect(refresh_title);
             task.notify["description"].connect(refresh_description);
+            task.notify["important"].connect(() => {
+                important_icon.visible = task.important;
+            });
 
             check_button.toggled.connect(() => {
                 if (check_button.active != task.done) {

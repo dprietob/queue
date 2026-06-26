@@ -98,6 +98,7 @@ namespace Collie.Backup {
                 backup_task.title = task.title;
                 backup_task.description = task.description;
                 backup_task.done = task.done;
+                backup_task.important = task.important;
                 tasks += backup_task;
             }
             backup_group.tasks = tasks;

@@ -42,7 +42,7 @@ namespace Collie.Tasks {
             tasks.remove_all();
         }
 
-        public string? create(string title, string description)
+        public string? create(string title, string description, bool important)
         {
             if (group_id == 0) {
                 return null;
@@ -51,19 +51,20 @@ namespace Collie.Tasks {
             if (error != null) {
                 return error;
             }
-            tasks.append(create_task_action.execute(group_id, title.strip(), description.strip()));
+            tasks.append(create_task_action.execute(group_id, title.strip(), description.strip(), important));
             return null;
         }
 
-        public string? update(Task task, string title, string description)
+        public string? update(Task task, string title, string description, bool important)
         {
             var error = new TaskStoreValidator(title, description).validate();
             if (error != null) {
                 return error;
             }
-            update_task_action.execute(task.id, title.strip(), description.strip());
+            update_task_action.execute(task.id, title.strip(), description.strip(), important);
             task.title = title.strip();
             task.description = description.strip();
+            task.important = important;
             return null;
         }
 

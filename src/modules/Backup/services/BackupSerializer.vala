@@ -6,6 +6,7 @@ namespace Collie.Backup {
         public string title { get; set; default = ""; }
         public string description { get; set; default = ""; }
         public bool done { get; set; default = false; }
+        public bool important { get; set; default = false; }
     }
 
     // In-memory representation of a backed-up group with its tasks.
@@ -86,6 +87,8 @@ namespace Collie.Backup {
                 builder.add_string_value(task.description);
                 builder.set_member_name("done");
                 builder.add_boolean_value(task.done);
+                builder.set_member_name("important");
+                builder.add_boolean_value(task.important);
                 builder.end_object();
             }
             builder.end_array();
@@ -124,6 +127,9 @@ namespace Collie.Backup {
             }
             if (task_object.has_member("done")) {
                 task.done = task_object.get_boolean_member("done");
+            }
+            if (task_object.has_member("important")) {
+                task.important = task_object.get_boolean_member("important");
             }
             return task;
         }

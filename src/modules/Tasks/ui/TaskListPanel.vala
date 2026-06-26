@@ -33,6 +33,8 @@ namespace Collie.Tasks {
         private unowned Gtk.Label pending_label;
         [GtkChild]
         private unowned Gtk.Label completed_label;
+        [GtkChild]
+        private unowned Gtk.Label important_label;
 
         // Options of the status drop-down, matching the order in the .ui file.
         private const uint STATE_ALL = 0;
@@ -141,9 +143,14 @@ namespace Collie.Tasks {
         {
             uint total = controller.tasks.get_n_items();
             uint completed = 0;
+            uint important = 0;
             for (uint index = 0; index < total; index++) {
-                if (((Task) controller.tasks.get_item(index)).done) {
+                var task = (Task) controller.tasks.get_item(index);
+                if (task.done) {
                     completed++;
+                }
+                if (task.important) {
+                    important++;
                 }
             }
             uint pending = total - completed;
@@ -151,6 +158,7 @@ namespace Collie.Tasks {
             total_label.label = _("Total: %u").printf(total);
             pending_label.label = _("Pending: %u").printf(pending);
             completed_label.label = _("Completed: %u").printf(completed);
+            important_label.label = _("Important: %u").printf(important);
         }
 
         private Gtk.Widget build_row(Object item)
@@ -161,6 +169,7 @@ namespace Collie.Tasks {
                 update_metrics();
                 list_box.invalidate_filter();
             });
+            task.notify["important"].connect(() => update_metrics());
             row.toggle_requested.connect((target) => controller.toggle(target));
             row.edit_requested.connect((target) => edit_requested(target));
             row.delete_requested.connect((target) => delete_requested(target));

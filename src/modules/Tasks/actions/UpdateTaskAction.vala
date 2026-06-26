@@ -10,9 +10,9 @@ namespace Collie.Tasks {
             this.database = database;
         }
 
-        public void execute(int id, string title, string description)
+        public void execute(int id, string title, string description, bool important)
         {
-            Task.update(database, id, title, description);
+            Task.update(database, id, title, description, important);
         }
     }
 }

@@ -29,6 +29,17 @@
               </object>
             </child>
             <child>
+              <object class="GtkImage" id="important_icon">
+                <property name="icon-name">emblem-important-symbolic</property>
+                <property name="valign">center</property>
+                <property name="visible">false</property>
+                <property name="tooltip-text" translatable="yes">Important</property>
+                <style>
+                  <class name="error"/>
+                </style>
+              </object>
+            </child>
+            <child>
               <object class="GtkLabel" id="title_label">
                 <property name="hexpand">true</property>
                 <property name="xalign">0</property>

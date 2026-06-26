@@ -13,9 +13,12 @@ namespace Collie.Backup {
 
         public void execute(BackupGroup group)
         {
-            var created = Collie.Groups.Group.create(database, group.name, group.color);
+            var created = Collie.Groups.Group.create(database,
+                    group.name,
+                    group.color);
             foreach (var task in group.tasks) {
-                var stored = Collie.Tasks.Task.create(database, created.id, task.title, task.description);
+                var stored = Collie.Tasks.Task.create(database, created.id, task.title, task.description,
+                        task.important);
                 if (task.done) {
                     Collie.Tasks.Task.mark_done(database, stored.id, true);
                 }
