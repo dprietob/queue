@@ -63,5 +63,11 @@ namespace Collie.Groups {
             statement.bind_int(1, id);
             statement.step();
         }
+
+        // Removes every group; their tasks are deleted by the ON DELETE CASCADE.
+        public static void destroy_all(Database database)
+        {
+            database.connection.exec("DELETE FROM groups;");
+        }
     }
 }

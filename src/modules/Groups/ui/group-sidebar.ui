@@ -22,6 +22,17 @@
           <attribute name="target">dark</attribute>
         </item>
       </submenu>
+      <submenu>
+        <attribute name="label" translatable="yes">Backup</attribute>
+        <item>
+          <attribute name="label" translatable="yes">Export Backup…</attribute>
+          <attribute name="action">win.export-backup</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">Restore Backup…</attribute>
+          <attribute name="action">win.import-backup</attribute>
+        </item>
+      </submenu>
     </section>
     <section>
       <item>

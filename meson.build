@@ -51,12 +51,17 @@ collie_sources = files(
   'src/modules/Tasks/controllers/TaskListController.vala',
   'src/modules/Tasks/ui/TaskRow.vala',
   'src/modules/Tasks/ui/TaskListPanel.vala',
+  'src/modules/Backup/services/BackupSerializer.vala',
+  'src/modules/Backup/actions/WipeDataAction.vala',
+  'src/modules/Backup/actions/ImportGroupAction.vala',
+  'src/modules/Backup/controllers/BackupController.vala',
 )
 
 collie_dependencies = [
   dependency('gtk4', version: '>= 4.12'),
   dependency('libadwaita-1', version: '>= 1.5'),
   dependency('sqlite3'),
+  dependency('json-glib-1.0'),
   meson.get_compiler('c').find_library('m'),
 ]
 

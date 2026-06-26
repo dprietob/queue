@@ -22,6 +22,7 @@ namespace Collie {
         private Database database;
         private GroupSidebarController group_controller;
         private TaskListController task_controller;
+        private Collie.Backup.BackupController backup_controller;
         private GroupSidebar sidebar;
         private TaskListPanel panel;
 
@@ -37,14 +38,27 @@ namespace Collie {
             this.database = database;
             group_controller = new GroupSidebarController(database);
             task_controller = new TaskListController(database);
+            backup_controller = new Collie.Backup.BackupController(database);
 
             sidebar = new GroupSidebar(group_controller);
             panel = new TaskListPanel(task_controller);
             split_view.sidebar = sidebar;
             split_view.content = panel;
 
+            register_actions();
             connect_signals();
             panel.show_empty();
+        }
+
+        private void register_actions()
+        {
+            var export_action = new SimpleAction("export-backup", null);
+            export_action.activate.connect(() => on_export_backup());
+            add_action(export_action);
+
+            var import_action = new SimpleAction("import-backup", null);
+            import_action.activate.connect(() => on_import_backup());
+            add_action(import_action);
         }
 
         private void connect_signals()
@@ -251,6 +265,124 @@ namespace Collie {
                 }
             });
             dialog.present(this);
+        }
+
+        private void on_export_backup()
+        {
+            var dialog = new Gtk.FileDialog() {
+                title = _("Export Backup"),
+                initial_name = "collie-backup.json"
+            };
+            dialog.save.begin(this, null, (object, result) => {
+                File file;
+                try {
+                    file = dialog.save.end(result);
+                } catch (Error error) {
+                    return;
+                }
+
+                var progress_bar = new Gtk.ProgressBar();
+                var progress_dialog = build_progress_dialog(_("Exporting Backup…"), progress_bar);
+                progress_dialog.present(this);
+
+                backup_controller.export(file,
+                (fraction) => progress_bar.fraction = fraction,
+                (export_error) => {
+                    progress_dialog.force_close();
+                    report_backup(export_error, _("Backup exported."));
+                });
+            });
+        }
+
+        private void on_import_backup()
+        {
+            var dialog = new Gtk.FileDialog() {
+                title = _("Restore Backup")
+            };
+            dialog.open.begin(this, null, (object, result) => {
+                File file;
+                try {
+                    file = dialog.open.end(result);
+                } catch (Error error) {
+                    return;
+                }
+                confirm_restore(file);
+            });
+        }
+
+        // Warns that the restore wipes all current data before proceeding.
+        private void confirm_restore(File file)
+        {
+            var dialog = new Adw.AlertDialog(
+                _("Restore Backup?"),
+                _(
+                    "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."));
+
+            dialog.add_response("cancel", _("Cancel"));
+            dialog.add_response("restore", _("Delete and Restore"));
+            dialog.set_response_appearance("restore", Adw.ResponseAppearance.DESTRUCTIVE);
+            dialog.default_response = "cancel";
+            dialog.close_response = "cancel";
+
+            dialog.response.connect((response) => {
+                if (response != "restore") {
+                    return;
+                }
+
+                var progress_bar = new Gtk.ProgressBar();
+                var progress_dialog = build_progress_dialog(_("Restoring Backup…"), progress_bar);
+                progress_dialog.present(this);
+
+                backup_controller.import(file,
+                (fraction) => progress_bar.fraction = fraction,
+                (import_error) => {
+                    progress_dialog.force_close();
+                    if (import_error == null) {
+                        group_controller.load();
+                        panel.show_empty();
+                    }
+                    report_backup(import_error, _("Backup restored."));
+                });
+            });
+            dialog.present(this);
+        }
+
+        // Builds a non-dismissable dialog showing a progress bar for a backup
+        // operation.
+        private Adw.Dialog build_progress_dialog(string title, Gtk.ProgressBar progress_bar)
+        {
+            progress_bar.show_text = true;
+            progress_bar.hexpand = true;
+
+            var title_label = new Gtk.Label(title) {
+                halign = Gtk.Align.START
+            };
+            title_label.add_css_class("title-2");
+
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 18) {
+                margin_top = 24,
+                margin_bottom = 24,
+                margin_start = 24,
+                margin_end = 24
+            };
+            content.append(title_label);
+            content.append(progress_bar);
+
+            return new Adw.Dialog() {
+                       title = title,
+                       content_width = 360,
+                       can_close = false,
+                       child = content
+            };
+        }
+
+        private void report_backup(string? error, string success_message)
+        {
+            if (error != null) {
+                toast_overlay.add_toast(new Adw.Toast(error));
+            } else {
+                toast_overlay.add_toast(new Adw.Toast(success_message));
+            }
         }
     }
 }

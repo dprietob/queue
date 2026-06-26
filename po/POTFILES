@@ -5,6 +5,7 @@ src/modules/Groups/ui/group-row.ui
 src/modules/Tasks/validators/TaskStoreValidator.vala
 src/modules/Tasks/ui/TaskListPanel.vala
 src/modules/Tasks/ui/task-list-panel.ui
+src/modules/Backup/services/BackupSerializer.vala
 src/modules/Tasks/ui/task-row.ui
 data/com.dprietob.collie.desktop.in
 data/com.dprietob.collie.appdata.xml.in

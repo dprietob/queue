@@ -22,6 +22,7 @@ Work in progress.
 | GTK4        | 4.12           |                      |
 | libadwaita  | 1.5            | `libadwaita-1`       |
 | SQLite      | 3              | `sqlite3`            |
+| JSON-GLib   | 1.0            | `json-glib-1.0`      |
 | Meson       | 0.62           | Sistema de build     |
 | Ninja       | —              | Backend de Meson     |
 | gettext     | —              | Herramientas de i18n |
@@ -29,19 +30,19 @@ Work in progress.
 En Fedora / RHEL:
 
 ```shell
-sudo dnf install vala vala-devel vala-language-server gtk4-devel libadwaita-devel sqlite-devel meson ninja-build gettext-devel
+sudo dnf install vala vala-devel vala-language-server gtk4-devel libadwaita-devel sqlite-devel json-glib-devel meson ninja-build gettext-devel
 ```
 
 En Debian / Ubuntu:
 
 ```shell
-sudo apt install valac libvala-dev vala-language-server libgtk-4-dev libadwaita-1-dev libsqlite3-dev meson ninja-build gettext
+sudo apt install valac libvala-dev vala-language-server libgtk-4-dev libadwaita-1-dev libsqlite3-dev libjson-glib-dev meson ninja-build gettext
 ```
 
 En Arch Linux:
 
 ```shell
-sudo pacman -S vala vala-language-server gtk4 libadwaita sqlite meson ninja gettext base-devel
+sudo pacman -S vala vala-language-server gtk4 libadwaita sqlite json-glib meson ninja gettext base-devel
 ```
 
 ## Compilación y ejecución
