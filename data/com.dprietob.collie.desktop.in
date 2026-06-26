@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Collie
+GenericName=Task manager
+Comment=Manage and organize tasks
+Exec=collie
+Icon=com.dprietob.collie
+Terminal=false
+Type=Application
+Categories=Utility;Office;ProjectManagement;
+Keywords=task;manager;organize;

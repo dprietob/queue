@@ -1,0 +1,7 @@
+# Meson build directories
+_build/
+build/
+
+# Editor backups
+*~
+*.orig
