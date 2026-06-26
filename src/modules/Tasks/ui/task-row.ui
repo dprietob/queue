@@ -10,6 +10,16 @@
         <property name="margin-start">12</property>
         <property name="margin-end">6</property>
         <child>
+          <object class="GtkImage">
+            <property name="icon-name">list-drag-handle-symbolic</property>
+            <property name="valign">center</property>
+            <property name="tooltip-text" translatable="yes">Drag to reorder</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+        <child>
           <object class="GtkCheckButton" id="check_button">
             <property name="valign">center</property>
             <property name="tooltip-text" translatable="yes">Toggle Completed</property>
