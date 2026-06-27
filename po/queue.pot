@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 03:01+0200\n"
+"POT-Creation-Date: 2026-06-27 03:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,12 +295,12 @@ msgid "Delete Task"
 msgstr ""
 
 #: data/com.dprietob.queue.desktop.in:2
-#: data/com.dprietob.queue.appdata.xml.in:5
+#: data/com.dprietob.queue.metainfo.xml.in:5
 msgid "Queue"
 msgstr ""
 
 #: data/com.dprietob.queue.desktop.in:3
-#: data/com.dprietob.queue.appdata.xml.in:6
+#: data/com.dprietob.queue.metainfo.xml.in:6
 msgid "Task manager"
 msgstr ""
 
@@ -312,14 +312,56 @@ msgstr ""
 msgid "task;manager;organize;"
 msgstr ""
 
-#: data/com.dprietob.queue.appdata.xml.in:12
+#: data/com.dprietob.queue.metainfo.xml.in:12
+msgid "Daniel Prieto"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:16
 msgid "Queue is a simple, fast task manager."
 msgstr ""
 
-#: data/com.dprietob.queue.appdata.xml.in:21
-msgid "Write task in the editor"
+#: data/com.dprietob.queue.metainfo.xml.in:19
+msgid ""
+"Organize your tasks into groups, mark them as done or important, reorder "
+"them with drag and drop, and keep your data safe with built-in backups."
 msgstr ""
 
-#: data/com.dprietob.queue.appdata.xml.in:28
+#: data/com.dprietob.queue.metainfo.xml.in:23
+msgid "Features:"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:25
+msgid "Organize tasks into custom, color-coded groups"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:26
+msgid "Mark tasks as completed or important"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:27
+msgid "Add optional descriptions and reorder by dragging"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:28
+msgid "Export and restore all your data as JSON"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:29
+msgid "Light and dark styles, available in several languages"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:41
+msgid "Tasks organized by group"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:45
+msgid "Dark style"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:49
+msgid "Create and edit tasks with details"
+msgstr ""
+
+#: data/com.dprietob.queue.metainfo.xml.in:62
 msgid "Initial release."
 msgstr ""

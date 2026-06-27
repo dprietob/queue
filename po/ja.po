@@ -235,8 +235,38 @@ msgstr "タスク;管理;整理;task;manager;organize;"
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue はシンプルで高速なタスク管理アプリです。"
 
-msgid "Write task in the editor"
-msgstr "エディターでタスクを書く"
+msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
+msgstr "タスクをグループに整理し、完了や重要としてマークし、ドラッグ＆ドロップで並べ替え、内蔵のバックアップでデータを安全に保ちます。"
+
+msgid "Features:"
+msgstr "機能:"
+
+msgid "Organize tasks into custom, color-coded groups"
+msgstr "タスクを色分けしたカスタムグループに整理"
+
+msgid "Mark tasks as completed or important"
+msgstr "タスクを完了または重要としてマーク"
+
+msgid "Add optional descriptions and reorder by dragging"
+msgstr "任意の説明を追加し、ドラッグで並べ替え"
+
+msgid "Export and restore all your data as JSON"
+msgstr "すべてのデータを JSON 形式でエクスポート・復元"
+
+msgid "Light and dark styles, available in several languages"
+msgstr "ライトとダークのスタイル、複数の言語に対応"
+
+msgid "Tasks organized by group"
+msgstr "グループごとに整理されたタスク"
+
+msgid "Dark style"
+msgstr "ダークスタイル"
+
+msgid "Create and edit tasks with details"
+msgstr "詳細を付けてタスクを作成・編集"
 
 msgid "Initial release."
 msgstr "初回リリース。"
+
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"

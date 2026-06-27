@@ -1,4 +1,4 @@
-i18n.merge_file(
+desktop_file = i18n.merge_file(
   input: 'com.dprietob.queue.desktop.in',
   output: 'com.dprietob.queue.desktop',
   type: 'desktop',
@@ -7,18 +7,36 @@ i18n.merge_file(
   install_dir: get_option('datadir') / 'applications',
 )
 
-i18n.merge_file(
-  input: 'com.dprietob.queue.appdata.xml.in',
-  output: 'com.dprietob.queue.appdata.xml',
+desktop_file_validate = find_program('desktop-file-validate', required: false)
+if desktop_file_validate.found()
+  test('validate-desktop', desktop_file_validate,
+    args: [desktop_file.full_path()],
+    depends: desktop_file,
+  )
+endif
+
+metainfo_file = i18n.merge_file(
+  input: 'com.dprietob.queue.metainfo.xml.in',
+  output: 'com.dprietob.queue.metainfo.xml',
   po_dir: '../po',
   install: true,
   install_dir: get_option('datadir') / 'metainfo',
 )
 
-install_data(
-  'icons/hicolor/256x256/apps/com.dprietob.queue.png',
-  install_dir: get_option('datadir') / 'icons/hicolor/256x256/apps',
-)
+appstreamcli = find_program('appstreamcli', required: false)
+if appstreamcli.found()
+  test('validate-metainfo', appstreamcli,
+    args: ['validate', '--no-net', '--explain', metainfo_file.full_path()],
+    depends: metainfo_file,
+  )
+endif
+
+foreach size : ['64', '128', '256', '512']
+  install_data(
+    'icons/hicolor' / size + 'x' + size / 'apps/com.dprietob.queue.png',
+    install_dir: get_option('datadir') / 'icons/hicolor' / size + 'x' + size / 'apps',
+  )
+endforeach
 
 install_data(
   'com.dprietob.queue.gschema.xml',

@@ -235,8 +235,38 @@ msgstr "任务;管理器;组织;task;manager;organize;"
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue 是一款简单、快速的任务管理器。"
 
-msgid "Write task in the editor"
-msgstr "在编辑器中编写任务"
+msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
+msgstr "将任务整理到分组中，将其标记为已完成或重要，通过拖放重新排序，并使用内置备份保护您的数据。"
+
+msgid "Features:"
+msgstr "功能："
+
+msgid "Organize tasks into custom, color-coded groups"
+msgstr "将任务整理到自定义的彩色分组中"
+
+msgid "Mark tasks as completed or important"
+msgstr "将任务标记为已完成或重要"
+
+msgid "Add optional descriptions and reorder by dragging"
+msgstr "添加可选描述并通过拖动重新排序"
+
+msgid "Export and restore all your data as JSON"
+msgstr "以 JSON 格式导出和恢复所有数据"
+
+msgid "Light and dark styles, available in several languages"
+msgstr "支持浅色和深色样式，并提供多种语言"
+
+msgid "Tasks organized by group"
+msgstr "按分组整理的任务"
+
+msgid "Dark style"
+msgstr "深色样式"
+
+msgid "Create and edit tasks with details"
+msgstr "创建和编辑带有详细信息的任务"
 
 msgid "Initial release."
 msgstr "首次发布。"
+
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"

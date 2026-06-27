@@ -87,6 +87,23 @@ ninja -C _build
 ninja -C _build install
 ```
 
+### Flatpak / Flathub
+
+El proyecto incluye el manifiesto [`com.dprietob.queue.yaml`](com.dprietob.queue.yaml), basado en el runtime `org.gnome.Platform`. Para compilar e instalar localmente con `flatpak-builder`:
+
+```shell
+# Instala el runtime y el SDK de GNOME
+flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
+
+# Compila e instala desde este checkout
+flatpak-builder --user --install --force-clean build-flatpak com.dprietob.queue.yaml
+
+# Ejecuta
+flatpak run com.dprietob.queue
+```
+
+Para publicar en **Flathub**, en el módulo `queue` del manifiesto se debe sustituir la fuente local (`type: dir`) por la versión etiquetada del repositorio público (`type: git` con `tag` y `commit`), y las URLs de capturas del metainfo deben apuntar a la rama publicada.
+
 ## Almacenamiento de datos
 
 Las tareas se guardan en una base de datos SQLite dentro del directorio de datos del usuario (XDG):
@@ -142,15 +159,17 @@ queue/
 ├── tests/
 │   ├── feature/                 # Tests de casos de uso completos
 │   └── unit/                    # Tests de actions y services
+├── com.dprietob.queue.yaml                  # Manifiesto Flatpak / Flathub
 ├── data/
-│   ├── com.dprietob.queue.desktop.in       # Acceso directo freedesktop
-│   ├── com.dprietob.queue.appdata.xml.in   # Metadatos AppStream / GNOME Software
-│   └── icons/hicolor/scalable/apps/
-│       └── com.dprietob.queue.svg          # Icono de la aplicación
+│   ├── com.dprietob.queue.desktop.in        # Acceso directo freedesktop
+│   ├── com.dprietob.queue.metainfo.xml.in   # Metadatos AppStream / GNOME Software
+│   └── icons/hicolor/<size>/apps/
+│       └── com.dprietob.queue.png           # Icono de la aplicación (64–512 px)
+├── screenshots/                             # Capturas usadas por el metainfo
 └── po/
     ├── LINGUAS                  # Idiomas disponibles
     ├── POTFILES                 # Ficheros fuente con cadenas traducibles
-    └── es.po                    # Traducción al español
+    └── *.po                     # Traducciones (es, fr, de, it, pt, zh_CN, ja)
 ```
 
 ### Añadir un nuevo idioma

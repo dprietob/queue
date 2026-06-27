@@ -235,8 +235,38 @@ msgstr "attività;gestore;organizzare;"
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue è un gestore di attività semplice e veloce."
 
-msgid "Write task in the editor"
-msgstr "Scrivi un’attività nell’editor"
+msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
+msgstr "Organizza le tue attività in gruppi, contrassegnale come completate o importanti, riordinale trascinandole e mantieni i tuoi dati al sicuro con i backup integrati."
+
+msgid "Features:"
+msgstr "Funzionalità:"
+
+msgid "Organize tasks into custom, color-coded groups"
+msgstr "Organizza le attività in gruppi personalizzati e colorati"
+
+msgid "Mark tasks as completed or important"
+msgstr "Contrassegna le attività come completate o importanti"
+
+msgid "Add optional descriptions and reorder by dragging"
+msgstr "Aggiungi descrizioni facoltative e riordina trascinando"
+
+msgid "Export and restore all your data as JSON"
+msgstr "Esporta e ripristina tutti i tuoi dati in formato JSON"
+
+msgid "Light and dark styles, available in several languages"
+msgstr "Stili chiaro e scuro, disponibile in diverse lingue"
+
+msgid "Tasks organized by group"
+msgstr "Attività organizzate per gruppo"
+
+msgid "Dark style"
+msgstr "Stile scuro"
+
+msgid "Create and edit tasks with details"
+msgstr "Crea e modifica attività con dettagli"
 
 msgid "Initial release."
 msgstr "Versione iniziale."
+
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"

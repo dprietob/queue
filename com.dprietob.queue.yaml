@@ -1,0 +1,39 @@
+# Flatpak manifest for Queue.
+#
+# Local build and test (requires flatpak-builder):
+#   flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
+#   flatpak-builder --user --install --force-clean build-flatpak com.dprietob.queue.yaml
+#   flatpak run com.dprietob.queue
+#
+# For Flathub submission the "queue" module source must point at a tagged
+# commit of the public repository (see the commented block below).
+app-id: com.dprietob.queue
+runtime: org.gnome.Platform
+runtime-version: '48'
+sdk: org.gnome.Sdk
+command: queue
+
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - '*.a'
+  - '*.la'
+
+modules:
+  - name: queue
+    buildsystem: meson
+    sources:
+      # Local sources, for building straight from this checkout.
+      - type: dir
+        path: .
+      # For Flathub, replace the source above with the tagged release:
+      # - type: git
+      #   url: https://github.com/dprietob/collie.git
+      #   tag: '1.0.0'
+      #   commit: <fill-in-the-commit-hash-of-the-1.0.0-tag>

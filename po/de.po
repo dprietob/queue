@@ -235,8 +235,38 @@ msgstr "Aufgabe;Aufgaben;Verwaltung;organisieren;"
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue ist eine einfache, schnelle Aufgabenverwaltung."
 
-msgid "Write task in the editor"
-msgstr "Aufgabe im Editor schreiben"
+msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
+msgstr "Organisieren Sie Ihre Aufgaben in Gruppen, markieren Sie sie als erledigt oder wichtig, ordnen Sie sie per Ziehen und Ablegen neu an und sichern Sie Ihre Daten mit den integrierten Sicherungen."
+
+msgid "Features:"
+msgstr "Funktionen:"
+
+msgid "Organize tasks into custom, color-coded groups"
+msgstr "Aufgaben in benutzerdefinierten, farbigen Gruppen organisieren"
+
+msgid "Mark tasks as completed or important"
+msgstr "Aufgaben als erledigt oder wichtig markieren"
+
+msgid "Add optional descriptions and reorder by dragging"
+msgstr "Optionale Beschreibungen hinzufügen und per Ziehen neu anordnen"
+
+msgid "Export and restore all your data as JSON"
+msgstr "Alle Daten als JSON exportieren und wiederherstellen"
+
+msgid "Light and dark styles, available in several languages"
+msgstr "Helles und dunkles Erscheinungsbild, in mehreren Sprachen verfügbar"
+
+msgid "Tasks organized by group"
+msgstr "Nach Gruppe geordnete Aufgaben"
+
+msgid "Dark style"
+msgstr "Dunkles Erscheinungsbild"
+
+msgid "Create and edit tasks with details"
+msgstr "Aufgaben mit Details erstellen und bearbeiten"
 
 msgid "Initial release."
 msgstr "Erste Veröffentlichung."
+
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"

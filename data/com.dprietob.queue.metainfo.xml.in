@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.dprietob.queue</id>
+
+  <name>Queue</name>
+  <summary translatable="yes">Task manager</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <developer id="com.dprietob">
+    <name translatable="no">Daniel Prieto</name>
+  </developer>
+
+  <description>
+    <p translatable="yes">
+      Queue is a simple, fast task manager.
+    </p>
+    <p translatable="yes">
+      Organize your tasks into groups, mark them as done or important, reorder
+      them with drag and drop, and keep your data safe with built-in backups.
+    </p>
+    <p translatable="yes">Features:</p>
+    <ul>
+      <li translatable="yes">Organize tasks into custom, color-coded groups</li>
+      <li translatable="yes">Mark tasks as completed or important</li>
+      <li translatable="yes">Add optional descriptions and reorder by dragging</li>
+      <li translatable="yes">Export and restore all your data as JSON</li>
+      <li translatable="yes">Light and dark styles, available in several languages</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">com.dprietob.queue.desktop</launchable>
+
+  <url type="homepage">https://github.com/dprietob/collie</url>
+  <url type="bugtracker">https://github.com/dprietob/collie/issues</url>
+  <url type="vcs-browser">https://github.com/dprietob/collie</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption translatable="yes">Tasks organized by group</caption>
+      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/main.png</image>
+    </screenshot>
+    <screenshot>
+      <caption translatable="yes">Dark style</caption>
+      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/main_dark.png</image>
+    </screenshot>
+    <screenshot>
+      <caption translatable="yes">Create and edit tasks with details</caption>
+      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/task.png</image>
+    </screenshot>
+  </screenshots>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#dc8add</color>
+    <color type="primary" scheme_preference="dark">#613583</color>
+  </branding>
+
+  <releases>
+    <release version="1.0.0" date="2026-04-12" type="stable">
+      <description>
+        <p translatable="yes">Initial release.</p>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1" />
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+</component>
