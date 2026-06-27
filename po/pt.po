@@ -1,4 +1,4 @@
-# Spanish translation for Queue.
+# Portuguese translation for Queue.
 # Copyleft (🄯) 2026 Daniel Prieto
 # This file is distributed under the same license as the Queue package.
 #
@@ -9,47 +9,47 @@ msgstr ""
 "POT-Creation-Date: 2026-06-27 02:58+0200\n"
 "PO-Revision-Date: 2026-06-27 00:00+0000\n"
 "Last-Translator: Daniel Prieto\n"
-"Language-Team: Spanish\n"
-"Language: es\n"
+"Language-Team: Portuguese\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Restart Queue to apply the new language."
-msgstr "Reinicia Queue para aplicar el nuevo idioma."
+msgstr "Reinicie o Queue para aplicar o novo idioma."
 
 msgid "New Group"
-msgstr "Nuevo grupo"
+msgstr "Novo grupo"
 
 msgid "Edit Group"
 msgstr "Editar grupo"
 
 #, c-format
 msgid "\"%s\" and all of its tasks will be permanently deleted."
-msgstr "«%s» y todas sus tareas se eliminarán de forma permanente."
+msgstr "«%s» e todas as suas tarefas serão eliminados permanentemente."
 
 msgid "Delete Group?"
-msgstr "¿Eliminar grupo?"
+msgstr "Eliminar grupo?"
 
 msgid "New Task"
-msgstr "Nueva tarea"
+msgstr "Nova tarefa"
 
 msgid "Edit Task"
-msgstr "Editar tarea"
+msgstr "Editar tarefa"
 
 #, c-format
 msgid "\"%s\" will be permanently deleted."
-msgstr "«%s» se eliminará de forma permanente."
+msgstr "«%s» será eliminada permanentemente."
 
 msgid "Delete Task?"
-msgstr "¿Eliminar tarea?"
+msgstr "Eliminar tarefa?"
 
 msgid "Group name"
-msgstr "Nombre del grupo"
+msgstr "Nome do grupo"
 
 msgid "Color"
-msgstr "Color"
+msgstr "Cor"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -61,7 +61,7 @@ msgid "Title"
 msgstr "Título"
 
 msgid "Description (optional)"
-msgstr "Descripción (opcional)"
+msgstr "Descrição (opcional)"
 
 msgid "Important"
 msgstr "Importante"
@@ -70,97 +70,97 @@ msgid "Delete"
 msgstr "Eliminar"
 
 msgid "Export Backup"
-msgstr "Exportar copia de seguridad"
+msgstr "Exportar cópia de segurança"
 
 msgid "Exporting Backup…"
-msgstr "Exportando copia de seguridad…"
+msgstr "A exportar cópia de segurança…"
 
 msgid "Backup exported."
-msgstr "Copia de seguridad exportada."
+msgstr "Cópia de segurança exportada."
 
 msgid "Restore Backup"
-msgstr "Restaurar copia de seguridad"
+msgstr "Restaurar cópia de segurança"
 
 msgid "Restore Backup?"
-msgstr "¿Restaurar copia de seguridad?"
+msgstr "Restaurar cópia de segurança?"
 
 msgid "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."
-msgstr "Todos los grupos y tareas actuales se eliminarán de forma permanente y se reemplazarán por el contenido del archivo de copia de seguridad."
+msgstr "Todos os grupos e tarefas atuais serão eliminados permanentemente e substituídos pelo conteúdo do ficheiro de cópia de segurança."
 
 msgid "Delete and Restore"
-msgstr "Eliminar y restaurar"
+msgstr "Eliminar e restaurar"
 
 msgid "Restoring Backup…"
-msgstr "Restaurando copia de seguridad…"
+msgstr "A restaurar cópia de segurança…"
 
 msgid "Backup restored."
-msgstr "Copia de seguridad restaurada."
+msgstr "Cópia de segurança restaurada."
 
 msgid "The group name cannot be empty."
-msgstr "El nombre del grupo no puede estar vacío."
+msgstr "O nome do grupo não pode estar vazio."
 
 #, c-format
 msgid "The group name must be at most %d characters."
-msgstr "El nombre del grupo debe tener como máximo %d caracteres."
+msgstr "O nome do grupo deve ter no máximo %d caracteres."
 
 msgid "A group with this name already exists."
-msgstr "Ya existe un grupo con este nombre."
+msgstr "Já existe um grupo com este nome."
 
 msgid "Theme"
 msgstr "Tema"
 
 msgid "Follow System"
-msgstr "Seguir al sistema"
+msgstr "Seguir o sistema"
 
 msgid "Light"
 msgstr "Claro"
 
 msgid "Dark"
-msgstr "Oscuro"
+msgstr "Escuro"
 
 msgid "Language"
 msgstr "Idioma"
 
 msgid "Backup"
-msgstr "Copia de seguridad"
+msgstr "Cópia de segurança"
 
 msgid "Export Backup…"
-msgstr "Exportar copia de seguridad…"
+msgstr "Exportar cópia de segurança…"
 
 msgid "Restore Backup…"
-msgstr "Restaurar copia de seguridad…"
+msgstr "Restaurar cópia de segurança…"
 
 msgid "About Queue"
-msgstr "Acerca de Queue"
+msgstr "Acerca do Queue"
 
 msgid "Groups"
 msgstr "Grupos"
 
 msgid "Main Menu"
-msgstr "Menú principal"
+msgstr "Menu principal"
 
 msgid "Drag to reorder"
-msgstr "Arrastra para reordenar"
+msgstr "Arraste para reordenar"
 
 msgid "Rename Group"
-msgstr "Renombrar grupo"
+msgstr "Renomear grupo"
 
 msgid "Delete Group"
 msgstr "Eliminar grupo"
 
 msgid "The task title cannot be empty."
-msgstr "El título de la tarea no puede estar vacío."
+msgstr "O título da tarefa não pode estar vazio."
 
 #, c-format
 msgid "The task title must be at most %d characters."
-msgstr "El título de la tarea debe tener como máximo %d caracteres."
+msgstr "O título da tarefa deve ter no máximo %d caracteres."
 
 #, c-format
 msgid "The description must be at most %d characters."
-msgstr "La descripción debe tener como máximo %d caracteres."
+msgstr "A descrição deve ter no máximo %d caracteres."
 
 msgid "Tasks"
-msgstr "Tareas"
+msgstr "Tarefas"
 
 #, c-format
 msgid "Total: %u"
@@ -168,18 +168,18 @@ msgstr "Total: %u"
 
 #, c-format
 msgid "Pending: %u"
-msgstr "Pendientes: %u"
+msgstr "Pendentes: %u"
 
 #, c-format
 msgid "Completed: %u"
-msgstr "Completadas: %u"
+msgstr "Concluídas: %u"
 
 #, c-format
 msgid "Important: %u"
 msgstr "Importantes: %u"
 
 msgid "Search Tasks"
-msgstr "Buscar tareas"
+msgstr "Procurar tarefas"
 
 msgid "Filter by status"
 msgstr "Filtrar por estado"
@@ -188,55 +188,55 @@ msgid "All"
 msgstr "Todas"
 
 msgid "Pending"
-msgstr "Pendientes"
+msgstr "Pendentes"
 
 msgid "Completed"
-msgstr "Completadas"
+msgstr "Concluídas"
 
 msgid "Filter tasks by name…"
-msgstr "Filtrar tareas por nombre…"
+msgstr "Filtrar tarefas por nome…"
 
 msgid "No Group Selected"
-msgstr "Ningún grupo seleccionado"
+msgstr "Nenhum grupo selecionado"
 
 msgid "Select a group to see its tasks."
-msgstr "Selecciona un grupo para ver sus tareas."
+msgstr "Selecione um grupo para ver as suas tarefas."
 
 msgid "No Tasks Yet"
-msgstr "Aún no hay tareas"
+msgstr "Ainda sem tarefas"
 
 msgid "Add your first task to this group."
-msgstr "Añade tu primera tarea a este grupo."
+msgstr "Adicione a sua primeira tarefa a este grupo."
 
 msgid "The backup file is not valid."
-msgstr "El archivo de copia de seguridad no es válido."
+msgstr "O ficheiro de cópia de segurança não é válido."
 
 msgid "Toggle Completed"
-msgstr "Alternar completada"
+msgstr "Alternar concluída"
 
 msgid "Show Description"
-msgstr "Mostrar descripción"
+msgstr "Mostrar descrição"
 
 msgid "Delete Task"
-msgstr "Eliminar tarea"
+msgstr "Eliminar tarefa"
 
 msgid "Queue"
 msgstr "Queue"
 
 msgid "Task manager"
-msgstr "Gestor de tareas"
+msgstr "Gestor de tarefas"
 
 msgid "Manage and organize tasks"
-msgstr "Gestiona y organiza tareas"
+msgstr "Gerir e organizar tarefas"
 
 msgid "task;manager;organize;"
-msgstr "tarea;tareas;gestor;organizar;"
+msgstr "tarefa;tarefas;gestor;organizar;"
 
 msgid "Queue is a simple, fast task manager."
-msgstr "Queue es un gestor de tareas sencillo y rápido."
+msgstr "O Queue é um gestor de tarefas simples e rápido."
 
 msgid "Write task in the editor"
-msgstr "Escribe una tarea en el editor"
+msgstr "Escrever uma tarefa no editor"
 
 msgid "Initial release."
-msgstr "Versión inicial."
+msgstr "Versão inicial."

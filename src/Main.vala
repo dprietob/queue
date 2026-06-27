@@ -54,8 +54,9 @@ namespace Queue {
             add_action(quit_action);
             set_accels_for_action("app.quit", { "<Control>q" });
 
-            // Stateful action backed by GSettings, so the choice is persisted.
+            // Stateful actions backed by GSettings, so the choices are persisted.
             add_action(settings.create_action("color-scheme"));
+            add_action(settings.create_action("language"));
 
             var about_action = new SimpleAction("about", null);
             about_action.activate.connect(() => show_about());
@@ -107,32 +108,68 @@ namespace Queue {
     }
 }
 
+// Returns the directory of the running executable, or null if it cannot be
+// resolved.
+string? executable_directory()
+{
+    try {
+        return Path.get_dirname(FileUtils.read_link("/proc/self/exe"));
+    } catch (FileError error) {
+        return null;
+    }
+}
+
 // When running from the build tree the compiled GSettings schema sits next to
 // the executable in data/; point GSettings there so the app works uninstalled.
 // Installed runs find the schema in the system directory and skip this.
 void use_local_schemas_if_present()
 {
-    string executable_path;
-    try {
-        executable_path = FileUtils.read_link("/proc/self/exe");
-    } catch (FileError error) {
+    var directory = executable_directory();
+    if (directory == null) {
         return;
     }
 
-    var schema_directory = Path.build_filename(Path.get_dirname(executable_path), "data");
+    var schema_directory = Path.build_filename(directory, "data");
     if (FileUtils.test(Path.build_filename(schema_directory, "gschemas.compiled"), FileTest.EXISTS)) {
         Environment.set_variable("GSETTINGS_SCHEMA_DIR", schema_directory, true);
     }
 }
 
+// Resolves the message-catalog directory: the build tree's po/ when running
+// uninstalled, otherwise the installed locale directory.
+string locale_directory()
+{
+    var directory = executable_directory();
+    if (directory != null) {
+        var local_locale = Path.build_filename(directory, "po");
+        if (FileUtils.test(local_locale, FileTest.IS_DIR)) {
+            return local_locale;
+        }
+    }
+    return Config.LOCALEDIR;
+}
+
+// Applies the language saved in GSettings by exporting it through LANGUAGE, so
+// gettext loads that catalog. An empty preference leaves the system locale
+// untouched. Must run before setlocale so the choice takes effect.
+void apply_language_preference()
+{
+    var settings = new Settings(Config.APP_ID);
+    var language = settings.get_string("language");
+    if (language != "") {
+        Environment.set_variable("LANGUAGE", language, true);
+    }
+}
+
 int main(string[] arguments)
 {
+    use_local_schemas_if_present();
+    apply_language_preference();
+
     Intl.setlocale(LocaleCategory.ALL, "");
-    Intl.bindtextdomain(Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
+    Intl.bindtextdomain(Config.GETTEXT_PACKAGE, locale_directory());
     Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "UTF-8");
     Intl.textdomain(Config.GETTEXT_PACKAGE);
-
-    use_local_schemas_if_present();
 
     var application = new Queue.Application();
     return application.run(arguments);

@@ -35,6 +35,12 @@ namespace Queue {
             settings.bind("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
             settings.bind("window-maximized", this, "maximized", SettingsBindFlags.DEFAULT);
 
+            // The language is applied at startup, so a change only takes effect
+            // on the next launch.
+            settings.changed["language"].connect(() => {
+                toast_overlay.add_toast(new Adw.Toast(_("Restart Queue to apply the new language.")));
+            });
+
             this.database = database;
             group_controller = new GroupSidebarController(database);
             task_controller = new TaskListController(database);

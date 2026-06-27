@@ -1,0 +1,242 @@
+# Japanese translation for Queue.
+# Copyleft (🄯) 2026 Daniel Prieto
+# This file is distributed under the same license as the Queue package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: queue 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-27 02:58+0200\n"
+"PO-Revision-Date: 2026-06-27 00:00+0000\n"
+"Last-Translator: Daniel Prieto\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Restart Queue to apply the new language."
+msgstr "新しい言語を適用するには Queue を再起動してください。"
+
+msgid "New Group"
+msgstr "新しいグループ"
+
+msgid "Edit Group"
+msgstr "グループを編集"
+
+#, c-format
+msgid "\"%s\" and all of its tasks will be permanently deleted."
+msgstr "「%s」とそのすべてのタスクが完全に削除されます。"
+
+msgid "Delete Group?"
+msgstr "グループを削除しますか？"
+
+msgid "New Task"
+msgstr "新しいタスク"
+
+msgid "Edit Task"
+msgstr "タスクを編集"
+
+#, c-format
+msgid "\"%s\" will be permanently deleted."
+msgstr "「%s」が完全に削除されます。"
+
+msgid "Delete Task?"
+msgstr "タスクを削除しますか？"
+
+msgid "Group name"
+msgstr "グループ名"
+
+msgid "Color"
+msgstr "色"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Description (optional)"
+msgstr "説明（任意）"
+
+msgid "Important"
+msgstr "重要"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Export Backup"
+msgstr "バックアップをエクスポート"
+
+msgid "Exporting Backup…"
+msgstr "バックアップをエクスポートしています…"
+
+msgid "Backup exported."
+msgstr "バックアップをエクスポートしました。"
+
+msgid "Restore Backup"
+msgstr "バックアップを復元"
+
+msgid "Restore Backup?"
+msgstr "バックアップを復元しますか？"
+
+msgid "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."
+msgstr "現在のすべてのグループとタスクは完全に削除され、バックアップファイルの内容に置き換えられます。"
+
+msgid "Delete and Restore"
+msgstr "削除して復元"
+
+msgid "Restoring Backup…"
+msgstr "バックアップを復元しています…"
+
+msgid "Backup restored."
+msgstr "バックアップを復元しました。"
+
+msgid "The group name cannot be empty."
+msgstr "グループ名を空にすることはできません。"
+
+#, c-format
+msgid "The group name must be at most %d characters."
+msgstr "グループ名は最大 %d 文字までです。"
+
+msgid "A group with this name already exists."
+msgstr "この名前のグループはすでに存在します。"
+
+msgid "Theme"
+msgstr "テーマ"
+
+msgid "Follow System"
+msgstr "システムに従う"
+
+msgid "Light"
+msgstr "ライト"
+
+msgid "Dark"
+msgstr "ダーク"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Backup"
+msgstr "バックアップ"
+
+msgid "Export Backup…"
+msgstr "バックアップをエクスポート…"
+
+msgid "Restore Backup…"
+msgstr "バックアップを復元…"
+
+msgid "About Queue"
+msgstr "Queue について"
+
+msgid "Groups"
+msgstr "グループ"
+
+msgid "Main Menu"
+msgstr "メインメニュー"
+
+msgid "Drag to reorder"
+msgstr "ドラッグして並べ替え"
+
+msgid "Rename Group"
+msgstr "グループ名を変更"
+
+msgid "Delete Group"
+msgstr "グループを削除"
+
+msgid "The task title cannot be empty."
+msgstr "タスクのタイトルを空にすることはできません。"
+
+#, c-format
+msgid "The task title must be at most %d characters."
+msgstr "タスクのタイトルは最大 %d 文字までです。"
+
+#, c-format
+msgid "The description must be at most %d characters."
+msgstr "説明は最大 %d 文字までです。"
+
+msgid "Tasks"
+msgstr "タスク"
+
+#, c-format
+msgid "Total: %u"
+msgstr "合計: %u"
+
+#, c-format
+msgid "Pending: %u"
+msgstr "未完了: %u"
+
+#, c-format
+msgid "Completed: %u"
+msgstr "完了: %u"
+
+#, c-format
+msgid "Important: %u"
+msgstr "重要: %u"
+
+msgid "Search Tasks"
+msgstr "タスクを検索"
+
+msgid "Filter by status"
+msgstr "状態で絞り込み"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Pending"
+msgstr "未完了"
+
+msgid "Completed"
+msgstr "完了"
+
+msgid "Filter tasks by name…"
+msgstr "名前でタスクを絞り込み…"
+
+msgid "No Group Selected"
+msgstr "グループが選択されていません"
+
+msgid "Select a group to see its tasks."
+msgstr "グループを選択するとタスクが表示されます。"
+
+msgid "No Tasks Yet"
+msgstr "タスクがまだありません"
+
+msgid "Add your first task to this group."
+msgstr "このグループに最初のタスクを追加しましょう。"
+
+msgid "The backup file is not valid."
+msgstr "バックアップファイルが無効です。"
+
+msgid "Toggle Completed"
+msgstr "完了を切り替え"
+
+msgid "Show Description"
+msgstr "説明を表示"
+
+msgid "Delete Task"
+msgstr "タスクを削除"
+
+msgid "Queue"
+msgstr "Queue"
+
+msgid "Task manager"
+msgstr "タスク管理"
+
+msgid "Manage and organize tasks"
+msgstr "タスクの管理と整理"
+
+msgid "task;manager;organize;"
+msgstr "タスク;管理;整理;task;manager;organize;"
+
+msgid "Queue is a simple, fast task manager."
+msgstr "Queue はシンプルで高速なタスク管理アプリです。"
+
+msgid "Write task in the editor"
+msgstr "エディターでタスクを書く"
+
+msgid "Initial release."
+msgstr "初回リリース。"

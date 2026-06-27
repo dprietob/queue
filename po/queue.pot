@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the queue package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: queue\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-27 03:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. The language is applied at startup, so a change only takes effect
+#. on the next launch.
+#: src/Window.vala:41
+msgid "Restart Queue to apply the new language."
+msgstr ""
+
+#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:110
+msgid "New Group"
+msgstr ""
+
+#: src/Window.vala:101
+msgid "Edit Group"
+msgstr ""
+
+#: src/Window.vala:108
+#, c-format
+msgid "\"%s\" and all of its tasks will be permanently deleted."
+msgstr ""
+
+#: src/Window.vala:110
+msgid "Delete Group?"
+msgstr ""
+
+#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:21
+#: src/modules/Tasks/ui/task-list-panel.ui:76
+msgid "New Task"
+msgstr ""
+
+#: src/Window.vala:128 src/modules/Tasks/ui/task-row.ui:65
+msgid "Edit Task"
+msgstr ""
+
+#: src/Window.vala:136
+#, c-format
+msgid "\"%s\" will be permanently deleted."
+msgstr ""
+
+#: src/Window.vala:137
+msgid "Delete Task?"
+msgstr ""
+
+#: src/Window.vala:159
+msgid "Group name"
+msgstr ""
+
+#: src/Window.vala:176
+msgid "Color"
+msgstr ""
+
+#: src/Window.vala:186 src/Window.vala:260 src/Window.vala:313
+#: src/Window.vala:378
+msgid "Cancel"
+msgstr ""
+
+#: src/Window.vala:187 src/Window.vala:261
+msgid "Save"
+msgstr ""
+
+#: src/Window.vala:220
+msgid "Title"
+msgstr ""
+
+#: src/Window.vala:245
+msgid "Description (optional)"
+msgstr ""
+
+#: src/Window.vala:255 src/modules/Tasks/ui/task-row.ui:55
+msgid "Important"
+msgstr ""
+
+#: src/Window.vala:314
+msgid "Delete"
+msgstr ""
+
+#: src/Window.vala:330
+msgid "Export Backup"
+msgstr ""
+
+#: src/Window.vala:342
+msgid "Exporting Backup…"
+msgstr ""
+
+#: src/Window.vala:349
+msgid "Backup exported."
+msgstr ""
+
+#: src/Window.vala:357
+msgid "Restore Backup"
+msgstr ""
+
+#: src/Window.vala:374
+msgid "Restore Backup?"
+msgstr ""
+
+#: src/Window.vala:376
+msgid ""
+"All current groups and tasks will be permanently deleted and replaced with "
+"the contents of the backup file."
+msgstr ""
+
+#: src/Window.vala:379
+msgid "Delete and Restore"
+msgstr ""
+
+#: src/Window.vala:390
+msgid "Restoring Backup…"
+msgstr ""
+
+#: src/Window.vala:401
+msgid "Backup restored."
+msgstr ""
+
+#: src/modules/Groups/validators/GroupStoreValidator.vala:29
+msgid "The group name cannot be empty."
+msgstr ""
+
+#: src/modules/Groups/validators/GroupStoreValidator.vala:31
+#, c-format
+msgid "The group name must be at most %d characters."
+msgstr ""
+
+#: src/modules/Groups/validators/GroupStoreValidator.vala:32
+msgid "A group with this name already exists."
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:8
+msgid "Theme"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:10
+#: src/modules/Groups/ui/group-sidebar.ui:28
+msgid "Follow System"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:15
+msgid "Light"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:20
+msgid "Dark"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:26
+msgid "Language"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:74
+msgid "Backup"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:76
+msgid "Export Backup…"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:80
+msgid "Restore Backup…"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:87
+msgid "About Queue"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:93
+msgid "Groups"
+msgstr ""
+
+#: src/modules/Groups/ui/group-sidebar.ui:102
+msgid "Main Menu"
+msgstr ""
+
+#: src/modules/Groups/ui/group-row.ui:16 src/modules/Tasks/ui/task-row.ui:19
+msgid "Drag to reorder"
+msgstr ""
+
+#: src/modules/Groups/ui/group-row.ui:33
+msgid "Rename Group"
+msgstr ""
+
+#: src/modules/Groups/ui/group-row.ui:43
+msgid "Delete Group"
+msgstr ""
+
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:30
+msgid "The task title cannot be empty."
+msgstr ""
+
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:32
+#, c-format
+msgid "The task title must be at most %d characters."
+msgstr ""
+
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:34
+#, c-format
+msgid "The description must be at most %d characters."
+msgstr ""
+
+#: src/modules/Tasks/ui/TaskListPanel.vala:83
+#: src/modules/Tasks/ui/task-list-panel.ui:6
+msgid "Tasks"
+msgstr ""
+
+#: src/modules/Tasks/ui/TaskListPanel.vala:158
+#, c-format
+msgid "Total: %u"
+msgstr ""
+
+#: src/modules/Tasks/ui/TaskListPanel.vala:159
+#, c-format
+msgid "Pending: %u"
+msgstr ""
+
+#: src/modules/Tasks/ui/TaskListPanel.vala:160
+#, c-format
+msgid "Completed: %u"
+msgstr ""
+
+#: src/modules/Tasks/ui/TaskListPanel.vala:161
+#, c-format
+msgid "Important: %u"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:14
+msgid "Search Tasks"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:27
+msgid "Filter by status"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:32
+msgid "All"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:33
+msgid "Pending"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:34
+msgid "Completed"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:46
+msgid "Filter tasks by name…"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:60
+msgid "No Group Selected"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:61
+msgid "Select a group to see its tasks."
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:72
+msgid "No Tasks Yet"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-list-panel.ui:73
+msgid "Add your first task to this group."
+msgstr ""
+
+#: src/modules/Backup/services/BackupSerializer.vala:56
+msgid "The backup file is not valid."
+msgstr ""
+
+#: src/modules/Tasks/ui/task-row.ui:28
+msgid "Toggle Completed"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-row.ui:44
+msgid "Show Description"
+msgstr ""
+
+#: src/modules/Tasks/ui/task-row.ui:75
+msgid "Delete Task"
+msgstr ""
+
+#: data/com.dprietob.queue.desktop.in:2
+#: data/com.dprietob.queue.appdata.xml.in:5
+msgid "Queue"
+msgstr ""
+
+#: data/com.dprietob.queue.desktop.in:3
+#: data/com.dprietob.queue.appdata.xml.in:6
+msgid "Task manager"
+msgstr ""
+
+#: data/com.dprietob.queue.desktop.in:4
+msgid "Manage and organize tasks"
+msgstr ""
+
+#: data/com.dprietob.queue.desktop.in:10
+msgid "task;manager;organize;"
+msgstr ""
+
+#: data/com.dprietob.queue.appdata.xml.in:12
+msgid "Queue is a simple, fast task manager."
+msgstr ""
+
+#: data/com.dprietob.queue.appdata.xml.in:21
+msgid "Write task in the editor"
+msgstr ""
+
+#: data/com.dprietob.queue.appdata.xml.in:28
+msgid "Initial release."
+msgstr ""
