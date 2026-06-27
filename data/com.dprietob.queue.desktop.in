@@ -6,5 +6,5 @@ Exec=queue
 Icon=com.dprietob.queue
 Terminal=false
 Type=Application
-Categories=Utility;Office;ProjectManagement;
+Categories=Office;ProjectManagement;
 Keywords=task;manager;organize;
