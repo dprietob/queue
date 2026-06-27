@@ -1,202 +1,78 @@
-# queue
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/License-GPL--3.0--or--later-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Flathub Installs](https://img.shields.io/flathub/downloads/com.dprietob.queue?label=Installs)][Flathub]
+[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)
 
-Gestor de tareas de escritorio para Linux, escrito en **Vala** con **GTK4** y **libadwaita**.
+<img src="data/icons/hicolor/256x256/apps/com.dprietob.queue.png?raw=true" width="128" alt="Queue icon">
 
-## Estado
+# Queue
 
-Work in progress.
+A simple, fast task manager for the GNOME desktop.
 
-## Características
+![Queue](screenshots/main.png?raw=true)
 
-- Crea, edita y completa tareas de forma rápida.
-- Organiza las tareas en listas y etiquétalas.
-- Persistencia local en SQLite; sin cuentas ni conexión.
-- Integración nativa con el escritorio: respeta el tema claro/oscuro del sistema.
-- Interfaz GTK4 + libadwaita que sigue las _GNOME Human Interface Guidelines_.
+Queue helps you keep track of what you need to do. Organize your tasks into
+colorful groups, mark the ones that matter, and see everything at a glance.
 
-## Dependencias
+It is a small, focused native app — no accounts, no sync services, no clutter.
+Your tasks live in a local database on your own device.
 
-| Dependencia | Versión mínima | Notas                |
-| ----------- | -------------- | -------------------- |
-| Vala        | 0.56           |                      |
-| GTK4        | 4.12           |                      |
-| libadwaita  | 1.5            | `libadwaita-1`       |
-| SQLite      | 3              | `sqlite3`            |
-| JSON-GLib   | 1.0            | `json-glib-1.0`      |
-| Meson       | 0.62           | Sistema de build     |
-| Ninja       | —              | Backend de Meson     |
-| gettext     | —              | Herramientas de i18n |
+Queue lets you:
 
-En Fedora / RHEL:
+- Group tasks into custom, color-coded lists
+- Mark tasks as completed or important, and reorder them by dragging
+- Add an optional description to any task
+- Filter by status and search within a group
 
-```shell
-sudo dnf install vala vala-devel vala-language-server gtk4-devel libadwaita-devel sqlite-devel json-glib-devel meson ninja-build gettext-devel
-```
+It is also built to keep your data yours:
 
-En Debian / Ubuntu:
+- Back up and restore everything as a single JSON file
+- Fully translated into English, Spanish, French, German, Italian, Portuguese,
+  Simplified Chinese, and Japanese, with light and dark styles
 
-```shell
-sudo apt install valac libvala-dev vala-language-server libgtk-4-dev libadwaita-1-dev libsqlite3-dev libjson-glib-dev meson ninja-build gettext
-```
+## Made for GNOME
 
-En Arch Linux:
+Queue is built with GTK 4 and libadwaita to feel right at home on the GNOME
+desktop, following the GNOME Human Interface Guidelines and respecting the
+system style. Contributions are welcome and are expected to follow the
+[GNOME Code of Conduct].
 
-```shell
-sudo pacman -S vala vala-language-server gtk4 libadwaita sqlite json-glib meson ninja gettext base-devel
-```
+<a href='https://flathub.org/apps/com.dprietob.queue'><img width='196' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/></a>
 
-## Compilación y ejecución
+## Your data stays on your device
 
-```shell
-# Clona el repositorio
-git clone git@github.com:dprietob/queue.git
-cd queue
+Queue keeps your tasks in a local SQLite database inside your user data
+directory — there is no online account and nothing leaves your computer.
+App preferences such as the theme and window state are stored with GSettings.
 
-# Configura el build en el directorio _build/
-meson setup _build
+Built-in backups let you export everything to a single JSON file and restore it
+whenever you like, so moving your data between machines is always under your
+control.
 
-# Compila
-ninja -C _build
+## Developing and Building
 
-# Ejecuta directamente desde el directorio de build
-./_build/queue
-```
+The easiest way to build and run Queue is with [GNOME Builder]: open the
+project and press Run.
 
-### Instalación en el sistema
+To build the Flatpak from the command line:
 
 ```shell
-# Instala en /usr/local (o el prefix configurado)
-sudo ninja -C _build install
-
-# Ejecuta como cualquier otra aplicación
-queue
-```
-
-Para desinstalar:
-
-```shell
-sudo ninja -C _build uninstall
-```
-
-### Prefix personalizado
-
-```shell
-# Instalar en ~/.local (sin sudo)
-meson setup _build --prefix ~/.local
-ninja -C _build
-ninja -C _build install
-```
-
-### Flatpak / Flathub
-
-El proyecto incluye el manifiesto [`com.dprietob.queue.yaml`](com.dprietob.queue.yaml), basado en el runtime `org.gnome.Platform`. Para compilar e instalar localmente con `flatpak-builder`:
-
-```shell
-# Instala el runtime y el SDK de GNOME
 flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
-
-# Compila e instala desde este checkout
 flatpak-builder --user --install --force-clean build-flatpak com.dprietob.queue.yaml
-
-# Ejecuta
 flatpak run com.dprietob.queue
 ```
 
-Para publicar en **Flathub**, en el módulo `queue` del manifiesto se debe sustituir la fuente local (`type: dir`) por la versión etiquetada del repositorio público (`type: git` con `tag` y `commit`), y las URLs de capturas del metainfo deben apuntar a la rama publicada.
-
-## Almacenamiento de datos
-
-Las tareas se guardan en una base de datos SQLite dentro del directorio de datos del usuario (XDG):
-
-```
-~/.local/share/queue/queue.db
-```
-
-Las preferencias de la aplicación (tema, estado de ventana) se gestionan con **GSettings**.
-
-## Desarrollo
-
-> La arquitectura del proyecto está descrita en [`ARCHITECTURE.md`](ARCHITECTURE.md) y las convenciones de desarrollo en [`CLAUDE.md`](CLAUDE.md).
-
-### Recompilar tras cambios
-
-Meson detecta automáticamente los cambios en los ficheros fuente; basta con volver a ejecutar `ninja`:
+Or build natively with Meson and Ninja:
 
 ```shell
+meson setup _build
 ninja -C _build
+./_build/queue
 ```
 
-Si modificas `meson.build` o `meson_options.txt`, Meson se regenera solo al invocar `ninja`.
+Run the tests with `meson test -C _build`. Architecture and contribution
+conventions are documented in [ARCHITECTURE.md](ARCHITECTURE.md) and
+[CLAUDE.md](CLAUDE.md).
 
-### Tests
-
-```shell
-meson test -C _build
-```
-
-### Estructura del proyecto
-
-```
-queue/
-├── meson.build                  # Build principal
-├── meson_options.txt            # Opciones: profile (default/development)
-├── src/
-│   ├── Main.vala                # Punto de entrada y clase Adw.Application
-│   ├── Config.vapi              # Constantes generadas por Meson (APP_ID, VERSION…)
-│   ├── config/                  # Configuración global y acceso a GSettings
-│   ├── database/
-│   │   ├── migrations/          # Migraciones de esquema SQLite
-│   │   └── seeders/             # Datos iniciales (primer arranque)
-│   └── modules/
-│       └── Tasks/               # Módulo de tareas
-│           ├── models/          # Acceso a datos (única capa que habla con SQLite)
-│           ├── factories/       # Factorías de modelos (tests)
-│           ├── validators/      # Validación de datos
-│           ├── actions/         # Casos de uso atómicos
-│           ├── controllers/     # Controladores de UI (presenters)
-│           ├── services/        # Lógica reutilizable entre actions
-│           └── ui/              # Widgets GTK4 y plantillas .ui
-├── tests/
-│   ├── feature/                 # Tests de casos de uso completos
-│   └── unit/                    # Tests de actions y services
-├── com.dprietob.queue.yaml                  # Manifiesto Flatpak / Flathub
-├── data/
-│   ├── com.dprietob.queue.desktop.in        # Acceso directo freedesktop
-│   ├── com.dprietob.queue.metainfo.xml.in   # Metadatos AppStream / GNOME Software
-│   └── icons/hicolor/<size>/apps/
-│       └── com.dprietob.queue.png           # Icono de la aplicación (64–512 px)
-├── screenshots/                             # Capturas usadas por el metainfo
-└── po/
-    ├── LINGUAS                  # Idiomas disponibles
-    ├── POTFILES                 # Ficheros fuente con cadenas traducibles
-    └── *.po                     # Traducciones (es, fr, de, it, pt, zh_CN, ja)
-```
-
-### Añadir un nuevo idioma
-
-1. Añade el código de idioma a `po/LINGUAS` (p. ej. `fr`).
-2. Genera el fichero `.po` inicial desde el directorio `_build/`:
-
-```shell
-ninja -C _build queue-pot       # Actualiza el fichero .pot
-msginit -l fr -o po/fr.po -i _build/po/queue.pot
-```
-
-3. Traduce las cadenas en `po/fr.po`.
-4. Recompila con `ninja -C _build`.
-
-### Actualizar las cadenas traducibles
-
-Cuando se añaden o modifican cadenas en el código:
-
-```shell
-ninja -C _build queue-update-po
-```
-
-Esto actualiza todos los ficheros `.po` existentes con las nuevas cadenas.
-
-## ID de la aplicación
-
-`com.dprietob.queue`
-
-Sigue la convención de nomenclatura inversa de dominios de freedesktop / GNOME.
+[Flathub]: https://flathub.org/apps/com.dprietob.queue
+[GNOME Builder]: https://apps.gnome.org/Builder/
+[GNOME Code of Conduct]: https://conduct.gnome.org
