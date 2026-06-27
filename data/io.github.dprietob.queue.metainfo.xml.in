@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.dprietob.queue</id>
+  <id>io.github.dprietob.queue</id>
 
   <name>Queue</name>
   <summary translatable="yes">Task manager</summary>
@@ -30,7 +30,7 @@
     </ul>
   </description>
 
-  <launchable type="desktop-id">com.dprietob.queue.desktop</launchable>
+  <launchable type="desktop-id">io.github.dprietob.queue.desktop</launchable>
 
   <url type="homepage">https://github.com/dprietob/queue</url>
   <url type="bugtracker">https://github.com/dprietob/queue/issues</url>

@@ -3,7 +3,7 @@ namespace Queue.Groups {
     // Presents the list of groups and turns user gestures into controller calls.
     // It also owns a display-wide CSS provider that paints each group row with
     // its assigned background color.
-    [GtkTemplate(ui = "/com/dprietob/queue/ui/group-sidebar.ui")]
+    [GtkTemplate(ui = "/io/github/dprietob/queue/ui/group-sidebar.ui")]
     public class GroupSidebar : Adw.NavigationPage
     {
 

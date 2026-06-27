@@ -5,7 +5,7 @@ namespace Queue {
 
     // Application shell. Owns the controllers and wires sidebar and task panel
     // together, presenting dialogs and toasts on behalf of the modules.
-    [GtkTemplate(ui = "/com/dprietob/queue/ui/window.ui")]
+    [GtkTemplate(ui = "/io/github/dprietob/queue/ui/window.ui")]
     public class Window : Adw.ApplicationWindow
     {
 

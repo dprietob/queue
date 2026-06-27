@@ -24,7 +24,7 @@ namespace Queue {
             // Make the bundled application icon resolvable by name, both when
             // installed and when running from the build tree.
             Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
-            .add_resource_path("/com/dprietob/queue/icons");
+            .add_resource_path("/io/github/dprietob/queue/icons");
             // Applied here, not in construct: the style manager needs GTK/Adw
             // to be initialized first.
             bind_color_scheme();

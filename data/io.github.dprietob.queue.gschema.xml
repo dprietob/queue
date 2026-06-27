@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="com.dprietob.queue" path="/com/dprietob/queue/">
+  <schema id="io.github.dprietob.queue" path="/io/github/dprietob/queue/">
     <key name="color-scheme" type="s">
       <choices>
         <choice value="system"/>

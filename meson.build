@@ -10,7 +10,7 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 config_data = configuration_data()
-config_data.set_quoted('CONFIG_APP_ID', 'com.dprietob.queue')
+config_data.set_quoted('CONFIG_APP_ID', 'io.github.dprietob.queue')
 config_data.set_quoted('CONFIG_GETTEXT_PACKAGE', meson.project_name())
 config_data.set_quoted('CONFIG_LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('CONFIG_VERSION', meson.project_version())

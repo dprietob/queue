@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/dprietob/queue/ui">
+  <gresource prefix="/io/github/dprietob/queue/ui">
     <file alias="window.ui" preprocess="xml-stripblanks">data/ui/window.ui</file>
     <file alias="group-sidebar.ui" preprocess="xml-stripblanks">src/modules/Groups/ui/group-sidebar.ui</file>
     <file alias="group-row.ui" preprocess="xml-stripblanks">src/modules/Groups/ui/group-row.ui</file>
     <file alias="task-list-panel.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-list-panel.ui</file>
     <file alias="task-row.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-row.ui</file>
   </gresource>
-  <gresource prefix="/com/dprietob/queue/icons/scalable/apps">
-    <file alias="com.dprietob.queue.svg" preprocess="xml-stripblanks">data/icons/hicolor/scalable/apps/com.dprietob.queue.svg</file>
+  <gresource prefix="/io/github/dprietob/queue/icons/scalable/apps">
+    <file alias="io.github.dprietob.queue.svg" preprocess="xml-stripblanks">data/icons/hicolor/scalable/apps/io.github.dprietob.queue.svg</file>
   </gresource>
-  <gresource prefix="/com/dprietob/queue/icons/256x256/apps">
-    <file alias="com.dprietob.queue.png">data/icons/hicolor/256x256/apps/com.dprietob.queue.png</file>
+  <gresource prefix="/io/github/dprietob/queue/icons/256x256/apps">
+    <file alias="io.github.dprietob.queue.png">data/icons/hicolor/256x256/apps/io.github.dprietob.queue.png</file>
   </gresource>
 </gresources>

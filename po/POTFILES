@@ -7,5 +7,5 @@ src/modules/Tasks/ui/TaskListPanel.vala
 src/modules/Tasks/ui/task-list-panel.ui
 src/modules/Backup/services/BackupSerializer.vala
 src/modules/Tasks/ui/task-row.ui
-data/com.dprietob.queue.desktop.in
-data/com.dprietob.queue.metainfo.xml.in
+data/io.github.dprietob.queue.desktop.in
+data/io.github.dprietob.queue.metainfo.xml.in

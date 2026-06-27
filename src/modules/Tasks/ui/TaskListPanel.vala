@@ -5,7 +5,7 @@ namespace Queue.Tasks {
     // Presents the tasks of the selected group and turns user gestures into
     // controller calls. Shows an empty state when no group is selected, a
     // placeholder when the group has no tasks, and a status bar with metrics.
-    [GtkTemplate(ui = "/com/dprietob/queue/ui/task-list-panel.ui")]
+    [GtkTemplate(ui = "/io/github/dprietob/queue/ui/task-list-panel.ui")]
     public class TaskListPanel : Adw.NavigationPage
     {
 

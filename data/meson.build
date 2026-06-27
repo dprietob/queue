@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'com.dprietob.queue.desktop.in',
-  output: 'com.dprietob.queue.desktop',
+  input: 'io.github.dprietob.queue.desktop.in',
+  output: 'io.github.dprietob.queue.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -16,8 +16,8 @@ if desktop_file_validate.found()
 endif
 
 metainfo_file = i18n.merge_file(
-  input: 'com.dprietob.queue.metainfo.xml.in',
-  output: 'com.dprietob.queue.metainfo.xml',
+  input: 'io.github.dprietob.queue.metainfo.xml.in',
+  output: 'io.github.dprietob.queue.metainfo.xml',
   po_dir: '../po',
   install: true,
   install_dir: get_option('datadir') / 'metainfo',
@@ -33,18 +33,18 @@ endif
 
 foreach size : ['64', '128', '256', '512']
   install_data(
-    'icons/hicolor' / size + 'x' + size / 'apps/com.dprietob.queue.png',
+    'icons/hicolor' / size + 'x' + size / 'apps/io.github.dprietob.queue.png',
     install_dir: get_option('datadir') / 'icons/hicolor' / size + 'x' + size / 'apps',
   )
 endforeach
 
 install_data(
-  'icons/hicolor/scalable/apps/com.dprietob.queue.svg',
+  'icons/hicolor/scalable/apps/io.github.dprietob.queue.svg',
   install_dir: get_option('datadir') / 'icons/hicolor/scalable/apps',
 )
 
 install_data(
-  'com.dprietob.queue.gschema.xml',
+  'io.github.dprietob.queue.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
 
@@ -52,6 +52,6 @@ install_data(
 # recompile the installed schemas after `ninja install`.
 gnome.compile_schemas(
   build_by_default: true,
-  depend_files: files('com.dprietob.queue.gschema.xml'),
+  depend_files: files('io.github.dprietob.queue.gschema.xml'),
 )
 gnome.post_install(glib_compile_schemas: true)

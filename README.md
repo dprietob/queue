@@ -1,8 +1,8 @@
 [![License: GPL-3.0-or-later](https://img.shields.io/badge/License-GPL--3.0--or--later-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Flathub Installs](https://img.shields.io/flathub/downloads/com.dprietob.queue?label=Installs)][Flathub]
+[![Flathub Installs](https://img.shields.io/flathub/downloads/io.github.dprietob.queue?label=Installs)][Flathub]
 [![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)
 
-<img src="data/icons/hicolor/256x256/apps/com.dprietob.queue.png?raw=true" width="128" alt="Queue icon">
+<img src="data/icons/hicolor/256x256/apps/io.github.dprietob.queue.png?raw=true" width="128" alt="Queue icon">
 
 # Queue
 
@@ -36,7 +36,7 @@ desktop, following the GNOME Human Interface Guidelines and respecting the
 system style. Contributions are welcome and are expected to follow the
 [GNOME Code of Conduct].
 
-<a href='https://flathub.org/apps/com.dprietob.queue'><img width='196' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/></a>
+<a href='https://flathub.org/apps/io.github.dprietob.queue'><img width='196' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/></a>
 
 ## Your data stays on your device
 
@@ -56,9 +56,9 @@ project and press Run.
 To build the Flatpak from the command line:
 
 ```shell
-flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
-flatpak-builder --user --install --force-clean build-flatpak com.dprietob.queue.yaml
-flatpak run com.dprietob.queue
+flatpak install flathub org.gnome.Platform//50 org.gnome.Sdk//50
+flatpak-builder --user --install --force-clean build-flatpak io.github.dprietob.queue.yaml
+flatpak run io.github.dprietob.queue
 ```
 
 Or build natively with Meson and Ninja:
@@ -69,6 +69,6 @@ ninja -C _build
 ./_build/queue
 ```
 
-[Flathub]: https://flathub.org/apps/com.dprietob.queue
+[Flathub]: https://flathub.org/apps/io.github.dprietob.queue
 [GNOME Builder]: https://apps.gnome.org/Builder/
 [GNOME Code of Conduct]: https://conduct.gnome.org

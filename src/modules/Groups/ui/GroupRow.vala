@@ -1,6 +1,6 @@
 namespace Queue.Groups {
 
-    [GtkTemplate(ui = "/com/dprietob/queue/ui/group-row.ui")]
+    [GtkTemplate(ui = "/io/github/dprietob/queue/ui/group-row.ui")]
     public class GroupRow : Gtk.ListBoxRow
     {
 
