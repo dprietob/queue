@@ -39,6 +39,11 @@ foreach size : ['64', '128', '256', '512']
 endforeach
 
 install_data(
+  'icons/hicolor/scalable/apps/com.dprietob.queue.svg',
+  install_dir: get_option('datadir') / 'icons/hicolor/scalable/apps',
+)
+
+install_data(
   'com.dprietob.queue.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
