@@ -69,10 +69,6 @@ ninja -C _build
 ./_build/queue
 ```
 
-Run the tests with `meson test -C _build`. Architecture and contribution
-conventions are documented in [ARCHITECTURE.md](ARCHITECTURE.md) and
-[CLAUDE.md](CLAUDE.md).
-
 [Flathub]: https://flathub.org/apps/com.dprietob.queue
 [GNOME Builder]: https://apps.gnome.org/Builder/
 [GNOME Code of Conduct]: https://conduct.gnome.org
