@@ -1,12 +1,3 @@
-# Flatpak manifest for Queue.
-#
-# Local build and test (requires flatpak-builder):
-#   flatpak install flathub org.gnome.Platform//50 org.gnome.Sdk//50
-#   flatpak-builder --user --install --force-clean build-flatpak io.github.dprietob.queue.yaml
-#   flatpak run io.github.dprietob.queue
-#
-# For Flathub submission the "queue" module source must point at a tagged
-# commit of the public repository (see the commented block below).
 app-id: io.github.dprietob.queue
 runtime: org.gnome.Platform
 runtime-version: '50'
@@ -29,11 +20,5 @@ modules:
   - name: queue
     buildsystem: meson
     sources:
-      # Local sources, for building straight from this checkout.
       - type: dir
         path: .
-      # For Flathub, replace the source above with the tagged release:
-      # - type: git
-      #   url: https://github.com/dprietob/queue.git
-      #   tag: '1.0.0'
-      #   commit: <fill-in-the-commit-hash-of-the-1.0.0-tag>

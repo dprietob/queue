@@ -1,0 +1,28 @@
+name: Flatpak
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  flatpak:
+    name: Build Flatpak
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-50
+      options: --privileged
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Build
+        uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+        with:
+          bundle: io.github.dprietob.queue.flatpak
+          manifest-path: io.github.dprietob.queue.yaml
+          cache-key: flatpak-builder-${{ github.sha }}
