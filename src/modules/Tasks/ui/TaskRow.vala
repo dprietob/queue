@@ -1,6 +1,6 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
-    [GtkTemplate(ui = "/com/dprietob/collie/ui/task-row.ui")]
+    [GtkTemplate(ui = "/com/dprietob/queue/ui/task-row.ui")]
     public class TaskRow : Gtk.ListBoxRow
     {
 

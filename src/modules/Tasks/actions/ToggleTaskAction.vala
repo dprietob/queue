@@ -1,4 +1,4 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
     // Marks a task as completed or pending.
     public class ToggleTaskAction : Object

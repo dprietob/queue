@@ -1,4 +1,4 @@
-# collie
+# queue
 
 Gestor de tareas de escritorio para Linux, escrito en **Vala** con **GTK4** y **libadwaita**.
 
@@ -49,8 +49,8 @@ sudo pacman -S vala vala-language-server gtk4 libadwaita sqlite json-glib meson 
 
 ```shell
 # Clona el repositorio
-git clone git@github.com:dprietob/collie.git
-cd collie
+git clone git@github.com:dprietob/queue.git
+cd queue
 
 # Configura el build en el directorio _build/
 meson setup _build
@@ -59,7 +59,7 @@ meson setup _build
 ninja -C _build
 
 # Ejecuta directamente desde el directorio de build
-./_build/collie
+./_build/queue
 ```
 
 ### Instalación en el sistema
@@ -69,7 +69,7 @@ ninja -C _build
 sudo ninja -C _build install
 
 # Ejecuta como cualquier otra aplicación
-collie
+queue
 ```
 
 Para desinstalar:
@@ -92,7 +92,7 @@ ninja -C _build install
 Las tareas se guardan en una base de datos SQLite dentro del directorio de datos del usuario (XDG):
 
 ```
-~/.local/share/collie/collie.db
+~/.local/share/queue/queue.db
 ```
 
 Las preferencias de la aplicación (tema, estado de ventana) se gestionan con **GSettings**.
@@ -120,7 +120,7 @@ meson test -C _build
 ### Estructura del proyecto
 
 ```
-collie/
+queue/
 ├── meson.build                  # Build principal
 ├── meson_options.txt            # Opciones: profile (default/development)
 ├── src/
@@ -143,10 +143,10 @@ collie/
 │   ├── feature/                 # Tests de casos de uso completos
 │   └── unit/                    # Tests de actions y services
 ├── data/
-│   ├── com.dprietob.collie.desktop.in       # Acceso directo freedesktop
-│   ├── com.dprietob.collie.appdata.xml.in   # Metadatos AppStream / GNOME Software
+│   ├── com.dprietob.queue.desktop.in       # Acceso directo freedesktop
+│   ├── com.dprietob.queue.appdata.xml.in   # Metadatos AppStream / GNOME Software
 │   └── icons/hicolor/scalable/apps/
-│       └── com.dprietob.collie.svg          # Icono de la aplicación
+│       └── com.dprietob.queue.svg          # Icono de la aplicación
 └── po/
     ├── LINGUAS                  # Idiomas disponibles
     ├── POTFILES                 # Ficheros fuente con cadenas traducibles
@@ -159,8 +159,8 @@ collie/
 2. Genera el fichero `.po` inicial desde el directorio `_build/`:
 
 ```shell
-ninja -C _build collie-pot       # Actualiza el fichero .pot
-msginit -l fr -o po/fr.po -i _build/po/collie.pot
+ninja -C _build queue-pot       # Actualiza el fichero .pot
+msginit -l fr -o po/fr.po -i _build/po/queue.pot
 ```
 
 3. Traduce las cadenas en `po/fr.po`.
@@ -171,13 +171,13 @@ msginit -l fr -o po/fr.po -i _build/po/collie.pot
 Cuando se añaden o modifican cadenas en el código:
 
 ```shell
-ninja -C _build collie-update-po
+ninja -C _build queue-update-po
 ```
 
 Esto actualiza todos los ficheros `.po` existentes con las nuevas cadenas.
 
 ## ID de la aplicación
 
-`com.dprietob.collie`
+`com.dprietob.queue`
 
 Sigue la convención de nomenclatura inversa de dominios de freedesktop / GNOME.

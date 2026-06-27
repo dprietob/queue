@@ -1,10 +1,10 @@
-# Spanish translations for Collie.
+# Spanish translations for Queue.
 # Copyleft (🄯) 2026 Daniel Prieto
-# This file is distributed under the same license as the Collie package.
+# This file is distributed under the same license as the Queue package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: collie 1.0.0\n"
+"Project-Id-Version: queue 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-26 00:00+0000\n"
 "PO-Revision-Date: 2026-06-26 00:00+0000\n"
@@ -16,27 +16,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/com.dprietob.collie.desktop.in
-#: data/com.dprietob.collie.appdata.xml.in
+#: data/com.dprietob.queue.desktop.in
+#: data/com.dprietob.queue.appdata.xml.in
 msgid "Task manager"
 msgstr "Gestor de tareas"
 
-#: data/com.dprietob.collie.desktop.in
+#: data/com.dprietob.queue.desktop.in
 msgid "Manage and organize tasks"
 msgstr "Gestiona y organiza tareas"
 
-#: data/com.dprietob.collie.desktop.in
+#: data/com.dprietob.queue.desktop.in
 msgid "task;manager;organize;"
 msgstr "tarea;tareas;gestor;organizar;"
 
-#: data/com.dprietob.collie.appdata.xml.in
-msgid "Collie is a simple, fast task manager."
-msgstr "Collie es un gestor de tareas sencillo y rápido."
+#: data/com.dprietob.queue.appdata.xml.in
+msgid "Queue is a simple, fast task manager."
+msgstr "Queue es un gestor de tareas sencillo y rápido."
 
-#: data/com.dprietob.collie.appdata.xml.in
+#: data/com.dprietob.queue.appdata.xml.in
 msgid "Write task in the editor"
 msgstr "Escribe una tarea en el editor"
 
-#: data/com.dprietob.collie.appdata.xml.in
+#: data/com.dprietob.queue.appdata.xml.in
 msgid "Initial release."
 msgstr "Versión inicial."

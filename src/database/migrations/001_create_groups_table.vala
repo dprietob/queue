@@ -1,4 +1,4 @@
-namespace Collie {
+namespace Queue {
 
     public class CreateGroupsTable : Object, Migration
     {

@@ -1,4 +1,4 @@
-namespace Collie {
+namespace Queue {
 
     // Owns the SQLite connection and keeps the schema up to date.
     // It is the single entry point models use to reach the database.
@@ -16,10 +16,10 @@ namespace Collie {
 
         private void open_connection() throws Error
         {
-            var directory = Path.build_filename(Environment.get_user_data_dir(), "collie");
+            var directory = Path.build_filename(Environment.get_user_data_dir(), "queue");
             DirUtils.create_with_parents(directory, 0755);
 
-            var path = Path.build_filename(directory, "collie.db");
+            var path = Path.build_filename(directory, "queue.db");
             if (Sqlite.Database.open_v2(path, out connection) != Sqlite.OK) {
                 throw new IOError.FAILED(
                           "Unable to open the database: %s".printf(connection.errmsg()));

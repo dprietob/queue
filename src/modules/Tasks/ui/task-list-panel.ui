@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.5"/>
-  <template class="CollieTasksTaskListPanel" parent="AdwNavigationPage">
+  <template class="QueueTasksTaskListPanel" parent="AdwNavigationPage">
     <property name="title" translatable="yes">Tasks</property>
     <property name="child">
       <object class="AdwToolbarView">

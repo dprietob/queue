@@ -1,4 +1,4 @@
-namespace Collie.Groups {
+namespace Queue.Groups {
 
     // Validates the data used to create or rename a group. The names of the
     // other existing groups are provided so duplicates can be rejected.

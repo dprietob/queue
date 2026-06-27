@@ -1,4 +1,4 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
     // Validates the data used to create or edit a task.
     public class TaskStoreValidator : Object

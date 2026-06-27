@@ -1,4 +1,4 @@
-namespace Collie {
+namespace Queue {
 
     // Represents a single, ordered schema change applied to the SQLite database.
     public interface Migration : Object

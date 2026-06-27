@@ -1,6 +1,6 @@
-namespace Collie.Groups {
+namespace Queue.Groups {
 
-    [GtkTemplate(ui = "/com/dprietob/collie/ui/group-row.ui")]
+    [GtkTemplate(ui = "/com/dprietob/queue/ui/group-row.ui")]
     public class GroupRow : Gtk.ListBoxRow
     {
 

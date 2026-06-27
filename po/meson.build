@@ -1,1 +1,1 @@
-i18n.gettext('collie', preset: 'glib')
+i18n.gettext('queue', preset: 'glib')

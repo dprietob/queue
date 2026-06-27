@@ -1,4 +1,4 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
     public class ReorderTasksAction : Object
     {

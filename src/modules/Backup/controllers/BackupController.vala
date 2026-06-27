@@ -1,4 +1,4 @@
-namespace Collie.Backup {
+namespace Queue.Backup {
 
     public delegate void ProgressFunc(double fraction);
     // Reports completion: error is null on success, or a message on failure.
@@ -28,7 +28,7 @@ namespace Collie.Backup {
         // then writes the resulting JSON to the chosen file.
         public void export(File file, owned ProgressFunc progress, owned DoneFunc done)
         {
-            Collie.Groups.Group[] groups = {};
+            Queue.Groups.Group[] groups = {};
             foreach (var group in list_groups_action.execute()) {
                 groups += group;
             }
@@ -86,7 +86,7 @@ namespace Collie.Backup {
             });
         }
 
-        private BackupGroup build_backup_group(Collie.Groups.Group group)
+        private BackupGroup build_backup_group(Queue.Groups.Group group)
         {
             var backup_group = new BackupGroup();
             backup_group.name = group.name;

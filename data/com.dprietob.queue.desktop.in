@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Collie
+Name=Queue
 GenericName=Task manager
 Comment=Manage and organize tasks
-Exec=collie
-Icon=com.dprietob.collie
+Exec=queue
+Icon=com.dprietob.queue
 Terminal=false
 Type=Application
 Categories=Utility;Office;ProjectManagement;

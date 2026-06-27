@@ -2,8 +2,8 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.5"/>
-  <template class="CollieWindow" parent="AdwApplicationWindow">
-    <property name="title">Collie</property>
+  <template class="QueueWindow" parent="AdwApplicationWindow">
+    <property name="title">Queue</property>
     <property name="default-width">900</property>
     <property name="default-height">600</property>
     <property name="content">

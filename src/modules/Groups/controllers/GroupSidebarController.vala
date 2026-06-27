@@ -1,4 +1,4 @@
-namespace Collie.Groups {
+namespace Queue.Groups {
 
     // Coordinates the group sidebar: it runs validators and actions, and keeps
     // the list model that the UI binds to in sync with the database.

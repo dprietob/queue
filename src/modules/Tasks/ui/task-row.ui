@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="CollieTasksTaskRow" parent="GtkListBoxRow">
+  <template class="QueueTasksTaskRow" parent="GtkListBoxRow">
     <property name="child">
       <object class="GtkBox">
         <property name="orientation">vertical</property>

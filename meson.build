@@ -1,5 +1,5 @@
 project(
-  'collie',
+  'queue',
   ['vala', 'c'],
   version: '1.0.0',
   meson_version: '>= 0.62.0',
@@ -10,7 +10,7 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 config_data = configuration_data()
-config_data.set_quoted('CONFIG_APP_ID', 'com.dprietob.collie')
+config_data.set_quoted('CONFIG_APP_ID', 'com.dprietob.queue')
 config_data.set_quoted('CONFIG_GETTEXT_PACKAGE', meson.project_name())
 config_data.set_quoted('CONFIG_LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('CONFIG_VERSION', meson.project_version())
@@ -25,7 +25,7 @@ add_project_arguments(
 subdir('data')
 subdir('po')
 
-collie_sources = files(
+queue_sources = files(
   'src/Main.vala',
   'src/Window.vala',
   'src/database/Migration.vala',
@@ -59,7 +59,7 @@ collie_sources = files(
   'src/modules/Backup/controllers/BackupController.vala',
 )
 
-collie_dependencies = [
+queue_dependencies = [
   dependency('gtk4', version: '>= 4.12'),
   dependency('libadwaita-1', version: '>= 1.5'),
   dependency('sqlite3'),
@@ -67,17 +67,17 @@ collie_dependencies = [
   meson.get_compiler('c').find_library('m'),
 ]
 
-collie_resources = gnome.compile_resources(
-  'collie-resources',
+queue_resources = gnome.compile_resources(
+  'queue-resources',
   'data/resources.gresource.xml',
   source_dir: '.',
 )
 
 executable(
-  'collie',
-  collie_sources + collie_resources,
+  'queue',
+  queue_sources + queue_resources,
   files('src/Config.vapi'),
-  dependencies: collie_dependencies,
+  dependencies: queue_dependencies,
   vala_args: ['--target-glib=2.76'],
   install: true,
 )

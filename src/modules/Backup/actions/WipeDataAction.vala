@@ -1,4 +1,4 @@
-namespace Collie.Backup {
+namespace Queue.Backup {
 
     // Deletes every group and, by cascade, every task.
     public class WipeDataAction : Object
@@ -13,7 +13,7 @@ namespace Collie.Backup {
 
         public void execute()
         {
-            Collie.Groups.Group.destroy_all(database);
+            Queue.Groups.Group.destroy_all(database);
         }
     }
 }

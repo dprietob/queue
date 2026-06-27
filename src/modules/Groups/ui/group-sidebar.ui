@@ -36,12 +36,12 @@
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="yes">About Collie</attribute>
+        <attribute name="label" translatable="yes">About Queue</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
   </menu>
-  <template class="CollieGroupsGroupSidebar" parent="AdwNavigationPage">
+  <template class="QueueGroupsGroupSidebar" parent="AdwNavigationPage">
     <property name="title" translatable="yes">Groups</property>
     <property name="tag">groups</property>
     <property name="child">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="com.dprietob.collie" path="/com/dprietob/collie/">
+  <schema id="com.dprietob.queue" path="/com/dprietob/queue/">
     <key name="color-scheme" type="s">
       <choices>
         <choice value="system"/>

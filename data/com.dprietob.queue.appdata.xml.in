@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.dprietob.collie</id>
+  <id>com.dprietob.queue</id>
 
-  <name>Collie</name>
+  <name>Queue</name>
   <summary translatable="yes">Task manager</summary>
 
   <metadata_license>CC0-1.0</metadata_license>
@@ -10,11 +10,11 @@
 
   <description>
     <p translatable="yes">
-      Collie is a simple, fast task manager.
+      Queue is a simple, fast task manager.
     </p>
   </description>
 
-  <launchable type="desktop-id">com.dprietob.collie.desktop</launchable>
+  <launchable type="desktop-id">com.dprietob.queue.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">

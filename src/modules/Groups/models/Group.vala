@@ -1,4 +1,4 @@
-namespace Collie.Groups {
+namespace Queue.Groups {
 
     // Data layer for task groups. The only place that runs SQL for groups.
     public class Group : Object

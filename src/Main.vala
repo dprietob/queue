@@ -1,4 +1,4 @@
-namespace Collie {
+namespace Queue {
 
     public class Application : Adw.Application
     {
@@ -24,7 +24,7 @@ namespace Collie {
             // Make the bundled application icon resolvable by name, both when
             // installed and when running from the build tree.
             Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
-            .add_resource_path("/com/dprietob/collie/icons");
+            .add_resource_path("/com/dprietob/queue/icons");
             // Applied here, not in construct: the style manager needs GTK/Adw
             // to be initialized first.
             bind_color_scheme();
@@ -66,7 +66,7 @@ namespace Collie {
         private void show_about()
         {
             var about = new Adw.AboutDialog() {
-                application_name = "Collie",
+                application_name = "Queue",
                 application_icon = Config.APP_ID,
                 developer_name = "Daniel Prieto",
                 version = Config.VERSION,
@@ -134,6 +134,6 @@ int main(string[] arguments)
 
     use_local_schemas_if_present();
 
-    var application = new Collie.Application();
+    var application = new Queue.Application();
     return application.run(arguments);
 }

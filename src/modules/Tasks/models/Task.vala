@@ -1,4 +1,4 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
     // Data layer for tasks. The only place that runs SQL for tasks.
     public class Task : Object

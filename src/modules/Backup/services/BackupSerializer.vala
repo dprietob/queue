@@ -1,4 +1,4 @@
-namespace Collie.Backup {
+namespace Queue.Backup {
 
     // In-memory representation of a backed-up task.
     public class BackupTask : Object

@@ -1,11 +1,11 @@
-using Collie.Groups;
-using Collie.Tasks;
+using Queue.Groups;
+using Queue.Tasks;
 
-namespace Collie {
+namespace Queue {
 
     // Application shell. Owns the controllers and wires sidebar and task panel
     // together, presenting dialogs and toasts on behalf of the modules.
-    [GtkTemplate(ui = "/com/dprietob/collie/ui/window.ui")]
+    [GtkTemplate(ui = "/com/dprietob/queue/ui/window.ui")]
     public class Window : Adw.ApplicationWindow
     {
 
@@ -22,7 +22,7 @@ namespace Collie {
         private Database database;
         private GroupSidebarController group_controller;
         private TaskListController task_controller;
-        private Collie.Backup.BackupController backup_controller;
+        private Queue.Backup.BackupController backup_controller;
         private GroupSidebar sidebar;
         private TaskListPanel panel;
 
@@ -38,7 +38,7 @@ namespace Collie {
             this.database = database;
             group_controller = new GroupSidebarController(database);
             task_controller = new TaskListController(database);
-            backup_controller = new Collie.Backup.BackupController(database);
+            backup_controller = new Queue.Backup.BackupController(database);
 
             sidebar = new GroupSidebar(group_controller);
             panel = new TaskListPanel(task_controller);
@@ -117,7 +117,7 @@ namespace Collie {
             });
         }
 
-        private void on_edit_task(Collie.Tasks.Task task)
+        private void on_edit_task(Queue.Tasks.Task task)
         {
             prompt_task(_("Edit Task"), task.title, task.description, task.important,
                 (title, description, important) => {
@@ -125,7 +125,7 @@ namespace Collie {
             });
         }
 
-        private void on_delete_task(Collie.Tasks.Task task)
+        private void on_delete_task(Queue.Tasks.Task task)
         {
             var body = _("\"%s\" will be permanently deleted.").printf(task.title);
             confirm_deletion(_("Delete Task?"), body, () => {
@@ -322,7 +322,7 @@ namespace Collie {
         {
             var dialog = new Gtk.FileDialog() {
                 title = _("Export Backup"),
-                initial_name = "collie-backup.json"
+                initial_name = "queue-backup.json"
             };
             dialog.save.begin(this, null, (object, result) => {
                 File file;

@@ -1,4 +1,4 @@
-namespace Collie.Tasks {
+namespace Queue.Tasks {
 
     // Coordinates the task panel: it runs validators and actions for the
     // currently selected group, and keeps the bound list model up to date.

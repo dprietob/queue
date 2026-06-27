@@ -1,4 +1,4 @@
-namespace Collie.Groups {
+namespace Queue.Groups {
 
     public class ListGroupsAction : Object
     {
