@@ -2,6 +2,11 @@
 _build/
 build/
 
+# Flatpak build artifacts
+.flatpak-builder/
+build-flatpak/
+repo/
+
 # Editor backups
 *~
 *.orig
