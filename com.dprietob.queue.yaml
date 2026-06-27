@@ -34,6 +34,6 @@ modules:
         path: .
       # For Flathub, replace the source above with the tagged release:
       # - type: git
-      #   url: https://github.com/dprietob/collie.git
+      #   url: https://github.com/dprietob/queue.git
       #   tag: '1.0.0'
       #   commit: <fill-in-the-commit-hash-of-the-1.0.0-tag>

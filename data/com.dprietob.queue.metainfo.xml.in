@@ -32,22 +32,22 @@
 
   <launchable type="desktop-id">com.dprietob.queue.desktop</launchable>
 
-  <url type="homepage">https://github.com/dprietob/collie</url>
-  <url type="bugtracker">https://github.com/dprietob/collie/issues</url>
-  <url type="vcs-browser">https://github.com/dprietob/collie</url>
+  <url type="homepage">https://github.com/dprietob/queue</url>
+  <url type="bugtracker">https://github.com/dprietob/queue/issues</url>
+  <url type="vcs-browser">https://github.com/dprietob/queue</url>
 
   <screenshots>
     <screenshot type="default">
       <caption translatable="yes">Tasks organized by group</caption>
-      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/main.png</image>
+      <image>https://raw.githubusercontent.com/dprietob/queue/master/screenshots/main.png</image>
     </screenshot>
     <screenshot>
       <caption translatable="yes">Dark style</caption>
-      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/main_dark.png</image>
+      <image>https://raw.githubusercontent.com/dprietob/queue/master/screenshots/main_dark.png</image>
     </screenshot>
     <screenshot>
       <caption translatable="yes">Create and edit tasks with details</caption>
-      <image>https://raw.githubusercontent.com/dprietob/collie/master/screenshots/task.png</image>
+      <image>https://raw.githubusercontent.com/dprietob/queue/master/screenshots/task.png</image>
     </screenshot>
   </screenshots>
 
