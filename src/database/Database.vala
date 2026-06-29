@@ -33,6 +33,7 @@ namespace Queue {
             Migration[] migrations = {
                 new CreateGroupsTable(),
                 new CreateTasksTable(),
+                new AddCompletedAtToTasks(),
             };
 
             var applied_version = current_version();

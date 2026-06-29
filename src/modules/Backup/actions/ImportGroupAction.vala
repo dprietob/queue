@@ -20,7 +20,7 @@ namespace Queue.Backup {
                 var stored = Queue.Tasks.Task.create(database, created.id, task.title, task.description,
                         task.important);
                 if (task.done) {
-                    Queue.Tasks.Task.mark_done(database, stored.id, true);
+                    Queue.Tasks.Task.restore_completion(database, stored.id, true, task.completed_at);
                 }
             }
         }

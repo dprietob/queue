@@ -32,6 +32,7 @@ queue_sources = files(
   'src/database/Database.vala',
   'src/database/migrations/001_create_groups_table.vala',
   'src/database/migrations/002_create_tasks_table.vala',
+  'src/database/migrations/003_add_completed_at_to_tasks.vala',
   'src/modules/Groups/models/Group.vala',
   'src/modules/Groups/validators/GroupStoreValidator.vala',
   'src/modules/Groups/actions/ListGroupsAction.vala',

@@ -7,6 +7,7 @@ namespace Queue.Backup {
         public string description { get; set; default = ""; }
         public bool done { get; set; default = false; }
         public bool important { get; set; default = false; }
+        public string completed_at { get; set; default = ""; }
     }
 
     // In-memory representation of a backed-up group with its tasks.
@@ -89,6 +90,8 @@ namespace Queue.Backup {
                 builder.add_boolean_value(task.done);
                 builder.set_member_name("important");
                 builder.add_boolean_value(task.important);
+                builder.set_member_name("completed_at");
+                builder.add_string_value(task.completed_at);
                 builder.end_object();
             }
             builder.end_array();
@@ -130,6 +133,9 @@ namespace Queue.Backup {
             }
             if (task_object.has_member("important")) {
                 task.important = task_object.get_boolean_member("important");
+            }
+            if (task_object.has_member("completed_at")) {
+                task.completed_at = task_object.get_string_member("completed_at");
             }
             return task;
         }

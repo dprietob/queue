@@ -99,6 +99,7 @@ namespace Queue.Backup {
                 backup_task.description = task.description;
                 backup_task.done = task.done;
                 backup_task.important = task.important;
+                backup_task.completed_at = task.completed_at;
                 tasks += backup_task;
             }
             backup_group.tasks = tasks;
