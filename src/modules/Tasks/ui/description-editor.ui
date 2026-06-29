@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="QueueTasksDescriptionEditor" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">2</property>
+        <property name="margin-bottom">6</property>
+        <style>
+          <class name="toolbar"/>
+        </style>
+        <child>
+          <object class="GtkMenuButton" id="heading_button">
+            <property name="label">H</property>
+            <property name="tooltip-text" translatable="yes">Heading</property>
+            <style>
+              <class name="flat"/>
+            </style>
+            <property name="popover">
+              <object class="GtkPopover">
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">2</property>
+                    <child>
+                      <object class="GtkButton" id="h1_button">
+                        <property name="label" translatable="yes">Heading 1</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="h2_button">
+                        <property name="label" translatable="yes">Heading 2</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="h3_button">
+                        <property name="label" translatable="yes">Heading 3</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="normal_button">
+                        <property name="label" translatable="yes">Normal text</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="orientation">vertical</property>
+            <property name="margin-top">4</property>
+            <property name="margin-bottom">4</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="bold_button">
+            <property name="icon-name">format-text-bold-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Bold</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="italic_button">
+            <property name="icon-name">format-text-italic-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Italic</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="underline_button">
+            <property name="icon-name">format-text-underline-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Underline</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="strikethrough_button">
+            <property name="icon-name">format-text-strikethrough-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Strikethrough</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="color_button">
+            <property name="icon-name">color-select-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Text color</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="orientation">vertical</property>
+            <property name="margin-top">4</property>
+            <property name="margin-bottom">4</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="bullet_button">
+            <property name="icon-name">view-list-bullet-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Bulleted list</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="numbered_button">
+            <property name="icon-name">view-list-ordered-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Numbered list</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="hscrollbar-policy">never</property>
+        <property name="min-content-height">280</property>
+        <property name="vexpand">true</property>
+        <style>
+          <class name="card"/>
+        </style>
+        <child>
+          <object class="GtkTextView" id="text_view">
+            <property name="wrap-mode">word-char</property>
+            <property name="accepts-tab">false</property>
+            <property name="top-margin">6</property>
+            <property name="bottom-margin">6</property>
+            <property name="left-margin">6</property>
+            <property name="right-margin">6</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

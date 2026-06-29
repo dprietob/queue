@@ -224,28 +224,8 @@ namespace Queue {
                 hexpand = true
             };
 
-            var description_view = new Gtk.TextView() {
-                wrap_mode = Gtk.WrapMode.WORD_CHAR,
-                accepts_tab = false,
-                top_margin = 6,
-                bottom_margin = 6,
-                left_margin = 6,
-                right_margin = 6
-            };
-            description_view.buffer.text = initial_description;
-            limit_length(description_view.buffer, Tasks.TaskStoreValidator.MAXIMUM_DESCRIPTION_LENGTH);
-
-            var description_scroll = new Gtk.ScrolledWindow() {
-                child = description_view,
-                hscrollbar_policy = Gtk.PolicyType.NEVER,
-                min_content_height = 280
-            };
-            description_scroll.add_css_class("card");
-
-            var description_label = new Gtk.Label(_("Description (optional)")) {
-                halign = Gtk.Align.START
-            };
-            description_label.add_css_class("dim-label");
+            var description_editor = new Tasks.DescriptionEditor();
+            description_editor.set_markdown(initial_description);
 
             var important_switch = new Gtk.Switch() {
                 active = initial_important,
@@ -275,8 +255,7 @@ namespace Queue {
             };
             content.append(title_label);
             content.append(entry);
-            content.append(description_label);
-            content.append(description_scroll);
+            content.append(description_editor);
             content.append(important_row);
             content.append(buttons);
             dialog.child = content;
@@ -286,24 +265,10 @@ namespace Queue {
 
             cancel_button.clicked.connect(() => dialog.close());
             save_button.clicked.connect(() => {
-                callback(entry.text, description_view.buffer.text, important_switch.active);
+                callback(entry.text, description_editor.get_markdown(), important_switch.active);
                 dialog.close();
             });
             dialog.present(this);
-        }
-
-        // Keeps a text buffer within a maximum number of characters, trimming
-        // any excess (e.g. from a paste) as soon as it is inserted.
-        private void limit_length(Gtk.TextBuffer buffer, int maximum_length)
-        {
-            buffer.changed.connect(() => {
-                if (buffer.get_char_count() > maximum_length) {
-                    Gtk.TextIter start, end;
-                    buffer.get_iter_at_offset(out start, maximum_length);
-                    buffer.get_end_iter(out end);
-                    buffer.delete(ref start, ref end);
-                }
-            });
         }
 
         private void confirm_deletion(string heading, string body, owned ConfirmedCallback callback)

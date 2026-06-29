@@ -52,6 +52,8 @@ queue_sources = files(
   'src/modules/Tasks/actions/DeleteTaskAction.vala',
   'src/modules/Tasks/actions/ReorderTasksAction.vala',
   'src/modules/Tasks/controllers/TaskListController.vala',
+  'src/modules/Tasks/ui/TaskDescriptionMarkup.vala',
+  'src/modules/Tasks/ui/DescriptionEditor.vala',
   'src/modules/Tasks/ui/TaskRow.vala',
   'src/modules/Tasks/ui/TaskListPanel.vala',
   'src/modules/Backup/services/BackupSerializer.vala',

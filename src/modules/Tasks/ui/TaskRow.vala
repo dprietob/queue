@@ -80,7 +80,7 @@ namespace Queue.Tasks {
             var description = task.description.strip();
             var has_description = description != "";
 
-            description_label.label = description;
+            description_label.set_markup(TaskDescriptionMarkup.to_pango(description));
             expand_button.visible = has_description;
             if (!has_description) {
                 expand_button.active = false;
