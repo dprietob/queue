@@ -207,7 +207,7 @@ namespace Queue {
             };
             content.append(title_label);
             content.append(entry);
-            content.append(color_row);            
+            content.append(color_row);
             content.append(buttons);
             dialog.child = content;
 
@@ -362,7 +362,8 @@ namespace Queue {
         {
             var dialog = new Adw.AlertDialog(
                 _("Restore Backup?"),
-                _("All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."));
+                _(
+                    "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."));
 
             dialog.add_response("cancel", _("Cancel"));
             dialog.add_response("restore", _("Delete and Restore"));
@@ -415,10 +416,10 @@ namespace Queue {
             content.append(progress_bar);
 
             return new Adw.Dialog() {
-                title = title,
-                content_width = 360,
-                can_close = false,
-                child = content
+                       title = title,
+                       content_width = 360,
+                       can_close = false,
+                       child = content
             };
         }
 
