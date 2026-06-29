@@ -1,5 +1,6 @@
 using Queue.Groups;
 using Queue.Tasks;
+using Queue.Backup;
 
 namespace Queue {
 
@@ -8,7 +9,6 @@ namespace Queue {
     [GtkTemplate(ui = "/io/github/dprietob/queue/ui/window.ui")]
     public class Window : Adw.ApplicationWindow
     {
-
         private delegate void GroupEnteredCallback(string name, string color);
         private delegate void TaskEnteredCallback(string title, string description, bool important);
         private delegate void ConfirmedCallback();
@@ -22,7 +22,7 @@ namespace Queue {
         private Database database;
         private GroupSidebarController group_controller;
         private TaskListController task_controller;
-        private Queue.Backup.BackupController backup_controller;
+        private BackupController backup_controller;
         private GroupSidebar sidebar;
         private TaskListPanel panel;
 
@@ -44,7 +44,7 @@ namespace Queue {
             this.database = database;
             group_controller = new GroupSidebarController(database);
             task_controller = new TaskListController(database);
-            backup_controller = new Queue.Backup.BackupController(database);
+            backup_controller = new BackupController(database);
 
             sidebar = new GroupSidebar(group_controller);
             panel = new TaskListPanel(task_controller);
@@ -362,8 +362,7 @@ namespace Queue {
         {
             var dialog = new Adw.AlertDialog(
                 _("Restore Backup?"),
-                _(
-                    "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."));
+                _("All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."));
 
             dialog.add_response("cancel", _("Cancel"));
             dialog.add_response("restore", _("Delete and Restore"));
@@ -416,10 +415,10 @@ namespace Queue {
             content.append(progress_bar);
 
             return new Adw.Dialog() {
-                       title = title,
-                       content_width = 360,
-                       can_close = false,
-                       child = content
+                title = title,
+                content_width = 360,
+                can_close = false,
+                child = content
             };
         }
 

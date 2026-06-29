@@ -22,11 +22,11 @@
     </p>
     <p translatable="yes">Features:</p>
     <ul>
-      <li translatable="yes">Organize tasks into custom, color-coded groups</li>
-      <li translatable="yes">Mark tasks as completed or important</li>
-      <li translatable="yes">Add optional descriptions and reorder by dragging</li>
-      <li translatable="yes">Export and restore all your data as JSON</li>
-      <li translatable="yes">Light and dark styles, available in several languages</li>
+      <li translatable="yes">Organize tasks into custom, color-coded groups.</li>
+      <li translatable="yes">Mark tasks as completed or important.</li>
+      <li translatable="yes">Add optional formatted descriptions and reorder by dragging.</li>
+      <li translatable="yes">Export and restore all your data as JSON.</li>
+      <li translatable="yes">Light and dark styles, available in several languages.</li>
     </ul>
   </description>
 
