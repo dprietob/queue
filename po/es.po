@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue 1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-29 19:34+0200\n"
+"POT-Creation-Date: 2026-06-30 01:08+0200\n"
 "PO-Revision-Date: 2026-06-27 00:00+0000\n"
 "Last-Translator: Daniel Prieto\n"
 "Language-Team: Spanish\n"
@@ -16,98 +16,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. The language is applied at startup, so a change only takes effect
-#. on the next launch.
-#: src/Window.vala:41
-msgid "Restart Queue to apply the new language."
-msgstr "Reinicia Queue para aplicar el nuevo idioma."
-
-#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:145
+#: src/Window.vala:84 src/modules/Groups/ui/group-sidebar.ui:62
 msgid "New Group"
 msgstr "Nuevo grupo"
 
-#: src/Window.vala:101
+#: src/Window.vala:95
 msgid "Edit Group"
 msgstr "Editar grupo"
 
-#: src/Window.vala:108
+#: src/Window.vala:102
 #, c-format
 msgid "\"%s\" and all of its tasks will be permanently deleted."
 msgstr "«%s» y todas sus tareas se eliminarán de forma permanente."
 
-#: src/Window.vala:110
+#: src/Window.vala:104
 msgid "Delete Group?"
 msgstr "¿Eliminar grupo?"
 
-#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:36
+#: src/Window.vala:115 src/modules/Tasks/ui/task-list-panel.ui:36
 #: src/modules/Tasks/ui/task-list-panel.ui:80
 msgid "New Task"
 msgstr "Nueva tarea"
 
-#: src/Window.vala:128
+#: src/Window.vala:122
 msgid "Edit Task"
 msgstr "Editar tarea"
 
-#: src/Window.vala:136
+#: src/Window.vala:130
 #, c-format
 msgid "\"%s\" will be permanently deleted."
 msgstr "«%s» se eliminará de forma permanente."
 
-#: src/Window.vala:137
+#: src/Window.vala:131
 msgid "Delete Task?"
 msgstr "¿Eliminar tarea?"
 
-#: src/Window.vala:168
+#: src/Window.vala:162
 msgid "Group name"
 msgstr "Nombre del grupo"
 
-#: src/Window.vala:187
+#: src/Window.vala:181
 msgid "Color"
 msgstr "Color"
 
-#: src/Window.vala:192 src/Window.vala:265 src/Window.vala:303
-#: src/Window.vala:367
+#: src/Window.vala:186 src/Window.vala:259 src/Window.vala:297
+#: src/Window.vala:362
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/Window.vala:193 src/Window.vala:266
+#: src/Window.vala:187 src/Window.vala:260
 msgid "Save"
 msgstr "Guardar"
 
-#: src/Window.vala:245
+#: src/Window.vala:239
 msgid "Title"
 msgstr "Título"
 
-#: src/Window.vala:260 src/modules/Tasks/ui/task-row.ui:55
+#: src/Window.vala:254 src/modules/Tasks/ui/task-row.ui:55
 msgid "Important"
 msgstr "Importante"
 
-#: src/Window.vala:304 src/modules/Groups/ui/group-row.ui:59
+#: src/Window.vala:298 src/modules/Groups/ui/group-row.ui:59
 #: src/modules/Tasks/ui/task-row.ui:101
 msgid "Delete"
 msgstr "Eliminar"
 
-#: src/Window.vala:320
+#: src/Window.vala:314
 msgid "Export Backup"
 msgstr "Exportar copia de seguridad"
 
-#: src/Window.vala:332
+#: src/Window.vala:326
 msgid "Exporting Backup…"
 msgstr "Exportando copia de seguridad…"
 
-#: src/Window.vala:339
+#: src/Window.vala:333
 msgid "Backup exported."
 msgstr "Copia de seguridad exportada."
 
-#: src/Window.vala:347
+#: src/Window.vala:341
 msgid "Restore Backup"
 msgstr "Restaurar copia de seguridad"
 
-#: src/Window.vala:364
+#: src/Window.vala:358
 msgid "Restore Backup?"
 msgstr "¿Restaurar copia de seguridad?"
 
-#: src/Window.vala:365
+#: src/Window.vala:360
 msgid ""
 "All current groups and tasks will be permanently deleted and replaced with "
 "the contents of the backup file."
@@ -115,15 +109,15 @@ msgstr ""
 "Todos los grupos y tareas actuales se eliminarán de forma permanente y se "
 "reemplazarán por el contenido del archivo de copia de seguridad."
 
-#: src/Window.vala:368
+#: src/Window.vala:363
 msgid "Delete and Restore"
 msgstr "Eliminar y restaurar"
 
-#: src/Window.vala:379
+#: src/Window.vala:374
 msgid "Restoring Backup…"
 msgstr "Restaurando copia de seguridad…"
 
-#: src/Window.vala:390
+#: src/Window.vala:385
 msgid "Backup restored."
 msgstr "Copia de seguridad restaurada."
 
@@ -145,7 +139,6 @@ msgid "Theme"
 msgstr "Tema"
 
 #: src/modules/Groups/ui/group-sidebar.ui:10
-#: src/modules/Groups/ui/group-sidebar.ui:28
 msgid "Follow System"
 msgstr "Seguir al sistema"
 
@@ -158,30 +151,26 @@ msgid "Dark"
 msgstr "Oscuro"
 
 #: src/modules/Groups/ui/group-sidebar.ui:26
-msgid "Language"
-msgstr "Idioma"
-
-#: src/modules/Groups/ui/group-sidebar.ui:109
 msgid "Backup"
 msgstr "Copia de seguridad"
 
-#: src/modules/Groups/ui/group-sidebar.ui:111
+#: src/modules/Groups/ui/group-sidebar.ui:28
 msgid "Export Backup…"
 msgstr "Exportar copia de seguridad…"
 
-#: src/modules/Groups/ui/group-sidebar.ui:115
+#: src/modules/Groups/ui/group-sidebar.ui:32
 msgid "Restore Backup…"
 msgstr "Restaurar copia de seguridad…"
 
-#: src/modules/Groups/ui/group-sidebar.ui:122
+#: src/modules/Groups/ui/group-sidebar.ui:39
 msgid "About Queue"
 msgstr "Acerca de Queue"
 
-#: src/modules/Groups/ui/group-sidebar.ui:128
+#: src/modules/Groups/ui/group-sidebar.ui:45
 msgid "Groups"
 msgstr "Grupos"
 
-#: src/modules/Groups/ui/group-sidebar.ui:137
+#: src/modules/Groups/ui/group-sidebar.ui:54
 msgid "Main Menu"
 msgstr "Menú principal"
 
@@ -455,11 +444,19 @@ msgstr "Las descripciones de tareas ahora admiten textos mucho más largos."
 msgid ""
 "Added Polish, Russian, Korean, Norwegian, Swedish, Hindi and Greek "
 "translations."
-msgstr "Se han añadido las traducciones al polaco, ruso, coreano, noruego, sueco, hindi y griego."
+msgstr ""
+"Se han añadido las traducciones al polaco, ruso, coreano, noruego, sueco, "
+"hindi y griego."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:77
 msgid "Initial release."
 msgstr "Versión inicial."
+
+#~ msgid "Restart Queue to apply the new language."
+#~ msgstr "Reinicia Queue para aplicar el nuevo idioma."
+
+#~ msgid "Language"
+#~ msgstr "Idioma"
 
 #~ msgid "Description (optional)"
 #~ msgstr "Descripción (opcional)"

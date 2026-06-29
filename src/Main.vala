@@ -56,7 +56,6 @@ namespace Queue {
 
             // Stateful actions backed by GSettings, so the choices are persisted.
             add_action(settings.create_action("color-scheme"));
-            add_action(settings.create_action("language"));
 
             var about_action = new SimpleAction("about", null);
             about_action.activate.connect(() => show_about());
@@ -149,22 +148,9 @@ string locale_directory()
     return Config.LOCALEDIR;
 }
 
-// Applies the language saved in GSettings by exporting it through LANGUAGE, so
-// gettext loads that catalog. An empty preference leaves the system locale
-// untouched. Must run before setlocale so the choice takes effect.
-void apply_language_preference()
-{
-    var settings = new Settings(Config.APP_ID);
-    var language = settings.get_string("language");
-    if (language != "") {
-        Environment.set_variable("LANGUAGE", language, true);
-    }
-}
-
 int main(string[] arguments)
 {
     use_local_schemas_if_present();
-    apply_language_preference();
 
     Intl.setlocale(LocaleCategory.ALL, "");
     Intl.bindtextdomain(Config.GETTEXT_PACKAGE, locale_directory());
