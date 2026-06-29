@@ -5,7 +5,7 @@ namespace Queue.Tasks {
     {
 
         public const int MAXIMUM_TITLE_LENGTH = 255;
-        public const int MAXIMUM_DESCRIPTION_LENGTH = 500;
+        public const int MAXIMUM_DESCRIPTION_LENGTH = 10000;
 
         private string title;
         private string description;

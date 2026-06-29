@@ -207,7 +207,7 @@ namespace Queue {
         {
             var dialog = new Adw.Dialog() {
                 title = heading,
-                content_width = 500
+                content_width = 640
             };
 
             var title_label = new Gtk.Label(heading) {
@@ -238,7 +238,7 @@ namespace Queue {
             var description_scroll = new Gtk.ScrolledWindow() {
                 child = description_view,
                 hscrollbar_policy = Gtk.PolicyType.NEVER,
-                min_content_height = 100
+                min_content_height = 280
             };
             description_scroll.add_css_class("card");
 
