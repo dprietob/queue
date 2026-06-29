@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 03:18+0200\n"
+"POT-Creation-Date: 2026-06-29 19:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,12 +40,12 @@ msgstr ""
 msgid "Delete Group?"
 msgstr ""
 
-#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:21
-#: src/modules/Tasks/ui/task-list-panel.ui:76
+#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:36
+#: src/modules/Tasks/ui/task-list-panel.ui:80
 msgid "New Task"
 msgstr ""
 
-#: src/Window.vala:128 src/modules/Tasks/ui/task-row.ui:65
+#: src/Window.vala:128
 msgid "Edit Task"
 msgstr ""
 
@@ -58,74 +58,71 @@ msgstr ""
 msgid "Delete Task?"
 msgstr ""
 
-#: src/Window.vala:159
+#: src/Window.vala:168
 msgid "Group name"
 msgstr ""
 
-#: src/Window.vala:176
+#: src/Window.vala:187
 msgid "Color"
 msgstr ""
 
-#: src/Window.vala:186 src/Window.vala:260 src/Window.vala:313
-#: src/Window.vala:378
+#: src/Window.vala:192 src/Window.vala:265 src/Window.vala:303
+#: src/Window.vala:367
 msgid "Cancel"
 msgstr ""
 
-#: src/Window.vala:187 src/Window.vala:261
+#: src/Window.vala:193 src/Window.vala:266
 msgid "Save"
 msgstr ""
 
-#: src/Window.vala:220
+#: src/Window.vala:245
 msgid "Title"
 msgstr ""
 
-#: src/Window.vala:245
-msgid "Description (optional)"
-msgstr ""
-
-#: src/Window.vala:255 src/modules/Tasks/ui/task-row.ui:55
+#: src/Window.vala:260 src/modules/Tasks/ui/task-row.ui:55
 msgid "Important"
 msgstr ""
 
-#: src/Window.vala:314
+#: src/Window.vala:304 src/modules/Groups/ui/group-row.ui:59
+#: src/modules/Tasks/ui/task-row.ui:101
 msgid "Delete"
 msgstr ""
 
-#: src/Window.vala:330
+#: src/Window.vala:320
 msgid "Export Backup"
 msgstr ""
 
-#: src/Window.vala:342
+#: src/Window.vala:332
 msgid "Exporting Backup…"
 msgstr ""
 
-#: src/Window.vala:349
+#: src/Window.vala:339
 msgid "Backup exported."
 msgstr ""
 
-#: src/Window.vala:357
+#: src/Window.vala:347
 msgid "Restore Backup"
 msgstr ""
 
-#: src/Window.vala:374
+#: src/Window.vala:364
 msgid "Restore Backup?"
 msgstr ""
 
-#: src/Window.vala:376
+#: src/Window.vala:365
 msgid ""
 "All current groups and tasks will be permanently deleted and replaced with "
 "the contents of the backup file."
 msgstr ""
 
-#: src/Window.vala:379
+#: src/Window.vala:368
 msgid "Delete and Restore"
 msgstr ""
 
-#: src/Window.vala:390
+#: src/Window.vala:379
 msgid "Restoring Backup…"
 msgstr ""
 
-#: src/Window.vala:401
+#: src/Window.vala:390
 msgid "Backup restored."
 msgstr ""
 
@@ -192,11 +189,11 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: src/modules/Groups/ui/group-row.ui:33
-msgid "Rename Group"
+msgid "Group Options"
 msgstr ""
 
-#: src/modules/Groups/ui/group-row.ui:43
-msgid "Delete Group"
+#: src/modules/Groups/ui/group-row.ui:50 src/modules/Tasks/ui/task-row.ui:92
+msgid "Edit"
 msgstr ""
 
 #: src/modules/Tasks/validators/TaskStoreValidator.vala:30
@@ -242,43 +239,43 @@ msgstr ""
 msgid "Search Tasks"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:27
+#: src/modules/Tasks/ui/task-list-panel.ui:20
 msgid "Filter by status"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:32
+#: src/modules/Tasks/ui/task-list-panel.ui:25
 msgid "All"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:33
+#: src/modules/Tasks/ui/task-list-panel.ui:26
 msgid "Pending"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:34
+#: src/modules/Tasks/ui/task-list-panel.ui:27
 msgid "Completed"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:46
+#: src/modules/Tasks/ui/task-list-panel.ui:50
 msgid "Filter tasks by name…"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:60
+#: src/modules/Tasks/ui/task-list-panel.ui:64
 msgid "No Group Selected"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:61
+#: src/modules/Tasks/ui/task-list-panel.ui:65
 msgid "Select a group to see its tasks."
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:72
+#: src/modules/Tasks/ui/task-list-panel.ui:76
 msgid "No Tasks Yet"
 msgstr ""
 
-#: src/modules/Tasks/ui/task-list-panel.ui:73
+#: src/modules/Tasks/ui/task-list-panel.ui:77
 msgid "Add your first task to this group."
 msgstr ""
 
-#: src/modules/Backup/services/BackupSerializer.vala:56
+#: src/modules/Backup/services/BackupSerializer.vala:57
 msgid "The backup file is not valid."
 msgstr ""
 
@@ -291,77 +288,160 @@ msgid "Show Description"
 msgstr ""
 
 #: src/modules/Tasks/ui/task-row.ui:75
-msgid "Delete Task"
+msgid "Task Options"
 msgstr ""
 
-#: data/com.dprietob.queue.desktop.in:2
-#: data/com.dprietob.queue.metainfo.xml.in:5
+#: src/modules/Tasks/ui/description-editor.ui:16
+msgid "Heading"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:28
+msgid "Heading 1"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:36
+msgid "Heading 2"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:44
+msgid "Heading 3"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:52
+msgid "Normal text"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:74
+msgid "Bold"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:83
+msgid "Italic"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:92
+msgid "Underline"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:101
+msgid "Strikethrough"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:110
+msgid "Text color"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:126
+msgid "Bulleted list"
+msgstr ""
+
+#: src/modules/Tasks/ui/description-editor.ui:135
+msgid "Numbered list"
+msgstr ""
+
+#: data/io.github.dprietob.queue.desktop.in:2
+#: data/io.github.dprietob.queue.metainfo.xml.in:5
 msgid "Queue"
 msgstr ""
 
-#: data/com.dprietob.queue.desktop.in:3
-#: data/com.dprietob.queue.metainfo.xml.in:6
+#: data/io.github.dprietob.queue.desktop.in:3
+#: data/io.github.dprietob.queue.metainfo.xml.in:6
 msgid "Task manager"
 msgstr ""
 
-#: data/com.dprietob.queue.desktop.in:4
+#: data/io.github.dprietob.queue.desktop.in:4
 msgid "Manage and organize tasks"
 msgstr ""
 
-#: data/com.dprietob.queue.desktop.in:10
+#: data/io.github.dprietob.queue.desktop.in:10
 msgid "task;manager;organize;"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:12
+#: data/io.github.dprietob.queue.metainfo.xml.in:12
 msgid "Daniel Prieto"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:16
+#: data/io.github.dprietob.queue.metainfo.xml.in:16
 msgid "Queue is a simple, fast task manager."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:19
+#: data/io.github.dprietob.queue.metainfo.xml.in:19
 msgid ""
 "Organize your tasks into groups, mark them as done or important, reorder "
 "them with drag and drop, and keep your data safe with built-in backups."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:23
+#: data/io.github.dprietob.queue.metainfo.xml.in:23
 msgid "Features:"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:25
-msgid "Organize tasks into custom, color-coded groups"
+#: data/io.github.dprietob.queue.metainfo.xml.in:25
+msgid "Organize tasks into custom, color-coded groups."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:26
-msgid "Mark tasks as completed or important"
+#: data/io.github.dprietob.queue.metainfo.xml.in:26
+msgid "Mark tasks as completed or important."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:27
-msgid "Add optional descriptions and reorder by dragging"
+#: data/io.github.dprietob.queue.metainfo.xml.in:27
+msgid ""
+"Write rich task descriptions with headings, text styles, colors and lists."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:28
-msgid "Export and restore all your data as JSON"
+#: data/io.github.dprietob.queue.metainfo.xml.in:28
+msgid "See the date when each task was completed."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:29
-msgid "Light and dark styles, available in several languages"
+#: data/io.github.dprietob.queue.metainfo.xml.in:29
+msgid "Reorder groups and tasks with drag and drop."
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:41
+#: data/io.github.dprietob.queue.metainfo.xml.in:30
+msgid "Export and restore all your data as JSON."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:31
+msgid "Light and dark styles, available in several languages."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:43
 msgid "Tasks organized by group"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:45
+#: data/io.github.dprietob.queue.metainfo.xml.in:47
 msgid "Dark style"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:49
+#: data/io.github.dprietob.queue.metainfo.xml.in:51
 msgid "Create and edit tasks with details"
 msgstr ""
 
-#: data/com.dprietob.queue.metainfo.xml.in:62
+#: data/io.github.dprietob.queue.metainfo.xml.in:64
+msgid "This release brings rich text descriptions and several refinements:"
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:66
+msgid ""
+"Format task descriptions with headings, bold, italic, underline, "
+"strikethrough, text color and lists."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:67
+msgid "See the completion date of finished tasks."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:68
+msgid "Edit and delete tasks and groups from a per-item menu."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:69
+msgid "The task list now uses the full width of the window."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:70
+msgid "Task descriptions can now hold much longer text."
+msgstr ""
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:76
 msgid "Initial release."
 msgstr ""

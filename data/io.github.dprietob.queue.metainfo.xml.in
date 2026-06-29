@@ -24,7 +24,9 @@
     <ul>
       <li translatable="yes">Organize tasks into custom, color-coded groups.</li>
       <li translatable="yes">Mark tasks as completed or important.</li>
-      <li translatable="yes">Add optional formatted descriptions and reorder by dragging.</li>
+      <li translatable="yes">Write rich task descriptions with headings, text styles, colors and lists.</li>
+      <li translatable="yes">See the date when each task was completed.</li>
+      <li translatable="yes">Reorder groups and tasks with drag and drop.</li>
       <li translatable="yes">Export and restore all your data as JSON.</li>
       <li translatable="yes">Light and dark styles, available in several languages.</li>
     </ul>
@@ -57,6 +59,18 @@
   </branding>
 
   <releases>
+    <release version="1.1.0" date="2026-06-29" type="stable">
+      <description>
+        <p translatable="yes">This release brings rich text descriptions and several refinements:</p>
+        <ul>
+          <li translatable="yes">Format task descriptions with headings, bold, italic, underline, strikethrough, text color and lists.</li>
+          <li translatable="yes">See the completion date of finished tasks.</li>
+          <li translatable="yes">Edit and delete tasks and groups from a per-item menu.</li>
+          <li translatable="yes">The task list now uses the full width of the window.</li>
+          <li translatable="yes">Task descriptions can now hold much longer text.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.0" date="2026-04-12" type="stable">
       <description>
         <p translatable="yes">Initial release.</p>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue 1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 02:58+0200\n"
+"POT-Creation-Date: 2026-06-29 19:01+0200\n"
 "PO-Revision-Date: 2026-06-27 00:00+0000\n"
 "Last-Translator: Daniel Prieto\n"
 "Language-Team: Simplified Chinese\n"
@@ -16,257 +16,448 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#. The language is applied at startup, so a change only takes effect
+#. on the next launch.
+#: src/Window.vala:41
 msgid "Restart Queue to apply the new language."
 msgstr "重启 Queue 以应用新语言。"
 
+#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:110
 msgid "New Group"
 msgstr "新建分组"
 
+#: src/Window.vala:101
 msgid "Edit Group"
 msgstr "编辑分组"
 
+#: src/Window.vala:108
 #, c-format
 msgid "\"%s\" and all of its tasks will be permanently deleted."
 msgstr "“%s”及其所有任务将被永久删除。"
 
+#: src/Window.vala:110
 msgid "Delete Group?"
 msgstr "删除分组？"
 
+#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:36
+#: src/modules/Tasks/ui/task-list-panel.ui:80
 msgid "New Task"
 msgstr "新建任务"
 
+#: src/Window.vala:128
 msgid "Edit Task"
 msgstr "编辑任务"
 
+#: src/Window.vala:136
 #, c-format
 msgid "\"%s\" will be permanently deleted."
 msgstr "“%s”将被永久删除。"
 
+#: src/Window.vala:137
 msgid "Delete Task?"
 msgstr "删除任务？"
 
+#: src/Window.vala:168
 msgid "Group name"
 msgstr "分组名称"
 
+#: src/Window.vala:187
 msgid "Color"
 msgstr "颜色"
 
+#: src/Window.vala:192 src/Window.vala:265 src/Window.vala:303
+#: src/Window.vala:367
 msgid "Cancel"
 msgstr "取消"
 
+#: src/Window.vala:193 src/Window.vala:266
 msgid "Save"
 msgstr "保存"
 
+#: src/Window.vala:245
 msgid "Title"
 msgstr "标题"
 
-msgid "Description (optional)"
-msgstr "描述（可选）"
-
+#: src/Window.vala:260 src/modules/Tasks/ui/task-row.ui:55
 msgid "Important"
 msgstr "重要"
 
+#: src/Window.vala:304 src/modules/Groups/ui/group-row.ui:59
+#: src/modules/Tasks/ui/task-row.ui:101
 msgid "Delete"
 msgstr "删除"
 
+#: src/Window.vala:320
 msgid "Export Backup"
 msgstr "导出备份"
 
+#: src/Window.vala:332
 msgid "Exporting Backup…"
 msgstr "正在导出备份…"
 
+#: src/Window.vala:339
 msgid "Backup exported."
 msgstr "备份已导出。"
 
+#: src/Window.vala:347
 msgid "Restore Backup"
 msgstr "恢复备份"
 
+#: src/Window.vala:364
 msgid "Restore Backup?"
 msgstr "恢复备份？"
 
-msgid "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."
+#: src/Window.vala:365
+msgid ""
+"All current groups and tasks will be permanently deleted and replaced with "
+"the contents of the backup file."
 msgstr "当前所有分组和任务都将被永久删除，并替换为备份文件中的内容。"
 
+#: src/Window.vala:368
 msgid "Delete and Restore"
 msgstr "删除并恢复"
 
+#: src/Window.vala:379
 msgid "Restoring Backup…"
 msgstr "正在恢复备份…"
 
+#: src/Window.vala:390
 msgid "Backup restored."
 msgstr "备份已恢复。"
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:29
 msgid "The group name cannot be empty."
 msgstr "分组名称不能为空。"
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:31
 #, c-format
 msgid "The group name must be at most %d characters."
 msgstr "分组名称最多只能包含 %d 个字符。"
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:32
 msgid "A group with this name already exists."
 msgstr "已存在同名分组。"
 
+#: src/modules/Groups/ui/group-sidebar.ui:8
 msgid "Theme"
 msgstr "主题"
 
+#: src/modules/Groups/ui/group-sidebar.ui:10
+#: src/modules/Groups/ui/group-sidebar.ui:28
 msgid "Follow System"
 msgstr "跟随系统"
 
+#: src/modules/Groups/ui/group-sidebar.ui:15
 msgid "Light"
 msgstr "浅色"
 
+#: src/modules/Groups/ui/group-sidebar.ui:20
 msgid "Dark"
 msgstr "深色"
 
+#: src/modules/Groups/ui/group-sidebar.ui:26
 msgid "Language"
 msgstr "语言"
 
+#: src/modules/Groups/ui/group-sidebar.ui:74
 msgid "Backup"
 msgstr "备份"
 
+#: src/modules/Groups/ui/group-sidebar.ui:76
 msgid "Export Backup…"
 msgstr "导出备份…"
 
+#: src/modules/Groups/ui/group-sidebar.ui:80
 msgid "Restore Backup…"
 msgstr "恢复备份…"
 
+#: src/modules/Groups/ui/group-sidebar.ui:87
 msgid "About Queue"
 msgstr "关于 Queue"
 
+#: src/modules/Groups/ui/group-sidebar.ui:93
 msgid "Groups"
 msgstr "分组"
 
+#: src/modules/Groups/ui/group-sidebar.ui:102
 msgid "Main Menu"
 msgstr "主菜单"
 
+#: src/modules/Groups/ui/group-row.ui:16 src/modules/Tasks/ui/task-row.ui:19
 msgid "Drag to reorder"
 msgstr "拖动以重新排序"
 
-msgid "Rename Group"
-msgstr "重命名分组"
+#: src/modules/Groups/ui/group-row.ui:33
+msgid "Group Options"
+msgstr "分组选项"
 
-msgid "Delete Group"
-msgstr "删除分组"
+#: src/modules/Groups/ui/group-row.ui:50 src/modules/Tasks/ui/task-row.ui:92
+msgid "Edit"
+msgstr "编辑"
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:30
 msgid "The task title cannot be empty."
 msgstr "任务标题不能为空。"
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:32
 #, c-format
 msgid "The task title must be at most %d characters."
 msgstr "任务标题最多只能包含 %d 个字符。"
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:34
 #, c-format
 msgid "The description must be at most %d characters."
 msgstr "描述最多只能包含 %d 个字符。"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:83
+#: src/modules/Tasks/ui/task-list-panel.ui:6
 msgid "Tasks"
 msgstr "任务"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:158
 #, c-format
 msgid "Total: %u"
 msgstr "总计：%u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:159
 #, c-format
 msgid "Pending: %u"
 msgstr "待办：%u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:160
 #, c-format
 msgid "Completed: %u"
 msgstr "已完成：%u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:161
 #, c-format
 msgid "Important: %u"
 msgstr "重要：%u"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:14
 msgid "Search Tasks"
 msgstr "搜索任务"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:20
 msgid "Filter by status"
 msgstr "按状态筛选"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:25
 msgid "All"
 msgstr "全部"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:26
 msgid "Pending"
 msgstr "待办"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:27
 msgid "Completed"
 msgstr "已完成"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:50
 msgid "Filter tasks by name…"
 msgstr "按名称筛选任务…"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:64
 msgid "No Group Selected"
 msgstr "未选择分组"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:65
 msgid "Select a group to see its tasks."
 msgstr "选择一个分组以查看其任务。"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:76
 msgid "No Tasks Yet"
 msgstr "暂无任务"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:77
 msgid "Add your first task to this group."
 msgstr "为该分组添加第一个任务。"
 
+#: src/modules/Backup/services/BackupSerializer.vala:57
 msgid "The backup file is not valid."
 msgstr "备份文件无效。"
 
+#: src/modules/Tasks/ui/task-row.ui:28
 msgid "Toggle Completed"
 msgstr "切换完成状态"
 
+#: src/modules/Tasks/ui/task-row.ui:44
 msgid "Show Description"
 msgstr "显示描述"
 
-msgid "Delete Task"
-msgstr "删除任务"
+#: src/modules/Tasks/ui/task-row.ui:75
+msgid "Task Options"
+msgstr "任务选项"
 
+#: src/modules/Tasks/ui/description-editor.ui:16
+msgid "Heading"
+msgstr "标题"
+
+#: src/modules/Tasks/ui/description-editor.ui:28
+msgid "Heading 1"
+msgstr "标题 1"
+
+#: src/modules/Tasks/ui/description-editor.ui:36
+msgid "Heading 2"
+msgstr "标题 2"
+
+#: src/modules/Tasks/ui/description-editor.ui:44
+msgid "Heading 3"
+msgstr "标题 3"
+
+#: src/modules/Tasks/ui/description-editor.ui:52
+msgid "Normal text"
+msgstr "正文"
+
+#: src/modules/Tasks/ui/description-editor.ui:74
+msgid "Bold"
+msgstr "粗体"
+
+#: src/modules/Tasks/ui/description-editor.ui:83
+msgid "Italic"
+msgstr "斜体"
+
+#: src/modules/Tasks/ui/description-editor.ui:92
+msgid "Underline"
+msgstr "下划线"
+
+#: src/modules/Tasks/ui/description-editor.ui:101
+msgid "Strikethrough"
+msgstr "删除线"
+
+#: src/modules/Tasks/ui/description-editor.ui:110
+msgid "Text color"
+msgstr "文字颜色"
+
+#: src/modules/Tasks/ui/description-editor.ui:126
+msgid "Bulleted list"
+msgstr "项目符号列表"
+
+#: src/modules/Tasks/ui/description-editor.ui:135
+msgid "Numbered list"
+msgstr "编号列表"
+
+#: data/io.github.dprietob.queue.desktop.in:2
+#: data/io.github.dprietob.queue.metainfo.xml.in:5
 msgid "Queue"
 msgstr "Queue"
 
+#: data/io.github.dprietob.queue.desktop.in:3
+#: data/io.github.dprietob.queue.metainfo.xml.in:6
 msgid "Task manager"
 msgstr "任务管理器"
 
+#: data/io.github.dprietob.queue.desktop.in:4
 msgid "Manage and organize tasks"
 msgstr "管理和组织任务"
 
+#: data/io.github.dprietob.queue.desktop.in:10
 msgid "task;manager;organize;"
 msgstr "任务;管理器;组织;task;manager;organize;"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:12
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:16
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue 是一款简单、快速的任务管理器。"
 
-msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
-msgstr "将任务整理到分组中，将其标记为已完成或重要，通过拖放重新排序，并使用内置备份保护您的数据。"
+#: data/io.github.dprietob.queue.metainfo.xml.in:19
+msgid ""
+"Organize your tasks into groups, mark them as done or important, reorder "
+"them with drag and drop, and keep your data safe with built-in backups."
+msgstr ""
+"将任务整理到分组中，将其标记为已完成或重要，通过拖放重新排序，并使用内置备份"
+"保护您的数据。"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:23
 msgid "Features:"
 msgstr "功能："
 
-msgid "Organize tasks into custom, color-coded groups"
+#: data/io.github.dprietob.queue.metainfo.xml.in:25
+msgid "Organize tasks into custom, color-coded groups."
 msgstr "将任务整理到自定义的彩色分组中"
 
-msgid "Mark tasks as completed or important"
+#: data/io.github.dprietob.queue.metainfo.xml.in:26
+msgid "Mark tasks as completed or important."
 msgstr "将任务标记为已完成或重要"
 
-msgid "Add optional descriptions and reorder by dragging"
-msgstr "添加可选描述并通过拖动重新排序"
+#: data/io.github.dprietob.queue.metainfo.xml.in:27
+msgid ""
+"Write rich task descriptions with headings, text styles, colors and lists."
+msgstr "使用标题、文字样式、颜色和列表编写富文本描述。"
 
-msgid "Export and restore all your data as JSON"
+#: data/io.github.dprietob.queue.metainfo.xml.in:28
+msgid "See the date when each task was completed."
+msgstr "查看每个任务的完成日期。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:29
+msgid "Reorder groups and tasks with drag and drop."
+msgstr "通过拖放重新排序分组和任务。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:30
+msgid "Export and restore all your data as JSON."
 msgstr "以 JSON 格式导出和恢复所有数据"
 
-msgid "Light and dark styles, available in several languages"
+#: data/io.github.dprietob.queue.metainfo.xml.in:31
+msgid "Light and dark styles, available in several languages."
 msgstr "支持浅色和深色样式，并提供多种语言"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:43
 msgid "Tasks organized by group"
 msgstr "按分组整理的任务"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:47
 msgid "Dark style"
 msgstr "深色样式"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:51
 msgid "Create and edit tasks with details"
 msgstr "创建和编辑带有详细信息的任务"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:64
+msgid "This release brings rich text descriptions and several refinements:"
+msgstr "此版本带来了富文本描述和多项改进："
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:66
+msgid ""
+"Format task descriptions with headings, bold, italic, underline, "
+"strikethrough, text color and lists."
+msgstr "使用标题、粗体、斜体、下划线、删除线、文字颜色和列表设置描述格式。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:67
+msgid "See the completion date of finished tasks."
+msgstr "查看已完成任务的完成日期。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:68
+msgid "Edit and delete tasks and groups from a per-item menu."
+msgstr "通过每个条目的菜单编辑和删除任务与分组。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:69
+msgid "The task list now uses the full width of the window."
+msgstr "任务列表现在占据窗口的整个宽度。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:70
+msgid "Task descriptions can now hold much longer text."
+msgstr "任务描述现在可以容纳更长的文本。"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:76
 msgid "Initial release."
 msgstr "首次发布。"
 
-msgid "Daniel Prieto"
-msgstr "Daniel Prieto"
+#~ msgid "Description (optional)"
+#~ msgstr "描述（可选）"
+
+#~ msgid "Rename Group"
+#~ msgstr "重命名分组"
+
+#~ msgid "Delete Group"
+#~ msgstr "删除分组"
+
+#~ msgid "Delete Task"
+#~ msgstr "删除任务"
+
+#~ msgid "Add optional descriptions and reorder by dragging"
+#~ msgstr "添加可选描述并通过拖动重新排序"

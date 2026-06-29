@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue 1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 02:58+0200\n"
+"POT-Creation-Date: 2026-06-29 19:01+0200\n"
 "PO-Revision-Date: 2026-06-27 00:00+0000\n"
 "Last-Translator: Daniel Prieto\n"
 "Language-Team: German\n"
@@ -16,257 +16,451 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#. The language is applied at startup, so a change only takes effect
+#. on the next launch.
+#: src/Window.vala:41
 msgid "Restart Queue to apply the new language."
 msgstr "Starten Sie Queue neu, um die neue Sprache anzuwenden."
 
+#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:110
 msgid "New Group"
 msgstr "Neue Gruppe"
 
+#: src/Window.vala:101
 msgid "Edit Group"
 msgstr "Gruppe bearbeiten"
 
+#: src/Window.vala:108
 #, c-format
 msgid "\"%s\" and all of its tasks will be permanently deleted."
 msgstr "„%s“ und alle zugehörigen Aufgaben werden dauerhaft gelöscht."
 
+#: src/Window.vala:110
 msgid "Delete Group?"
 msgstr "Gruppe löschen?"
 
+#: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:36
+#: src/modules/Tasks/ui/task-list-panel.ui:80
 msgid "New Task"
 msgstr "Neue Aufgabe"
 
+#: src/Window.vala:128
 msgid "Edit Task"
 msgstr "Aufgabe bearbeiten"
 
+#: src/Window.vala:136
 #, c-format
 msgid "\"%s\" will be permanently deleted."
 msgstr "„%s“ wird dauerhaft gelöscht."
 
+#: src/Window.vala:137
 msgid "Delete Task?"
 msgstr "Aufgabe löschen?"
 
+#: src/Window.vala:168
 msgid "Group name"
 msgstr "Gruppenname"
 
+#: src/Window.vala:187
 msgid "Color"
 msgstr "Farbe"
 
+#: src/Window.vala:192 src/Window.vala:265 src/Window.vala:303
+#: src/Window.vala:367
 msgid "Cancel"
 msgstr "Abbrechen"
 
+#: src/Window.vala:193 src/Window.vala:266
 msgid "Save"
 msgstr "Speichern"
 
+#: src/Window.vala:245
 msgid "Title"
 msgstr "Titel"
 
-msgid "Description (optional)"
-msgstr "Beschreibung (optional)"
-
+#: src/Window.vala:260 src/modules/Tasks/ui/task-row.ui:55
 msgid "Important"
 msgstr "Wichtig"
 
+#: src/Window.vala:304 src/modules/Groups/ui/group-row.ui:59
+#: src/modules/Tasks/ui/task-row.ui:101
 msgid "Delete"
 msgstr "Löschen"
 
+#: src/Window.vala:320
 msgid "Export Backup"
 msgstr "Sicherung exportieren"
 
+#: src/Window.vala:332
 msgid "Exporting Backup…"
 msgstr "Sicherung wird exportiert…"
 
+#: src/Window.vala:339
 msgid "Backup exported."
 msgstr "Sicherung exportiert."
 
+#: src/Window.vala:347
 msgid "Restore Backup"
 msgstr "Sicherung wiederherstellen"
 
+#: src/Window.vala:364
 msgid "Restore Backup?"
 msgstr "Sicherung wiederherstellen?"
 
-msgid "All current groups and tasks will be permanently deleted and replaced with the contents of the backup file."
-msgstr "Alle aktuellen Gruppen und Aufgaben werden dauerhaft gelöscht und durch den Inhalt der Sicherungsdatei ersetzt."
+#: src/Window.vala:365
+msgid ""
+"All current groups and tasks will be permanently deleted and replaced with "
+"the contents of the backup file."
+msgstr ""
+"Alle aktuellen Gruppen und Aufgaben werden dauerhaft gelöscht und durch den "
+"Inhalt der Sicherungsdatei ersetzt."
 
+#: src/Window.vala:368
 msgid "Delete and Restore"
 msgstr "Löschen und wiederherstellen"
 
+#: src/Window.vala:379
 msgid "Restoring Backup…"
 msgstr "Sicherung wird wiederhergestellt…"
 
+#: src/Window.vala:390
 msgid "Backup restored."
 msgstr "Sicherung wiederhergestellt."
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:29
 msgid "The group name cannot be empty."
 msgstr "Der Gruppenname darf nicht leer sein."
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:31
 #, c-format
 msgid "The group name must be at most %d characters."
 msgstr "Der Gruppenname darf höchstens %d Zeichen lang sein."
 
+#: src/modules/Groups/validators/GroupStoreValidator.vala:32
 msgid "A group with this name already exists."
 msgstr "Eine Gruppe mit diesem Namen existiert bereits."
 
+#: src/modules/Groups/ui/group-sidebar.ui:8
 msgid "Theme"
 msgstr "Erscheinungsbild"
 
+#: src/modules/Groups/ui/group-sidebar.ui:10
+#: src/modules/Groups/ui/group-sidebar.ui:28
 msgid "Follow System"
 msgstr "Systemeinstellung folgen"
 
+#: src/modules/Groups/ui/group-sidebar.ui:15
 msgid "Light"
 msgstr "Hell"
 
+#: src/modules/Groups/ui/group-sidebar.ui:20
 msgid "Dark"
 msgstr "Dunkel"
 
+#: src/modules/Groups/ui/group-sidebar.ui:26
 msgid "Language"
 msgstr "Sprache"
 
+#: src/modules/Groups/ui/group-sidebar.ui:74
 msgid "Backup"
 msgstr "Sicherung"
 
+#: src/modules/Groups/ui/group-sidebar.ui:76
 msgid "Export Backup…"
 msgstr "Sicherung exportieren…"
 
+#: src/modules/Groups/ui/group-sidebar.ui:80
 msgid "Restore Backup…"
 msgstr "Sicherung wiederherstellen…"
 
+#: src/modules/Groups/ui/group-sidebar.ui:87
 msgid "About Queue"
 msgstr "Info zu Queue"
 
+#: src/modules/Groups/ui/group-sidebar.ui:93
 msgid "Groups"
 msgstr "Gruppen"
 
+#: src/modules/Groups/ui/group-sidebar.ui:102
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
+#: src/modules/Groups/ui/group-row.ui:16 src/modules/Tasks/ui/task-row.ui:19
 msgid "Drag to reorder"
 msgstr "Zum Umsortieren ziehen"
 
-msgid "Rename Group"
-msgstr "Gruppe umbenennen"
+#: src/modules/Groups/ui/group-row.ui:33
+msgid "Group Options"
+msgstr "Gruppenoptionen"
 
-msgid "Delete Group"
-msgstr "Gruppe löschen"
+#: src/modules/Groups/ui/group-row.ui:50 src/modules/Tasks/ui/task-row.ui:92
+msgid "Edit"
+msgstr "Bearbeiten"
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:30
 msgid "The task title cannot be empty."
 msgstr "Der Aufgabentitel darf nicht leer sein."
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:32
 #, c-format
 msgid "The task title must be at most %d characters."
 msgstr "Der Aufgabentitel darf höchstens %d Zeichen lang sein."
 
+#: src/modules/Tasks/validators/TaskStoreValidator.vala:34
 #, c-format
 msgid "The description must be at most %d characters."
 msgstr "Die Beschreibung darf höchstens %d Zeichen lang sein."
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:83
+#: src/modules/Tasks/ui/task-list-panel.ui:6
 msgid "Tasks"
 msgstr "Aufgaben"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:158
 #, c-format
 msgid "Total: %u"
 msgstr "Gesamt: %u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:159
 #, c-format
 msgid "Pending: %u"
 msgstr "Ausstehend: %u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:160
 #, c-format
 msgid "Completed: %u"
 msgstr "Erledigt: %u"
 
+#: src/modules/Tasks/ui/TaskListPanel.vala:161
 #, c-format
 msgid "Important: %u"
 msgstr "Wichtig: %u"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:14
 msgid "Search Tasks"
 msgstr "Aufgaben suchen"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:20
 msgid "Filter by status"
 msgstr "Nach Status filtern"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:25
 msgid "All"
 msgstr "Alle"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:26
 msgid "Pending"
 msgstr "Ausstehend"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:27
 msgid "Completed"
 msgstr "Erledigt"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:50
 msgid "Filter tasks by name…"
 msgstr "Aufgaben nach Namen filtern…"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:64
 msgid "No Group Selected"
 msgstr "Keine Gruppe ausgewählt"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:65
 msgid "Select a group to see its tasks."
 msgstr "Wählen Sie eine Gruppe aus, um ihre Aufgaben zu sehen."
 
+#: src/modules/Tasks/ui/task-list-panel.ui:76
 msgid "No Tasks Yet"
 msgstr "Noch keine Aufgaben"
 
+#: src/modules/Tasks/ui/task-list-panel.ui:77
 msgid "Add your first task to this group."
 msgstr "Fügen Sie dieser Gruppe Ihre erste Aufgabe hinzu."
 
+#: src/modules/Backup/services/BackupSerializer.vala:57
 msgid "The backup file is not valid."
 msgstr "Die Sicherungsdatei ist ungültig."
 
+#: src/modules/Tasks/ui/task-row.ui:28
 msgid "Toggle Completed"
 msgstr "Erledigt umschalten"
 
+#: src/modules/Tasks/ui/task-row.ui:44
 msgid "Show Description"
 msgstr "Beschreibung anzeigen"
 
-msgid "Delete Task"
-msgstr "Aufgabe löschen"
+#: src/modules/Tasks/ui/task-row.ui:75
+msgid "Task Options"
+msgstr "Aufgabenoptionen"
 
+#: src/modules/Tasks/ui/description-editor.ui:16
+msgid "Heading"
+msgstr "Überschrift"
+
+#: src/modules/Tasks/ui/description-editor.ui:28
+msgid "Heading 1"
+msgstr "Überschrift 1"
+
+#: src/modules/Tasks/ui/description-editor.ui:36
+msgid "Heading 2"
+msgstr "Überschrift 2"
+
+#: src/modules/Tasks/ui/description-editor.ui:44
+msgid "Heading 3"
+msgstr "Überschrift 3"
+
+#: src/modules/Tasks/ui/description-editor.ui:52
+msgid "Normal text"
+msgstr "Normaler Text"
+
+#: src/modules/Tasks/ui/description-editor.ui:74
+msgid "Bold"
+msgstr "Fett"
+
+#: src/modules/Tasks/ui/description-editor.ui:83
+msgid "Italic"
+msgstr "Kursiv"
+
+#: src/modules/Tasks/ui/description-editor.ui:92
+msgid "Underline"
+msgstr "Unterstrichen"
+
+#: src/modules/Tasks/ui/description-editor.ui:101
+msgid "Strikethrough"
+msgstr "Durchgestrichen"
+
+#: src/modules/Tasks/ui/description-editor.ui:110
+msgid "Text color"
+msgstr "Textfarbe"
+
+#: src/modules/Tasks/ui/description-editor.ui:126
+msgid "Bulleted list"
+msgstr "Aufzählungsliste"
+
+#: src/modules/Tasks/ui/description-editor.ui:135
+msgid "Numbered list"
+msgstr "Nummerierte Liste"
+
+#: data/io.github.dprietob.queue.desktop.in:2
+#: data/io.github.dprietob.queue.metainfo.xml.in:5
 msgid "Queue"
 msgstr "Queue"
 
+#: data/io.github.dprietob.queue.desktop.in:3
+#: data/io.github.dprietob.queue.metainfo.xml.in:6
 msgid "Task manager"
 msgstr "Aufgabenverwaltung"
 
+#: data/io.github.dprietob.queue.desktop.in:4
 msgid "Manage and organize tasks"
 msgstr "Aufgaben verwalten und organisieren"
 
+#: data/io.github.dprietob.queue.desktop.in:10
 msgid "task;manager;organize;"
 msgstr "Aufgabe;Aufgaben;Verwaltung;organisieren;"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:12
+msgid "Daniel Prieto"
+msgstr "Daniel Prieto"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:16
 msgid "Queue is a simple, fast task manager."
 msgstr "Queue ist eine einfache, schnelle Aufgabenverwaltung."
 
-msgid "Organize your tasks into groups, mark them as done or important, reorder them with drag and drop, and keep your data safe with built-in backups."
-msgstr "Organisieren Sie Ihre Aufgaben in Gruppen, markieren Sie sie als erledigt oder wichtig, ordnen Sie sie per Ziehen und Ablegen neu an und sichern Sie Ihre Daten mit den integrierten Sicherungen."
+#: data/io.github.dprietob.queue.metainfo.xml.in:19
+msgid ""
+"Organize your tasks into groups, mark them as done or important, reorder "
+"them with drag and drop, and keep your data safe with built-in backups."
+msgstr ""
+"Organisieren Sie Ihre Aufgaben in Gruppen, markieren Sie sie als erledigt "
+"oder wichtig, ordnen Sie sie per Ziehen und Ablegen neu an und sichern Sie "
+"Ihre Daten mit den integrierten Sicherungen."
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:23
 msgid "Features:"
 msgstr "Funktionen:"
 
-msgid "Organize tasks into custom, color-coded groups"
+#: data/io.github.dprietob.queue.metainfo.xml.in:25
+msgid "Organize tasks into custom, color-coded groups."
 msgstr "Aufgaben in benutzerdefinierten, farbigen Gruppen organisieren"
 
-msgid "Mark tasks as completed or important"
+#: data/io.github.dprietob.queue.metainfo.xml.in:26
+msgid "Mark tasks as completed or important."
 msgstr "Aufgaben als erledigt oder wichtig markieren"
 
-msgid "Add optional descriptions and reorder by dragging"
-msgstr "Optionale Beschreibungen hinzufügen und per Ziehen neu anordnen"
+#: data/io.github.dprietob.queue.metainfo.xml.in:27
+msgid ""
+"Write rich task descriptions with headings, text styles, colors and lists."
+msgstr "Aufgabenbeschreibungen mit Überschriften, Textstilen, Farben und Listen formatieren."
 
-msgid "Export and restore all your data as JSON"
+#: data/io.github.dprietob.queue.metainfo.xml.in:28
+msgid "See the date when each task was completed."
+msgstr "Sehen Sie, wann jede Aufgabe abgeschlossen wurde."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:29
+msgid "Reorder groups and tasks with drag and drop."
+msgstr "Gruppen und Aufgaben per Ziehen und Ablegen neu anordnen."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:30
+msgid "Export and restore all your data as JSON."
 msgstr "Alle Daten als JSON exportieren und wiederherstellen"
 
-msgid "Light and dark styles, available in several languages"
+#: data/io.github.dprietob.queue.metainfo.xml.in:31
+msgid "Light and dark styles, available in several languages."
 msgstr "Helles und dunkles Erscheinungsbild, in mehreren Sprachen verfügbar"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:43
 msgid "Tasks organized by group"
 msgstr "Nach Gruppe geordnete Aufgaben"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:47
 msgid "Dark style"
 msgstr "Dunkles Erscheinungsbild"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:51
 msgid "Create and edit tasks with details"
 msgstr "Aufgaben mit Details erstellen und bearbeiten"
 
+#: data/io.github.dprietob.queue.metainfo.xml.in:64
+msgid "This release brings rich text descriptions and several refinements:"
+msgstr "Diese Version bringt formatierte Beschreibungen und mehrere Verbesserungen:"
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:66
+msgid ""
+"Format task descriptions with headings, bold, italic, underline, "
+"strikethrough, text color and lists."
+msgstr "Aufgabenbeschreibungen mit Überschriften, Fett, Kursiv, Unterstrichen, Durchgestrichen, Textfarbe und Listen formatieren."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:67
+msgid "See the completion date of finished tasks."
+msgstr "Das Abschlussdatum erledigter Aufgaben anzeigen."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:68
+msgid "Edit and delete tasks and groups from a per-item menu."
+msgstr "Aufgaben und Gruppen über ein Menü pro Element bearbeiten und löschen."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:69
+msgid "The task list now uses the full width of the window."
+msgstr "Die Aufgabenliste nutzt jetzt die volle Fensterbreite."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:70
+msgid "Task descriptions can now hold much longer text."
+msgstr "Aufgabenbeschreibungen können jetzt deutlich längeren Text enthalten."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:76
 msgid "Initial release."
 msgstr "Erste Veröffentlichung."
 
-msgid "Daniel Prieto"
-msgstr "Daniel Prieto"
+#~ msgid "Description (optional)"
+#~ msgstr "Beschreibung (optional)"
+
+#~ msgid "Rename Group"
+#~ msgstr "Gruppe umbenennen"
+
+#~ msgid "Delete Group"
+#~ msgstr "Gruppe löschen"
+
+#~ msgid "Delete Task"
+#~ msgstr "Aufgabe löschen"
+
+#~ msgid "Add optional descriptions and reorder by dragging"
+#~ msgstr "Optionale Beschreibungen hinzufügen und per Ziehen neu anordnen"
