@@ -6,6 +6,12 @@ namespace Queue.Groups {
 
         [GtkChild]
         private unowned Gtk.Label name_label;
+        [GtkChild]
+        private unowned Gtk.MenuButton menu_button;
+        [GtkChild]
+        private unowned Gtk.Button edit_item;
+        [GtkChild]
+        private unowned Gtk.Button delete_item;
 
         public Group group { get; private set; }
 
@@ -35,6 +41,10 @@ namespace Queue.Groups {
             actions.add_action(delete_action);
 
             insert_action_group("row", actions);
+
+            // The custom popover does not dismiss itself on activation.
+            edit_item.clicked.connect(() => menu_button.popdown());
+            delete_item.clicked.connect(() => menu_button.popdown());
         }
     }
 }

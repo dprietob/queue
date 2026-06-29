@@ -153,12 +153,23 @@ namespace Queue {
         private void prompt_group(string heading, string name, string color,
             owned GroupEnteredCallback callback)
         {
-            var dialog = new Adw.AlertDialog(heading, null);
+            var dialog = new Adw.Dialog() {
+                title = heading,
+                content_width = 360
+            };
+
+            var title_label = new Gtk.Label(heading) {
+                halign = Gtk.Align.START,
+                wrap = true
+            };
+            title_label.add_css_class("title-2");
 
             var entry = new Gtk.Entry() {
                 placeholder_text = _("Group name"),
                 text = name,
-                activates_default = true
+                activates_default = true,
+                max_length = Groups.GroupStoreValidator.MAXIMUM_LENGTH,
+                hexpand = true
             };
 
             var color_button = new Gtk.ColorDialogButton(new Gtk.ColorDialog() {
@@ -178,23 +189,37 @@ namespace Queue {
             });
             color_row.append(color_button);
 
-            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12);
+            var cancel_button = new Gtk.Button.with_label(_("Cancel"));
+            var save_button = new Gtk.Button.with_label(_("Save"));
+            save_button.add_css_class("suggested-action");
+
+            var buttons = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 6) {
+                halign = Gtk.Align.END
+            };
+            buttons.append(cancel_button);
+            buttons.append(save_button);
+
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12) {
+                margin_top = 24,
+                margin_bottom = 24,
+                margin_start = 24,
+                margin_end = 24
+            };
+            content.append(title_label);
             content.append(entry);
-            content.append(color_row);
-            dialog.set_extra_child(content);
+            content.append(color_row);            
+            content.append(buttons);
+            dialog.child = content;
 
-            dialog.add_response("cancel", _("Cancel"));
-            dialog.add_response("save", _("Save"));
-            dialog.set_response_appearance("save", Adw.ResponseAppearance.SUGGESTED);
-            dialog.default_response = "save";
-            dialog.close_response = "cancel";
+            dialog.default_widget = save_button;
+            dialog.focus_widget = entry;
 
-            dialog.response.connect((response) => {
-                if (response == "save") {
-                    var chosen = color_button.get_rgba();
-                    var color_value = chosen.alpha == 0 ? "" : chosen.to_string();
-                    callback(entry.text, color_value);
-                }
+            cancel_button.clicked.connect(() => dialog.close());
+            save_button.clicked.connect(() => {
+                var chosen = color_button.get_rgba();
+                var color_value = chosen.alpha == 0 ? "" : chosen.to_string();
+                callback(entry.text, color_value);
+                dialog.close();
             });
             dialog.present(this);
         }
