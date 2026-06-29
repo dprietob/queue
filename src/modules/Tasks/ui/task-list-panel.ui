@@ -14,14 +14,7 @@
                 <property name="tooltip-text" translatable="yes">Search Tasks</property>
                 <property name="sensitive">false</property>
               </object>
-            </child>
-            <child type="end">
-              <object class="GtkButton" id="add_button">
-                <property name="icon-name">list-add-symbolic</property>
-                <property name="tooltip-text" translatable="yes">New Task</property>
-                <property name="sensitive">false</property>
-              </object>
-            </child>
+            </child>            
             <child type="end">
               <object class="GtkDropDown" id="state_filter">
                 <property name="tooltip-text" translatable="yes">Filter by status</property>
@@ -35,6 +28,17 @@
                     </items>
                   </object>
                 </property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="add_button">
+                <property name="icon-name">list-add-symbolic</property>
+                <property name="tooltip-text" translatable="yes">New Task</property>
+                <property name="sensitive">false</property>
+                <style>
+                  <class name="accent"/>
+                  <class name="raised"/>
+                </style>
               </object>
             </child>
           </object>

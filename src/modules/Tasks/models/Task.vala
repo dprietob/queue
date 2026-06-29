@@ -77,21 +77,21 @@ namespace Queue.Tasks {
             statement.step();
         }
 
-        public static void mark_done(Database database, int id, bool done)
+        public static string mark_done(Database database, int id, bool done)
         {
+            var completed_at = done ? new DateTime.now_utc().format("%Y-%m-%d %H:%M:%S") : "";
+
             Sqlite.Statement statement;
             database.connection.prepare_v2(
-                "UPDATE tasks SET done = ?, completed_at = CASE WHEN ? = 1 THEN datetime('now') ELSE '' END WHERE id = ?;",
-                -1, out statement);
+                "UPDATE tasks SET done = ?, completed_at = ? WHERE id = ?;", -1, out statement);
             statement.bind_int(1, done ? 1 : 0);
-            statement.bind_int(2, done ? 1 : 0);
+            statement.bind_text(2, completed_at);
             statement.bind_int(3, id);
             statement.step();
+
+            return completed_at;
         }
 
-        // Restores the completion state verbatim, keeping the original
-        // completed_at timestamp instead of stamping the current time. Used
-        // when importing a backup.
         public static void restore_completion(Database database, int id, bool done, string completed_at)
         {
             Sqlite.Statement statement;
@@ -112,7 +112,6 @@ namespace Queue.Tasks {
             statement.step();
         }
 
-        // Stores the given identifiers as the new ordering (index = position).
         public static void reorder(Database database, int[] ordered_ids)
         {
             database.connection.exec("BEGIN TRANSACTION;");

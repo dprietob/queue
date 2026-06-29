@@ -71,7 +71,7 @@ namespace Queue.Tasks {
         public void toggle(Task task)
         {
             var done = !task.done;
-            toggle_task_action.execute(task.id, done);
+            task.completed_at = toggle_task_action.execute(task.id, done);
             task.done = done;
         }
 
@@ -85,7 +85,6 @@ namespace Queue.Tasks {
             }
         }
 
-        // Moves a task before or after a target task and persists the order.
         public void move(Task dragged, Task target, bool after)
         {
             if (dragged == target) {

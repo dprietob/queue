@@ -71,6 +71,16 @@
               </object>
             </child>
             <child>
+              <object class="GtkImage" id="completed_icon">
+                <property name="icon-name">info-outline-symbolic</property>
+                <property name="valign">center</property>
+                <property name="visible">false</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
               <object class="GtkMenuButton">
                 <property name="icon-name">view-more-symbolic</property>
                 <property name="valign">center</property>

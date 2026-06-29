@@ -11,9 +11,9 @@ namespace Queue.Tasks {
             this.database = database;
         }
 
-        public void execute(int id, bool done)
+        public string execute(int id, bool done)
         {
-            Task.mark_done(database, id, done);
+            return Task.mark_done(database, id, done);
         }
     }
 }

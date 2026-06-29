@@ -9,6 +9,8 @@ namespace Queue.Tasks {
         [GtkChild]
         private unowned Gtk.Image important_icon;
         [GtkChild]
+        private unowned Gtk.Image completed_icon;
+        [GtkChild]
         private unowned Gtk.Label title_label;
         [GtkChild]
         private unowned Gtk.ToggleButton expand_button;
@@ -30,12 +32,15 @@ namespace Queue.Tasks {
             check_button.active = task.done;
             refresh_title();
             refresh_description();
+            refresh_completed();
             important_icon.visible = task.important;
 
             task.notify["done"].connect(() => {
                 check_button.active = task.done;
                 refresh_title();
+                refresh_completed();
             });
+            task.notify["completed_at"].connect(refresh_completed);
             task.notify["title"].connect(refresh_title);
             task.notify["description"].connect(refresh_description);
             task.notify["important"].connect(() => {
@@ -80,6 +85,21 @@ namespace Queue.Tasks {
             if (!has_description) {
                 expand_button.active = false;
             }
+        }
+
+        private void refresh_completed()
+        {
+            completed_icon.visible = task.done;
+            completed_icon.tooltip_text = completion_tooltip();
+        }
+
+        private string completion_tooltip()
+        {
+            var utc = new DateTime.from_iso8601(task.completed_at.replace(" ", "T") + "Z", null);
+            if (utc == null) {
+                return _("Completed");
+            }
+            return _("Completed on %s").printf(utc.to_local().format("%x %X"));
         }
 
         private void refresh_title()
