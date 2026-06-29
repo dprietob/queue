@@ -6,6 +6,7 @@
     <file alias="group-row.ui" preprocess="xml-stripblanks">src/modules/Groups/ui/group-row.ui</file>
     <file alias="task-list-panel.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-list-panel.ui</file>
     <file alias="task-row.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/task-row.ui</file>
+    <file alias="description-editor.ui" preprocess="xml-stripblanks">src/modules/Tasks/ui/description-editor.ui</file>
   </gresource>
   <gresource prefix="/io/github/dprietob/queue/icons/scalable/apps">
     <file alias="io.github.dprietob.queue.svg" preprocess="xml-stripblanks">data/icons/hicolor/scalable/apps/io.github.dprietob.queue.svg</file>

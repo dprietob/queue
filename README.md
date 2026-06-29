@@ -20,14 +20,16 @@ Queue lets you:
 
 - Group tasks into custom, color-coded lists
 - Mark tasks as completed or important, and reorder them by dragging
-- Add an optional description to any task
+- Write rich task descriptions with headings, text styles, colors and lists
+- See the date when each task was completed
 - Filter by status and search within a group
 
 It is also built to keep your data yours:
 
 - Back up and restore everything as a single JSON file
 - Fully translated into English, Spanish, French, German, Italian, Portuguese,
-  Simplified Chinese, and Japanese, with light and dark styles
+  Simplified Chinese, Japanese, Polish, Russian, Korean, Norwegian, Swedish,
+  Hindi, and Greek, with light and dark styles
 
 ## Made for GNOME
 

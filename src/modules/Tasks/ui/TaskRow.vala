@@ -9,17 +9,21 @@ namespace Queue.Tasks {
         [GtkChild]
         private unowned Gtk.Image important_icon;
         [GtkChild]
+        private unowned Gtk.Image completed_icon;
+        [GtkChild]
         private unowned Gtk.Label title_label;
         [GtkChild]
         private unowned Gtk.ToggleButton expand_button;
         [GtkChild]
-        private unowned Gtk.Button edit_button;
-        [GtkChild]
-        private unowned Gtk.Button delete_button;
-        [GtkChild]
         private unowned Gtk.Revealer description_revealer;
         [GtkChild]
         private unowned Gtk.Label description_label;
+        [GtkChild]
+        private unowned Gtk.MenuButton menu_button;
+        [GtkChild]
+        private unowned Gtk.Button edit_item;
+        [GtkChild]
+        private unowned Gtk.Button delete_item;
 
         public Task task { get; private set; }
 
@@ -34,12 +38,15 @@ namespace Queue.Tasks {
             check_button.active = task.done;
             refresh_title();
             refresh_description();
+            refresh_completed();
             important_icon.visible = task.important;
 
             task.notify["done"].connect(() => {
                 check_button.active = task.done;
                 refresh_title();
+                refresh_completed();
             });
+            task.notify["completed_at"].connect(refresh_completed);
             task.notify["title"].connect(refresh_title);
             task.notify["description"].connect(refresh_description);
             task.notify["important"].connect(() => {
@@ -56,24 +63,55 @@ namespace Queue.Tasks {
                 expand_button.icon_name = expand_button.active
                     ? "pan-down-symbolic" : "pan-end-symbolic";
             });
-            edit_button.clicked.connect(() => edit_requested(task));
-            delete_button.clicked.connect(() => delete_requested(task));
+            install_menu_actions();
         }
 
-        // Shows the expand arrow and description only when the task has one.
+        private void install_menu_actions()
+        {
+            var actions = new SimpleActionGroup();
+
+            var edit_action = new SimpleAction("edit", null);
+            edit_action.activate.connect(() => edit_requested(task));
+            actions.add_action(edit_action);
+
+            var delete_action = new SimpleAction("delete", null);
+            delete_action.activate.connect(() => delete_requested(task));
+            actions.add_action(delete_action);
+
+            insert_action_group("row", actions);
+
+            // The custom popover does not dismiss itself on activation.
+            edit_item.clicked.connect(() => menu_button.popdown());
+            delete_item.clicked.connect(() => menu_button.popdown());
+        }
+
         private void refresh_description()
         {
             var description = task.description.strip();
             var has_description = description != "";
 
-            description_label.label = description;
+            description_label.set_markup(TaskDescriptionMarkup.to_pango(description));
             expand_button.visible = has_description;
             if (!has_description) {
                 expand_button.active = false;
             }
         }
 
-        // Strikes through and dims the title when the task is completed.
+        private void refresh_completed()
+        {
+            completed_icon.visible = task.done;
+            completed_icon.tooltip_text = completion_tooltip();
+        }
+
+        private string completion_tooltip()
+        {
+            var utc = new DateTime.from_iso8601(task.completed_at.replace(" ", "T") + "Z", null);
+            if (utc == null) {
+                return _("Completed");
+            }
+            return _("Completed on %s").printf(utc.to_local().format("%x %X"));
+        }
+
         private void refresh_title()
         {
             if (task.done) {

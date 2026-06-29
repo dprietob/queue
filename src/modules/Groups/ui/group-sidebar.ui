@@ -69,6 +69,41 @@
           <attribute name="action">app.language</attribute>
           <attribute name="target">ja</attribute>
         </item>
+        <item>
+          <attribute name="label">Polski</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">pl</attribute>
+        </item>
+        <item>
+          <attribute name="label">Русский</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">ru</attribute>
+        </item>
+        <item>
+          <attribute name="label">한국어</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">ko</attribute>
+        </item>
+        <item>
+          <attribute name="label">Norsk bokmål</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">nb</attribute>
+        </item>
+        <item>
+          <attribute name="label">Svenska</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">sv</attribute>
+        </item>
+        <item>
+          <attribute name="label">हिन्दी</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">hi</attribute>
+        </item>
+        <item>
+          <attribute name="label">Ελληνικά</attribute>
+          <attribute name="action">app.language</attribute>
+          <attribute name="target">el</attribute>
+        </item>
       </submenu>
       <submenu>
         <attribute name="label" translatable="yes">Backup</attribute>

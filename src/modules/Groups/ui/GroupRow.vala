@@ -7,9 +7,11 @@ namespace Queue.Groups {
         [GtkChild]
         private unowned Gtk.Label name_label;
         [GtkChild]
-        private unowned Gtk.Button edit_button;
+        private unowned Gtk.MenuButton menu_button;
         [GtkChild]
-        private unowned Gtk.Button delete_button;
+        private unowned Gtk.Button edit_item;
+        [GtkChild]
+        private unowned Gtk.Button delete_item;
 
         public Group group { get; private set; }
 
@@ -23,8 +25,26 @@ namespace Queue.Groups {
             // sidebar's display-wide CSS provider, refreshed when colors change.
             add_css_class(GroupSidebar.color_class_for(group.id));
             group.bind_property("name", name_label, "label", BindingFlags.SYNC_CREATE);
-            edit_button.clicked.connect(() => edit_requested(group));
-            delete_button.clicked.connect(() => delete_requested(group));
+            install_menu_actions();
+        }
+
+        private void install_menu_actions()
+        {
+            var actions = new SimpleActionGroup();
+
+            var edit_action = new SimpleAction("edit", null);
+            edit_action.activate.connect(() => edit_requested(group));
+            actions.add_action(edit_action);
+
+            var delete_action = new SimpleAction("delete", null);
+            delete_action.activate.connect(() => delete_requested(group));
+            actions.add_action(delete_action);
+
+            insert_action_group("row", actions);
+
+            // The custom popover does not dismiss itself on activation.
+            edit_item.clicked.connect(() => menu_button.popdown());
+            delete_item.clicked.connect(() => menu_button.popdown());
         }
     }
 }

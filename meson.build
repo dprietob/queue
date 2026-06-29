@@ -1,7 +1,7 @@
 project(
   'queue',
   ['vala', 'c'],
-  version: '1.0.0',
+  version: '1.1.0',
   meson_version: '>= 0.62.0',
   default_options: ['warning_level=2'],
 )
@@ -32,6 +32,7 @@ queue_sources = files(
   'src/database/Database.vala',
   'src/database/migrations/001_create_groups_table.vala',
   'src/database/migrations/002_create_tasks_table.vala',
+  'src/database/migrations/003_add_completed_at_to_tasks.vala',
   'src/modules/Groups/models/Group.vala',
   'src/modules/Groups/validators/GroupStoreValidator.vala',
   'src/modules/Groups/actions/ListGroupsAction.vala',
@@ -51,6 +52,8 @@ queue_sources = files(
   'src/modules/Tasks/actions/DeleteTaskAction.vala',
   'src/modules/Tasks/actions/ReorderTasksAction.vala',
   'src/modules/Tasks/controllers/TaskListController.vala',
+  'src/modules/Tasks/ui/TaskDescriptionMarkup.vala',
+  'src/modules/Tasks/ui/DescriptionEditor.vala',
   'src/modules/Tasks/ui/TaskRow.vala',
   'src/modules/Tasks/ui/TaskListPanel.vala',
   'src/modules/Backup/services/BackupSerializer.vala',

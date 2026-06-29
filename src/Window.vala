@@ -1,5 +1,6 @@
 using Queue.Groups;
 using Queue.Tasks;
+using Queue.Backup;
 
 namespace Queue {
 
@@ -8,7 +9,6 @@ namespace Queue {
     [GtkTemplate(ui = "/io/github/dprietob/queue/ui/window.ui")]
     public class Window : Adw.ApplicationWindow
     {
-
         private delegate void GroupEnteredCallback(string name, string color);
         private delegate void TaskEnteredCallback(string title, string description, bool important);
         private delegate void ConfirmedCallback();
@@ -22,7 +22,7 @@ namespace Queue {
         private Database database;
         private GroupSidebarController group_controller;
         private TaskListController task_controller;
-        private Queue.Backup.BackupController backup_controller;
+        private BackupController backup_controller;
         private GroupSidebar sidebar;
         private TaskListPanel panel;
 
@@ -44,7 +44,7 @@ namespace Queue {
             this.database = database;
             group_controller = new GroupSidebarController(database);
             task_controller = new TaskListController(database);
-            backup_controller = new Queue.Backup.BackupController(database);
+            backup_controller = new BackupController(database);
 
             sidebar = new GroupSidebar(group_controller);
             panel = new TaskListPanel(task_controller);
@@ -153,12 +153,23 @@ namespace Queue {
         private void prompt_group(string heading, string name, string color,
             owned GroupEnteredCallback callback)
         {
-            var dialog = new Adw.AlertDialog(heading, null);
+            var dialog = new Adw.Dialog() {
+                title = heading,
+                content_width = 360
+            };
+
+            var title_label = new Gtk.Label(heading) {
+                halign = Gtk.Align.START,
+                wrap = true
+            };
+            title_label.add_css_class("title-2");
 
             var entry = new Gtk.Entry() {
                 placeholder_text = _("Group name"),
                 text = name,
-                activates_default = true
+                activates_default = true,
+                max_length = Groups.GroupStoreValidator.MAXIMUM_LENGTH,
+                hexpand = true
             };
 
             var color_button = new Gtk.ColorDialogButton(new Gtk.ColorDialog() {
@@ -178,23 +189,37 @@ namespace Queue {
             });
             color_row.append(color_button);
 
-            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12);
+            var cancel_button = new Gtk.Button.with_label(_("Cancel"));
+            var save_button = new Gtk.Button.with_label(_("Save"));
+            save_button.add_css_class("suggested-action");
+
+            var buttons = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 6) {
+                halign = Gtk.Align.END
+            };
+            buttons.append(cancel_button);
+            buttons.append(save_button);
+
+            var content = new Gtk.Box(Gtk.Orientation.VERTICAL, 12) {
+                margin_top = 24,
+                margin_bottom = 24,
+                margin_start = 24,
+                margin_end = 24
+            };
+            content.append(title_label);
             content.append(entry);
             content.append(color_row);
-            dialog.set_extra_child(content);
+            content.append(buttons);
+            dialog.child = content;
 
-            dialog.add_response("cancel", _("Cancel"));
-            dialog.add_response("save", _("Save"));
-            dialog.set_response_appearance("save", Adw.ResponseAppearance.SUGGESTED);
-            dialog.default_response = "save";
-            dialog.close_response = "cancel";
+            dialog.default_widget = save_button;
+            dialog.focus_widget = entry;
 
-            dialog.response.connect((response) => {
-                if (response == "save") {
-                    var chosen = color_button.get_rgba();
-                    var color_value = chosen.alpha == 0 ? "" : chosen.to_string();
-                    callback(entry.text, color_value);
-                }
+            cancel_button.clicked.connect(() => dialog.close());
+            save_button.clicked.connect(() => {
+                var chosen = color_button.get_rgba();
+                var color_value = chosen.alpha == 0 ? "" : chosen.to_string();
+                callback(entry.text, color_value);
+                dialog.close();
             });
             dialog.present(this);
         }
@@ -207,7 +232,7 @@ namespace Queue {
         {
             var dialog = new Adw.Dialog() {
                 title = heading,
-                content_width = 500
+                content_width = 640
             };
 
             var title_label = new Gtk.Label(heading) {
@@ -224,28 +249,8 @@ namespace Queue {
                 hexpand = true
             };
 
-            var description_view = new Gtk.TextView() {
-                wrap_mode = Gtk.WrapMode.WORD_CHAR,
-                accepts_tab = false,
-                top_margin = 6,
-                bottom_margin = 6,
-                left_margin = 6,
-                right_margin = 6
-            };
-            description_view.buffer.text = initial_description;
-            limit_length(description_view.buffer, Tasks.TaskStoreValidator.MAXIMUM_DESCRIPTION_LENGTH);
-
-            var description_scroll = new Gtk.ScrolledWindow() {
-                child = description_view,
-                hscrollbar_policy = Gtk.PolicyType.NEVER,
-                min_content_height = 100
-            };
-            description_scroll.add_css_class("card");
-
-            var description_label = new Gtk.Label(_("Description (optional)")) {
-                halign = Gtk.Align.START
-            };
-            description_label.add_css_class("dim-label");
+            var description_editor = new Tasks.DescriptionEditor();
+            description_editor.set_markdown(initial_description);
 
             var important_switch = new Gtk.Switch() {
                 active = initial_important,
@@ -275,8 +280,7 @@ namespace Queue {
             };
             content.append(title_label);
             content.append(entry);
-            content.append(description_label);
-            content.append(description_scroll);
+            content.append(description_editor);
             content.append(important_row);
             content.append(buttons);
             dialog.child = content;
@@ -286,24 +290,10 @@ namespace Queue {
 
             cancel_button.clicked.connect(() => dialog.close());
             save_button.clicked.connect(() => {
-                callback(entry.text, description_view.buffer.text, important_switch.active);
+                callback(entry.text, description_editor.get_markdown(), important_switch.active);
                 dialog.close();
             });
             dialog.present(this);
-        }
-
-        // Keeps a text buffer within a maximum number of characters, trimming
-        // any excess (e.g. from a paste) as soon as it is inserted.
-        private void limit_length(Gtk.TextBuffer buffer, int maximum_length)
-        {
-            buffer.changed.connect(() => {
-                if (buffer.get_char_count() > maximum_length) {
-                    Gtk.TextIter start, end;
-                    buffer.get_iter_at_offset(out start, maximum_length);
-                    buffer.get_end_iter(out end);
-                    buffer.delete(ref start, ref end);
-                }
-            });
         }
 
         private void confirm_deletion(string heading, string body, owned ConfirmedCallback callback)
