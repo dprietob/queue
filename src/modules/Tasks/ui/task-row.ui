@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
+  <menu id="task_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Edit</attribute>
+        <attribute name="action">row.edit</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Delete</attribute>
+        <attribute name="action">row.delete</attribute>
+      </item>
+    </section>
+  </menu>
   <template class="QueueTasksTaskRow" parent="GtkListBoxRow">
     <property name="child">
       <object class="GtkBox">
@@ -59,20 +71,11 @@
               </object>
             </child>
             <child>
-              <object class="GtkButton" id="edit_button">
-                <property name="icon-name">document-edit-symbolic</property>
+              <object class="GtkMenuButton">
+                <property name="icon-name">view-more-symbolic</property>
                 <property name="valign">center</property>
-                <property name="tooltip-text" translatable="yes">Edit Task</property>
-                <style>
-                  <class name="flat"/>
-                </style>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="delete_button">
-                <property name="icon-name">user-trash-symbolic</property>
-                <property name="valign">center</property>
-                <property name="tooltip-text" translatable="yes">Delete Task</property>
+                <property name="tooltip-text" translatable="yes">Task Options</property>
+                <property name="menu-model">task_menu</property>
                 <style>
                   <class name="flat"/>
                 </style>
