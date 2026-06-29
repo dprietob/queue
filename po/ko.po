@@ -1,344 +1,343 @@
-# Portuguese translation for Queue.
-# Copyleft (🄯) 2026 Daniel Prieto
-# This file is distributed under the same license as the Queue package.
+# Korean translations for queue package.
+# Copyright (C) 2026 THE queue'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the queue package.
+# Automatically generated, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: queue 1.1.0\n"
+"Project-Id-Version: queue\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-29 19:34+0200\n"
-"PO-Revision-Date: 2026-06-27 00:00+0000\n"
-"Last-Translator: Daniel Prieto\n"
-"Language-Team: Portuguese\n"
-"Language: pt\n"
+"PO-Revision-Date: 2026-06-29 19:34+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. The language is applied at startup, so a change only takes effect
 #. on the next launch.
 #: src/Window.vala:41
 msgid "Restart Queue to apply the new language."
-msgstr "Reinicie o Queue para aplicar o novo idioma."
+msgstr "새 언어를 적용하려면 Queue를 다시 시작하세요."
 
 #: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:145
 msgid "New Group"
-msgstr "Novo grupo"
+msgstr "새 그룹"
 
 #: src/Window.vala:101
 msgid "Edit Group"
-msgstr "Editar grupo"
+msgstr "그룹 편집"
 
 #: src/Window.vala:108
 #, c-format
 msgid "\"%s\" and all of its tasks will be permanently deleted."
-msgstr "«%s» e todas as suas tarefas serão eliminados permanentemente."
+msgstr "\"%s\" 및 해당 작업이 모두 영구적으로 삭제됩니다."
 
 #: src/Window.vala:110
 msgid "Delete Group?"
-msgstr "Eliminar grupo?"
+msgstr "그룹을 삭제할까요?"
 
 #: src/Window.vala:121 src/modules/Tasks/ui/task-list-panel.ui:36
 #: src/modules/Tasks/ui/task-list-panel.ui:80
 msgid "New Task"
-msgstr "Nova tarefa"
+msgstr "새 작업"
 
 #: src/Window.vala:128
 msgid "Edit Task"
-msgstr "Editar tarefa"
+msgstr "작업 편집"
 
 #: src/Window.vala:136
 #, c-format
 msgid "\"%s\" will be permanently deleted."
-msgstr "«%s» será eliminada permanentemente."
+msgstr "\"%s\"이(가) 영구적으로 삭제됩니다."
 
 #: src/Window.vala:137
 msgid "Delete Task?"
-msgstr "Eliminar tarefa?"
+msgstr "작업을 삭제할까요?"
 
 #: src/Window.vala:168
 msgid "Group name"
-msgstr "Nome do grupo"
+msgstr "그룹 이름"
 
 #: src/Window.vala:187
 msgid "Color"
-msgstr "Cor"
+msgstr "색상"
 
 #: src/Window.vala:192 src/Window.vala:265 src/Window.vala:303
 #: src/Window.vala:367
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "취소"
 
 #: src/Window.vala:193 src/Window.vala:266
 msgid "Save"
-msgstr "Guardar"
+msgstr "저장"
 
 #: src/Window.vala:245
 msgid "Title"
-msgstr "Título"
+msgstr "제목"
 
 #: src/Window.vala:260 src/modules/Tasks/ui/task-row.ui:55
 msgid "Important"
-msgstr "Importante"
+msgstr "중요"
 
 #: src/Window.vala:304 src/modules/Groups/ui/group-row.ui:59
 #: src/modules/Tasks/ui/task-row.ui:101
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "삭제"
 
 #: src/Window.vala:320
 msgid "Export Backup"
-msgstr "Exportar cópia de segurança"
+msgstr "백업 내보내기"
 
 #: src/Window.vala:332
 msgid "Exporting Backup…"
-msgstr "A exportar cópia de segurança…"
+msgstr "백업 내보내는 중…"
 
 #: src/Window.vala:339
 msgid "Backup exported."
-msgstr "Cópia de segurança exportada."
+msgstr "백업을 내보냈습니다."
 
 #: src/Window.vala:347
 msgid "Restore Backup"
-msgstr "Restaurar cópia de segurança"
+msgstr "백업 복원"
 
 #: src/Window.vala:364
 msgid "Restore Backup?"
-msgstr "Restaurar cópia de segurança?"
+msgstr "백업을 복원할까요?"
 
 #: src/Window.vala:365
 msgid ""
 "All current groups and tasks will be permanently deleted and replaced with "
 "the contents of the backup file."
-msgstr ""
-"Todos os grupos e tarefas atuais serão eliminados permanentemente e "
-"substituídos pelo conteúdo do ficheiro de cópia de segurança."
+msgstr "현재의 모든 그룹과 작업이 영구적으로 삭제되고 백업 파일의 내용으로 대체됩니다."
 
 #: src/Window.vala:368
 msgid "Delete and Restore"
-msgstr "Eliminar e restaurar"
+msgstr "삭제 후 복원"
 
 #: src/Window.vala:379
 msgid "Restoring Backup…"
-msgstr "A restaurar cópia de segurança…"
+msgstr "백업 복원하는 중…"
 
 #: src/Window.vala:390
 msgid "Backup restored."
-msgstr "Cópia de segurança restaurada."
+msgstr "백업을 복원했습니다."
 
 #: src/modules/Groups/validators/GroupStoreValidator.vala:29
 msgid "The group name cannot be empty."
-msgstr "O nome do grupo não pode estar vazio."
+msgstr "그룹 이름은 비워 둘 수 없습니다."
 
 #: src/modules/Groups/validators/GroupStoreValidator.vala:31
 #, c-format
 msgid "The group name must be at most %d characters."
-msgstr "O nome do grupo deve ter no máximo %d caracteres."
+msgstr "그룹 이름은 최대 %d자까지 가능합니다."
 
 #: src/modules/Groups/validators/GroupStoreValidator.vala:32
 msgid "A group with this name already exists."
-msgstr "Já existe um grupo com este nome."
+msgstr "이 이름의 그룹이 이미 있습니다."
 
 #: src/modules/Groups/ui/group-sidebar.ui:8
 msgid "Theme"
-msgstr "Tema"
+msgstr "테마"
 
 #: src/modules/Groups/ui/group-sidebar.ui:10
 #: src/modules/Groups/ui/group-sidebar.ui:28
 msgid "Follow System"
-msgstr "Seguir o sistema"
+msgstr "시스템 설정 따름"
 
 #: src/modules/Groups/ui/group-sidebar.ui:15
 msgid "Light"
-msgstr "Claro"
+msgstr "밝게"
 
 #: src/modules/Groups/ui/group-sidebar.ui:20
 msgid "Dark"
-msgstr "Escuro"
+msgstr "어둡게"
 
 #: src/modules/Groups/ui/group-sidebar.ui:26
 msgid "Language"
-msgstr "Idioma"
+msgstr "언어"
 
 #: src/modules/Groups/ui/group-sidebar.ui:109
 msgid "Backup"
-msgstr "Cópia de segurança"
+msgstr "백업"
 
 #: src/modules/Groups/ui/group-sidebar.ui:111
 msgid "Export Backup…"
-msgstr "Exportar cópia de segurança…"
+msgstr "백업 내보내기…"
 
 #: src/modules/Groups/ui/group-sidebar.ui:115
 msgid "Restore Backup…"
-msgstr "Restaurar cópia de segurança…"
+msgstr "백업 복원…"
 
 #: src/modules/Groups/ui/group-sidebar.ui:122
 msgid "About Queue"
-msgstr "Acerca do Queue"
+msgstr "Queue 정보"
 
 #: src/modules/Groups/ui/group-sidebar.ui:128
 msgid "Groups"
-msgstr "Grupos"
+msgstr "그룹"
 
 #: src/modules/Groups/ui/group-sidebar.ui:137
 msgid "Main Menu"
-msgstr "Menu principal"
+msgstr "주 메뉴"
 
 #: src/modules/Groups/ui/group-row.ui:16 src/modules/Tasks/ui/task-row.ui:19
 msgid "Drag to reorder"
-msgstr "Arraste para reordenar"
+msgstr "끌어서 순서 변경"
 
 #: src/modules/Groups/ui/group-row.ui:33
 msgid "Group Options"
-msgstr "Opções do grupo"
+msgstr "그룹 옵션"
 
 #: src/modules/Groups/ui/group-row.ui:50 src/modules/Tasks/ui/task-row.ui:92
 msgid "Edit"
-msgstr "Editar"
+msgstr "편집"
 
 #: src/modules/Tasks/validators/TaskStoreValidator.vala:30
 msgid "The task title cannot be empty."
-msgstr "O título da tarefa não pode estar vazio."
+msgstr "작업 제목은 비워 둘 수 없습니다."
 
 #: src/modules/Tasks/validators/TaskStoreValidator.vala:32
 #, c-format
 msgid "The task title must be at most %d characters."
-msgstr "O título da tarefa deve ter no máximo %d caracteres."
+msgstr "작업 제목은 최대 %d자까지 가능합니다."
 
 #: src/modules/Tasks/validators/TaskStoreValidator.vala:34
 #, c-format
 msgid "The description must be at most %d characters."
-msgstr "A descrição deve ter no máximo %d caracteres."
+msgstr "설명은 최대 %d자까지 가능합니다."
 
 #: src/modules/Tasks/ui/TaskListPanel.vala:83
 #: src/modules/Tasks/ui/task-list-panel.ui:6
 msgid "Tasks"
-msgstr "Tarefas"
+msgstr "작업"
 
 #: src/modules/Tasks/ui/TaskListPanel.vala:158
 #, c-format
 msgid "Total: %u"
-msgstr "Total: %u"
+msgstr "전체: %u"
 
 #: src/modules/Tasks/ui/TaskListPanel.vala:159
 #, c-format
 msgid "Pending: %u"
-msgstr "Pendentes: %u"
+msgstr "대기 중: %u"
 
 #: src/modules/Tasks/ui/TaskListPanel.vala:160
 #, c-format
 msgid "Completed: %u"
-msgstr "Concluídas: %u"
+msgstr "완료: %u"
 
 #: src/modules/Tasks/ui/TaskListPanel.vala:161
 #, c-format
 msgid "Important: %u"
-msgstr "Importantes: %u"
+msgstr "중요: %u"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:14
 msgid "Search Tasks"
-msgstr "Procurar tarefas"
+msgstr "작업 검색"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:20
 msgid "Filter by status"
-msgstr "Filtrar por estado"
+msgstr "상태별 필터"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:25
 msgid "All"
-msgstr "Todas"
+msgstr "전체"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:26
 msgid "Pending"
-msgstr "Pendentes"
+msgstr "대기 중"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:27
 msgid "Completed"
-msgstr "Concluídas"
+msgstr "완료"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:50
 msgid "Filter tasks by name…"
-msgstr "Filtrar tarefas por nome…"
+msgstr "이름으로 작업 필터…"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:64
 msgid "No Group Selected"
-msgstr "Nenhum grupo selecionado"
+msgstr "선택된 그룹 없음"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:65
 msgid "Select a group to see its tasks."
-msgstr "Selecione um grupo para ver as suas tarefas."
+msgstr "그룹을 선택하면 작업이 표시됩니다."
 
 #: src/modules/Tasks/ui/task-list-panel.ui:76
 msgid "No Tasks Yet"
-msgstr "Ainda sem tarefas"
+msgstr "아직 작업이 없습니다"
 
 #: src/modules/Tasks/ui/task-list-panel.ui:77
 msgid "Add your first task to this group."
-msgstr "Adicione a sua primeira tarefa a este grupo."
+msgstr "이 그룹에 첫 작업을 추가하세요."
 
 #: src/modules/Backup/services/BackupSerializer.vala:57
 msgid "The backup file is not valid."
-msgstr "O ficheiro de cópia de segurança não é válido."
+msgstr "백업 파일이 올바르지 않습니다."
 
 #: src/modules/Tasks/ui/task-row.ui:28
 msgid "Toggle Completed"
-msgstr "Alternar concluída"
+msgstr "완료 전환"
 
 #: src/modules/Tasks/ui/task-row.ui:44
 msgid "Show Description"
-msgstr "Mostrar descrição"
+msgstr "설명 표시"
 
 #: src/modules/Tasks/ui/task-row.ui:75
 msgid "Task Options"
-msgstr "Opções da tarefa"
+msgstr "작업 옵션"
 
 #: src/modules/Tasks/ui/description-editor.ui:16
 msgid "Heading"
-msgstr "Cabeçalho"
+msgstr "머리글"
 
 #: src/modules/Tasks/ui/description-editor.ui:28
 msgid "Heading 1"
-msgstr "Cabeçalho 1"
+msgstr "머리글 1"
 
 #: src/modules/Tasks/ui/description-editor.ui:36
 msgid "Heading 2"
-msgstr "Cabeçalho 2"
+msgstr "머리글 2"
 
 #: src/modules/Tasks/ui/description-editor.ui:44
 msgid "Heading 3"
-msgstr "Cabeçalho 3"
+msgstr "머리글 3"
 
 #: src/modules/Tasks/ui/description-editor.ui:52
 msgid "Normal text"
-msgstr "Texto normal"
+msgstr "일반 텍스트"
 
 #: src/modules/Tasks/ui/description-editor.ui:74
 msgid "Bold"
-msgstr "Negrito"
+msgstr "굵게"
 
 #: src/modules/Tasks/ui/description-editor.ui:83
 msgid "Italic"
-msgstr "Itálico"
+msgstr "기울임"
 
 #: src/modules/Tasks/ui/description-editor.ui:92
 msgid "Underline"
-msgstr "Sublinhado"
+msgstr "밑줄"
 
 #: src/modules/Tasks/ui/description-editor.ui:101
 msgid "Strikethrough"
-msgstr "Riscado"
+msgstr "취소선"
 
 #: src/modules/Tasks/ui/description-editor.ui:110
 msgid "Text color"
-msgstr "Cor do texto"
+msgstr "글자 색"
 
 #: src/modules/Tasks/ui/description-editor.ui:126
 msgid "Bulleted list"
-msgstr "Lista com marcadores"
+msgstr "글머리 기호 목록"
 
 #: src/modules/Tasks/ui/description-editor.ui:135
 msgid "Numbered list"
-msgstr "Lista numerada"
+msgstr "번호 매기기 목록"
 
 #: data/io.github.dprietob.queue.desktop.in:2
 #: data/io.github.dprietob.queue.metainfo.xml.in:5
@@ -348,15 +347,15 @@ msgstr "Queue"
 #: data/io.github.dprietob.queue.desktop.in:3
 #: data/io.github.dprietob.queue.metainfo.xml.in:6
 msgid "Task manager"
-msgstr "Gestor de tarefas"
+msgstr "작업 관리자"
 
 #: data/io.github.dprietob.queue.desktop.in:4
 msgid "Manage and organize tasks"
-msgstr "Gerir e organizar tarefas"
+msgstr "작업을 관리하고 정리하세요"
 
 #: data/io.github.dprietob.queue.desktop.in:10
 msgid "task;manager;organize;"
-msgstr "tarefa;tarefas;gestor;organizar;"
+msgstr "작업;관리자;정리;task;manager;"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:12
 msgid "Daniel Prieto"
@@ -364,113 +363,91 @@ msgstr "Daniel Prieto"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:16
 msgid "Queue is a simple, fast task manager."
-msgstr "O Queue é um gestor de tarefas simples e rápido."
+msgstr "Queue는 간단하고 빠른 작업 관리자입니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:19
 msgid ""
 "Organize your tasks into groups, mark them as done or important, reorder "
 "them with drag and drop, and keep your data safe with built-in backups."
-msgstr ""
-"Organize as suas tarefas em grupos, marque-as como concluídas ou "
-"importantes, reordene-as arrastando e mantenha os seus dados seguros com "
-"cópias de segurança integradas."
+msgstr "작업을 그룹으로 정리하고, 완료 또는 중요로 표시하고, 끌어서 놓기로 순서를 바꾸고, 내장 백업으로 데이터를 안전하게 보관하세요."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:23
 msgid "Features:"
-msgstr "Funcionalidades:"
+msgstr "기능:"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:25
 msgid "Organize tasks into custom, color-coded groups."
-msgstr "Organize as tarefas em grupos personalizados e coloridos"
+msgstr "작업을 색상으로 구분된 사용자 지정 그룹으로 정리합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:26
 msgid "Mark tasks as completed or important."
-msgstr "Marque as tarefas como concluídas ou importantes"
+msgstr "작업을 완료 또는 중요로 표시합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:27
 msgid ""
 "Write rich task descriptions with headings, text styles, colors and lists."
-msgstr ""
-"Escreva descrições formatadas com cabeçalhos, estilos de texto, cores e "
-"listas."
+msgstr "제목, 텍스트 스타일, 색상, 목록으로 풍부한 작업 설명을 작성합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:28
 msgid "See the date when each task was completed."
-msgstr "Veja a data em que cada tarefa foi concluída."
+msgstr "각 작업이 완료된 날짜를 확인합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:29
 msgid "Reorder groups and tasks with drag and drop."
-msgstr "Reordene grupos e tarefas arrastando e soltando."
+msgstr "끌어서 놓기로 그룹과 작업의 순서를 바꿉니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:30
 msgid "Export and restore all your data as JSON."
-msgstr "Exporte e restaure todos os seus dados em JSON"
+msgstr "모든 데이터를 JSON으로 내보내고 복원합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:31
 msgid "Light and dark styles, available in several languages."
-msgstr "Estilos claro e escuro, disponível em vários idiomas"
+msgstr "밝은 스타일과 어두운 스타일, 여러 언어로 제공됩니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:43
 msgid "Tasks organized by group"
-msgstr "Tarefas organizadas por grupo"
+msgstr "그룹별로 정리된 작업"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:47
 msgid "Dark style"
-msgstr "Estilo escuro"
+msgstr "어두운 스타일"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:51
 msgid "Create and edit tasks with details"
-msgstr "Criar e editar tarefas com detalhes"
+msgstr "세부 정보와 함께 작업을 만들고 편집"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:64
 msgid "This release brings rich text descriptions and several refinements:"
-msgstr "Esta versão traz descrições com texto formatado e várias melhorias:"
+msgstr "이번 릴리스에서는 서식 있는 설명과 여러 개선 사항이 추가되었습니다:"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:66
 msgid ""
 "Format task descriptions with headings, bold, italic, underline, "
 "strikethrough, text color and lists."
-msgstr ""
-"Formate as descrições com cabeçalhos, negrito, itálico, sublinhado, riscado, "
-"cor do texto e listas."
+msgstr "제목, 굵게, 기울임, 밑줄, 취소선, 글자 색, 목록으로 작업 설명의 서식을 지정합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:67
 msgid "See the completion date of finished tasks."
-msgstr "Veja a data de conclusão das tarefas concluídas."
+msgstr "완료된 작업의 완료 날짜를 확인합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:68
 msgid "Edit and delete tasks and groups from a per-item menu."
-msgstr "Edite e elimine tarefas e grupos a partir de um menu em cada item."
+msgstr "각 항목의 메뉴에서 작업과 그룹을 편집하고 삭제합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:69
 msgid "The task list now uses the full width of the window."
-msgstr "A lista de tarefas agora ocupa toda a largura da janela."
+msgstr "이제 작업 목록이 창의 전체 너비를 사용합니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:70
 msgid "Task descriptions can now hold much longer text."
-msgstr "As descrições de tarefas agora podem conter textos muito mais longos."
+msgstr "이제 작업 설명에 훨씬 긴 텍스트를 담을 수 있습니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:71
 msgid ""
 "Added Polish, Russian, Korean, Norwegian, Swedish, Hindi and Greek "
 "translations."
-msgstr "Adicionadas as traduções para polaco, russo, coreano, norueguês, sueco, hindi e grego."
+msgstr "폴란드어, 러시아어, 한국어, 노르웨이어, 스웨덴어, 힌디어, 그리스어 번역이 추가되었습니다."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:77
 msgid "Initial release."
-msgstr "Versão inicial."
-
-#~ msgid "Description (optional)"
-#~ msgstr "Descrição (opcional)"
-
-#~ msgid "Rename Group"
-#~ msgstr "Renomear grupo"
-
-#~ msgid "Delete Group"
-#~ msgstr "Eliminar grupo"
-
-#~ msgid "Delete Task"
-#~ msgstr "Eliminar tarefa"
-
-#~ msgid "Add optional descriptions and reorder by dragging"
-#~ msgstr "Adicione descrições opcionais e reordene arrastando"
+msgstr "최초 릴리스."

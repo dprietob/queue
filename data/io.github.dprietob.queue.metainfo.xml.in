@@ -68,6 +68,7 @@
           <li translatable="yes">Edit and delete tasks and groups from a per-item menu.</li>
           <li translatable="yes">The task list now uses the full width of the window.</li>
           <li translatable="yes">Task descriptions can now hold much longer text.</li>
+          <li translatable="yes">Added Polish, Russian, Korean, Norwegian, Swedish, Hindi and Greek translations.</li>
         </ul>
       </description>
     </release>

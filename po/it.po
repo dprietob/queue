@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: queue 1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-29 19:01+0200\n"
+"POT-Creation-Date: 2026-06-29 19:34+0200\n"
 "PO-Revision-Date: 2026-06-27 00:00+0000\n"
 "Last-Translator: Daniel Prieto\n"
 "Language-Team: Italian\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Restart Queue to apply the new language."
 msgstr "Riavvia Queue per applicare la nuova lingua."
 
-#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:110
+#: src/Window.vala:90 src/modules/Groups/ui/group-sidebar.ui:145
 msgid "New Group"
 msgstr "Nuovo gruppo"
 
@@ -161,27 +161,27 @@ msgstr "Scuro"
 msgid "Language"
 msgstr "Lingua"
 
-#: src/modules/Groups/ui/group-sidebar.ui:74
+#: src/modules/Groups/ui/group-sidebar.ui:109
 msgid "Backup"
 msgstr "Backup"
 
-#: src/modules/Groups/ui/group-sidebar.ui:76
+#: src/modules/Groups/ui/group-sidebar.ui:111
 msgid "Export Backup…"
 msgstr "Esporta backup…"
 
-#: src/modules/Groups/ui/group-sidebar.ui:80
+#: src/modules/Groups/ui/group-sidebar.ui:115
 msgid "Restore Backup…"
 msgstr "Ripristina backup…"
 
-#: src/modules/Groups/ui/group-sidebar.ui:87
+#: src/modules/Groups/ui/group-sidebar.ui:122
 msgid "About Queue"
 msgstr "Informazioni su Queue"
 
-#: src/modules/Groups/ui/group-sidebar.ui:93
+#: src/modules/Groups/ui/group-sidebar.ui:128
 msgid "Groups"
 msgstr "Gruppi"
 
-#: src/modules/Groups/ui/group-sidebar.ui:102
+#: src/modules/Groups/ui/group-sidebar.ui:137
 msgid "Main Menu"
 msgstr "Menu principale"
 
@@ -390,7 +390,9 @@ msgstr "Contrassegna le attività come completate o importanti"
 #: data/io.github.dprietob.queue.metainfo.xml.in:27
 msgid ""
 "Write rich task descriptions with headings, text styles, colors and lists."
-msgstr "Scrivi descrizioni formattate con intestazioni, stili di testo, colori ed elenchi."
+msgstr ""
+"Scrivi descrizioni formattate con intestazioni, stili di testo, colori ed "
+"elenchi."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:28
 msgid "See the date when each task was completed."
@@ -422,13 +424,17 @@ msgstr "Crea e modifica attività con dettagli"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:64
 msgid "This release brings rich text descriptions and several refinements:"
-msgstr "Questa versione introduce descrizioni con testo formattato e diversi miglioramenti:"
+msgstr ""
+"Questa versione introduce descrizioni con testo formattato e diversi "
+"miglioramenti:"
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:66
 msgid ""
 "Format task descriptions with headings, bold, italic, underline, "
 "strikethrough, text color and lists."
-msgstr "Formatta le descrizioni con intestazioni, grassetto, corsivo, sottolineato, barrato, colore del testo ed elenchi."
+msgstr ""
+"Formatta le descrizioni con intestazioni, grassetto, corsivo, sottolineato, "
+"barrato, colore del testo ed elenchi."
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:67
 msgid "See the completion date of finished tasks."
@@ -444,9 +450,16 @@ msgstr "L’elenco delle attività ora occupa tutta la larghezza della finestra.
 
 #: data/io.github.dprietob.queue.metainfo.xml.in:70
 msgid "Task descriptions can now hold much longer text."
-msgstr "Le descrizioni delle attività ora possono contenere testi molto più lunghi."
+msgstr ""
+"Le descrizioni delle attività ora possono contenere testi molto più lunghi."
 
-#: data/io.github.dprietob.queue.metainfo.xml.in:76
+#: data/io.github.dprietob.queue.metainfo.xml.in:71
+msgid ""
+"Added Polish, Russian, Korean, Norwegian, Swedish, Hindi and Greek "
+"translations."
+msgstr "Aggiunte le traduzioni in polacco, russo, coreano, norvegese, svedese, hindi e greco."
+
+#: data/io.github.dprietob.queue.metainfo.xml.in:77
 msgid "Initial release."
 msgstr "Versione iniziale."
 
