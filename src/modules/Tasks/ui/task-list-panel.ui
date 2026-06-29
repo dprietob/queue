@@ -91,20 +91,16 @@
                 <property name="child">
                   <object class="GtkScrolledWindow">
                     <property name="child">
-                      <object class="AdwClamp">
-                        <property name="child">
-                          <object class="GtkListBox" id="list_box">
-                            <property name="valign">start</property>
-                            <property name="selection-mode">none</property>
-                            <property name="margin-top">18</property>
-                            <property name="margin-bottom">18</property>
-                            <property name="margin-start">12</property>
-                            <property name="margin-end">12</property>
-                            <style>
-                              <class name="boxed-list"/>
-                            </style>
-                          </object>
-                        </property>
+                      <object class="GtkListBox" id="list_box">
+                        <property name="valign">start</property>
+                        <property name="selection-mode">none</property>
+                        <property name="margin-top">18</property>
+                        <property name="margin-bottom">18</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
                       </object>
                     </property>
                   </object>
